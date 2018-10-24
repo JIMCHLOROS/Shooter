@@ -6,6 +6,8 @@ Game.Boot.prototype = {
         this.stage.disableVisibilityChange = true;
     },
     preload:function() {
+        this.load.image('titlescreen','assets/ironman_titlescreen.png');
+        this.load.image('preloaderBar', 'assets/bar.png');
     },
     create:function(){
         this.stage.backgroundColor = '#5c94fc';
