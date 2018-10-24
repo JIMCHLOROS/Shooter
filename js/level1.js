@@ -34,7 +34,7 @@ var playState ={
 			bullets.setAll('outOfBoundsKill', true);
 			bullets.setAll('checkWorldBounds', true);
 			//  The hero!
-			player = game.add.sprite(100, game.height / 2, 'iron_man',100,50);
+			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
