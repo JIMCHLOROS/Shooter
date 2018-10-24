@@ -19,13 +19,12 @@ body {
 <body>
 	<script type="text/javascript">
 		window.onload = function(){
-		var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'phaser-demo', {
+		var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'phaser-demo');
 			game.state.add('Boot',Game.Boot);
                         game.state.add('Preloader',Game.Preloader);
                         game.state.add('MainMenu',Game.MainMenu);
                         game.state.add('Level1',Game.Level1);
 			game.state.start('Boot');
-		});
 		}
 	</script>
 </body>
