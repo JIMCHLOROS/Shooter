@@ -98,7 +98,7 @@ var playState ={
 		},
 		render:function() {
 		},
-		function fireBullet() {
+		fireBullet() {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
