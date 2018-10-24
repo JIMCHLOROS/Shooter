@@ -10,6 +10,6 @@ var menustate = {
 
     },
     upadate: function (game) {
-        game.state.start('Level1')
+        game.state.start('level1')
     }
 };
