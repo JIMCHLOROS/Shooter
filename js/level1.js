@@ -9,7 +9,7 @@ var bulletTimer = 0;
 var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
-var level1 ={
+var playState ={
 
 		preload: function() {
 			//  We need this because the assets are on github pages
