@@ -2,7 +2,7 @@ var titlescreen;
 var choice = false;
 var mutechoice = false;
 var loadstate = {
-    preload:function(game){
+    preload:function(){
 
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true
