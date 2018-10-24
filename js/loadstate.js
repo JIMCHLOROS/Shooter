@@ -19,7 +19,9 @@ var loadState = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         game.stage.backgroundColor = '#5c94fc';
-
+        game.load.image('starfield', 'assets/starfield.png');
+     	game.load.image('iron_man', 'assets/iron_man.png');
+		game.load.image('bullet', 'assets/bullets/bullet.png');
 
     },
     update:function(){
