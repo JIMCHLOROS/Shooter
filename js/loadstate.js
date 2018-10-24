@@ -1,4 +1,4 @@
-//var titlescreen;
+var titlescreen;
 var loadState = {
     preload:function(){
         game.scale.pageAlignHorizontally = true;
@@ -6,9 +6,8 @@ var loadState = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 
-        game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
-        //titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'ironman_titlescreen');
-        //titlescreen.anchor.setTo(0.5,0.5);
+        titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
+        titlescreen.anchor.setTo(0.5,0.5);
 
         game.preloadBar = this.add.sprite(this.world.centerX,this.world.centerY + 85,'Bar');
         game.preloadBar.anchor.setTo(0.5,0.5);
