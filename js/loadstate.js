@@ -1,9 +1,7 @@
-var titlescreen;
-var choice = false;
-var mutechoice = false;
+
 var loadstate = {
     preload:function(){
-
+        var titlescreen;
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
