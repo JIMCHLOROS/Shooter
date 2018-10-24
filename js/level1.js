@@ -23,7 +23,7 @@ var playState ={
 			game.scale.pageAlignHorizontally = true;
 			
 			//  The scrolling starfield background
-			starfield = game.add.tileSprite(0, 0, 800, 600, 'starfield');
+			starfield = game.add.tileSprite(0, 0, 1200, 800, 'starfield');
 			//  Our bullet group
 			bullets = game.add.group();
 			bullets.enableBody = true;
@@ -36,6 +36,8 @@ var playState ={
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
+			player.width = 100;
+			player.height = 50;
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
 			player.body.drag.setTo(DRAG, DRAG);
@@ -91,8 +93,8 @@ var playState ={
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
-			shipTrail.y = player.y;
-			shipTrail.x = player.x - 20;
+			shipTrail.y = player.y+4;
+			shipTrail.x = player.x - 45;
 		},
 		render:function() {
 		},
@@ -112,7 +114,7 @@ var playState ={
 					bullet.angle = player.angle;
 					game.physics.arcade.velocityFromAngle(bullet.angle,
 							BULLET_SPEED, bullet.body.velocity);
-					bullet.body.velocity.y += player.body.velocity.y;
+					bullet.body.velocity.y += player.body.velocity.y+50;
 					bulletTimer = game.time.now + BULLET_SPACING;
 				}
 			}
