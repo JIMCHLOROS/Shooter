@@ -8,6 +8,6 @@ var menuState = {
         titlescreen.anchor.setTo(0.5,0.5);
     },
     upadate:function () {
-        game.state.start('level1')
+        game.state.start('level1');
     }
 };
