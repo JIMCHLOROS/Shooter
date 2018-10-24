@@ -20,7 +20,7 @@ var playState ={
 			game.load.image('starfield', 'assets/starfield.png');
 			game.load.image('iron_man', 'assets/iron_man.png');
 			game.load.image('bullet', 'assets/bullets/bullet.png');
-		}
+		},
 		create:function() {
 			
 			game.scale.pageAlignHorizontally = true;
@@ -56,7 +56,7 @@ var playState ={
 			shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,
 					Phaser.Easing.Quintic.Out);
 			shipTrail.start(false, 5000, 10);
-		}
+		},
 		update:function() {
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
@@ -96,9 +96,9 @@ var playState ={
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y;
 			shipTrail.x = player.x - 20;
-		}
+		},
 		render:function() {
-		}
+		},
 		fireBullet:function() {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
