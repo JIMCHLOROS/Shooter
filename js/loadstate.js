@@ -21,6 +21,12 @@ var loadState = {
 
         game.stage.backgroundColor = '#5c94fc';
 
+        
+			
+        game.load.image('starfield', 'assets/starfield.png');
+     	game.load.image('iron_man', 'assets/iron_man.png');
+	    game.load.image('bullet', 'assets/bullets/bullet.png');
+        game.load.audio('music', 'assets/music/iron-man-8-bit-tribute-to-black-sabbath-8-bit-universe.mp3');
     },
     update:function(){
 
