@@ -1,4 +1,4 @@
-Game.Level1 = function(game) {};
+
     var player;
 		var starfield;
 		var cursors;
@@ -10,7 +10,7 @@ Game.Level1 = function(game) {};
 		var ACCLERATION = 600;
 		var DRAG = 400;
 		var MAXSPEED = 400;
-    Game.Level1.prototype={
+    var level1 ={
 
 		function preload() {
 			//  We need this because the assets are on github pages
