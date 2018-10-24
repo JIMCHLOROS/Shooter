@@ -9,7 +9,7 @@ var menustate = {
         music.play('',0,1,true);
 
     },
-    upadate: function (game) {
+    upadate:function (game) {
         game.state.start('level1')
     }
 };
