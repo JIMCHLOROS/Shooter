@@ -21,7 +21,7 @@ var level1 ={
 			game.load.image('iron_man', 'assets/iron_man.png');
 			game.load.image('bullet', 'assets/bullets/bullet.png');
 		}
-		create: function () {
+		create: function() {
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -57,7 +57,7 @@ var level1 ={
 					Phaser.Easing.Quintic.Out);
 			shipTrail.start(false, 5000, 10);
 		}
-		update:function () {
+		update: function() {
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -97,9 +97,9 @@ var level1 ={
 			shipTrail.y = player.y;
 			shipTrail.x = player.x - 20;
 		}
-		render:function () {
+		render: function() {
 		}
-		fireBullet:function () {
+		fireBullet: function() {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
