@@ -1,5 +1,5 @@
 var menustate = {
-    create:function (game) {
+    create:function () {
 
         game.renderer.renderSession.roundPixels = true;
         Phaser.Canvas.setImageRenderingCrisp(game.canvas);
@@ -9,7 +9,7 @@ var menustate = {
         music.play('',0,1,true);
 
     },
-    upadate:function (game) {
+    upadate:function () {
         game.state.start('level1')
     }
 };
