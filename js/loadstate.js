@@ -9,9 +9,9 @@ var loadState = {
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'ironman_titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
 
-        game.preloadBar = this.add.sprite(this.world.centerX,this.world.centerY + 85,'preloaderBar');
+        game.preloadBar = this.add.sprite(this.world.centerX,this.world.centerY + 85,'Bar');
         game.preloadBar.anchor.setTo(0.5,0.5);
-        game.load.setPreloadSprite(this.preloadBar);
+        game.load.setPreloadSprite(game.preloadBar);
 
         game.time.advancedTiming = true;
         game.scale.pageAlignHorizontally = true;
