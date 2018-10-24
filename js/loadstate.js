@@ -1,3 +1,4 @@
+var music;
 var titlescreen;
 var loadState = {
     preload:function(){
@@ -24,8 +25,11 @@ var loadState = {
 			
         game.load.image('starfield', 'assets/starfield.png');
      	game.load.image('iron_man', 'assets/iron_man.png');
-	    game.load.image('bullet', 'assets/bullets/bullet.png');
+	game.load.image('bullet', 'assets/bullets/bullet.png');
         game.load.audio('music', 'assets/music/iron-man-8-bit-tribute-to-black-sabbath-8-bit-universe.mp3');
+	    
+	music = game.add.audio('music');
+        music.play('',0,1,true);
     },
     update:function(){
 
