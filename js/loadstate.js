@@ -33,6 +33,6 @@ var loadState = {
     },
     update:function(){
 
-        game.state.start('menustate')
+        game.state.start('menustate');
     },
 };
