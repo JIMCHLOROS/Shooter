@@ -6,7 +6,7 @@ var loadState = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 
-        game.add.sprite(game.world.centerX,game.world.centerY,'ironman_titlescreen');
+        game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         //titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'ironman_titlescreen');
         //titlescreen.anchor.setTo(0.5,0.5);
 
