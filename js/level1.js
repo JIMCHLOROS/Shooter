@@ -17,6 +17,10 @@ var playState ={
 			game.load.baseURL = 'https://jimchloros.github.io/Shooter/';
 			game.load.crossOrigin = 'anonymous';
 			
+        game.load.image('starfield', 'assets/starfield.png');
+     	game.load.image('iron_man', 'assets/iron_man.png');
+	game.load.image('bullet', 'assets/bullets/bullet.png');
+			
 		},
 		create:function() {
 			
