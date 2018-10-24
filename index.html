@@ -20,11 +20,11 @@ body {
 	<script type="text/javascript">
 		window.onload = function(){
 		var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'phaser-demo');
-			game.state.add('Boot',Bootstate);
+			game.state.add('Boot',bootstate);
                         game.state.add('Preloader',loadstate);
                         game.state.add('MainMenu',menustate);
-                        game.state.add('Level1',Level1);
-			game.state.start('Bootstate');
+                        game.state.add('Level1',level1);
+			game.state.start('bootstate');
 		}
 	</script>
 </body>
