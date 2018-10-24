@@ -1,18 +1,17 @@
+var player;
+var starfield;
+var cursors;
+var bank;
+var shipTrail;
+var bullets;
+var fireButton;
+var bulletTimer = 0;
+var ACCLERATION = 600;
+var DRAG = 400;
+var MAXSPEED = 400;
+var level1 ={
 
-    var player;
-		var starfield;
-		var cursors;
-		var bank;
-		var shipTrail;
-		var bullets;
-		var fireButton;
-		var bulletTimer = 0;
-		var ACCLERATION = 600;
-		var DRAG = 400;
-		var MAXSPEED = 400;
-    var level1 ={
-
-		function preload() {
+		preload: function() {
 			//  We need this because the assets are on github pages
 			//  Remove the next 2 lines if running locally
 			game.load.baseURL = 'https://jimchloros.github.io/Shooter/';
@@ -22,7 +21,7 @@
 			game.load.image('iron_man', 'assets/iron_man.png');
 			game.load.image('bullet', 'assets/bullets/bullet.png');
 		}
-		function create() {
+		create: function () {
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -58,7 +57,7 @@
 					Phaser.Easing.Quintic.Out);
 			shipTrail.start(false, 5000, 10);
 		}
-		function update() {
+		update:function () {
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -98,9 +97,9 @@
 			shipTrail.y = player.y;
 			shipTrail.x = player.x - 20;
 		}
-		function render() {
+		render:function () {
 		}
-		function fireBullet() {
+		fireBullet:function () {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
