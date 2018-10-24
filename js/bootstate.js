@@ -1,6 +1,6 @@
 var bootState = {
     preload:function() {
-        game.load.image('titlescreen','assets/ironman_titlescreen.png');
+        game.load.image('titlescreen','assets/ironman_titlescreen.jpg');
         game.load.image('Bar', 'assets/Bar.png');
     },
     create:function(){
