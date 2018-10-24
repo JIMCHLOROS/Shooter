@@ -67,7 +67,9 @@ body {
 
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
-			player.anchor.setTo(0.1, 0.1);
+			player.anchor.setTo(0.5, 0.5);
+			player.scale.x = 100;
+                        player.scale.y = 500;
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
 			player.body.drag.setTo(DRAG, DRAG);
