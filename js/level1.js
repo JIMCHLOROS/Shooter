@@ -97,8 +97,9 @@ var playState ={
 			shipTrail.x = player.x - 45;
 		},
 		render:function() {
-		},
-		fireBullet() {
+		}
+    };
+           function fireBullet() {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
@@ -114,9 +115,8 @@ var playState ={
 					bullet.angle = player.angle;
 					game.physics.arcade.velocityFromAngle(bullet.angle,
 							BULLET_SPEED, bullet.body.velocity);
-					bullet.body.velocity.y += player.body.velocity.y+50;
+					bullet.body.velocity.y += player.body.velocity.y;
 					bulletTimer = game.time.now + BULLET_SPACING;
 				}
 			}
 		}
-    };
