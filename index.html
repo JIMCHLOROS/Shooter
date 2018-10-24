@@ -43,7 +43,7 @@ body {
 			game.load.crossOrigin = 'anonymous';
 			
 			game.load.image('starfield', 'assets/starfield.png');
-			game.load.image('ship', 'assets/ship.png');
+			game.load.image('iron_man', 'assets/iron_man.png');
 			game.load.image('bullet', 'assets/bullets/bullet.png');
 
 		}
@@ -66,7 +66,7 @@ body {
 			bullets.setAll('checkWorldBounds', true);
 
 			//  The hero!
-			player = game.add.sprite(100, game.height / 2, 'ship');
+			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
