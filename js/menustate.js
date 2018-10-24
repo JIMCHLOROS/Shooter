@@ -1,3 +1,4 @@
+var titlescreen;
 var menuState = {
     create:function () {
 
