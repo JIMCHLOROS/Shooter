@@ -1,7 +1,6 @@
-
-var loadstate = {
+var titlescreen;
+var loadState = {
     preload:function(){
-        var titlescreen;
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
