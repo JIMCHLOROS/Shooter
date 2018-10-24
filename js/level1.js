@@ -93,7 +93,7 @@ var playState ={
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
-			shipTrail.y = player.y + 7;
+			shipTrail.y = player.y + 9;
 			shipTrail.x = player.x - 45;
 		},
 		render:function() {
@@ -109,9 +109,8 @@ var playState ={
 				if (bullet) {
 					//  And fire it
 					//  Make bullet come out of tip of ship with right angle
-					var bulletOffset = 20 * Math.sin(game.math
-							.degToRad(player.angle));
-					bullet.reset(player.x + bulletOffset, player.y+ 50);
+					var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
+					bullet.reset(player.x + bulletOffset + 50, player.y);
 					bullet.angle = player.angle;
 					game.physics.arcade.velocityFromAngle(bullet.angle,
 							BULLET_SPEED, bullet.body.velocity);
