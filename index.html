@@ -38,11 +38,14 @@ body {
 			game.load.baseURL = 'https://jimchloros.github.io/Shooter/';
 			game.load.crossOrigin = 'anonymous';
 			
+			this.load.audio('music','audio/iron-man-8-bit-tribute-to-black-sabbath-8-bit-universe.mp3.mp3');
 			game.load.image('starfield', 'assets/starfield.png');
 			game.load.image('iron_man', 'assets/iron_man.png');
 			game.load.image('bullet', 'assets/bullets/bullet.png');
 		}
 		function create() {
+			music = game.add.audio('music');
+                        music.play('',0,1,true);
 			
 			game.scale.pageAlignHorizontally = true;
 			
