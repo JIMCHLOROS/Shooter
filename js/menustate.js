@@ -1,4 +1,4 @@
-var menustate = {
+var menuState = {
     create:function () {
 
         game.renderer.renderSession.roundPixels = true;
