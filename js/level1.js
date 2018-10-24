@@ -93,12 +93,12 @@ var playState ={
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
-			shipTrail.y = player.y+4;
+			shipTrail.y = player.y - 4;
 			shipTrail.x = player.x - 45;
 		},
 		render:function() {
 		},
-		fireBullet:function() {
+		function fireBullet() {
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
