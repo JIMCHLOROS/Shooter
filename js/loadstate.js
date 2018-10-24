@@ -28,11 +28,10 @@ var loadState = {
 	game.load.image('bullet', 'assets/bullets/bullet.png');
         game.load.audio('music', 'assets/music/iron-man-8-bit-tribute-to-black-sabbath-8-bit-universe.mp3');
 	    
-	music = game.add.audio('music');
-        music.play('',0,1,true);
     },
     update:function(){
-
+        music = game.add.audio('music');
+        music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
