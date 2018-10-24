@@ -1,5 +1,4 @@
-Game.MainMenu = function (game){};
-Game.MainMenu.prototype = {
+var menustate = {
     create:function (game) {
 
         game.renderer.renderSession.roundPixels = true;
@@ -11,6 +10,6 @@ Game.MainMenu.prototype = {
 
     },
     upadate: function (game) {
-        this.state.start('Level1')
+        game.state.start('Level1')
     }
 };
