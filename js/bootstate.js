@@ -1,4 +1,4 @@
-var bootstate = {
+var bootState = {
     preload:function() {
         game.load.image('titlescreen','assets/ironman_titlescreen.png');
         game.load.image('preloaderBar', 'assets/bar.png');
