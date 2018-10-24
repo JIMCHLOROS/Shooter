@@ -93,7 +93,7 @@ var playState ={
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
-			shipTrail.y = player.y - 4;
+			shipTrail.y = player.y + 5;
 			shipTrail.x = player.x - 45;
 		},
 		render:function() {
@@ -115,7 +115,7 @@ var playState ={
 					bullet.angle = player.angle;
 					game.physics.arcade.velocityFromAngle(bullet.angle,
 							BULLET_SPEED, bullet.body.velocity);
-					bullet.body.velocity.y += player.body.velocity.y;
+					bullet.body.velocity.y += player.body.velocity.y+ 50;
 					bulletTimer = game.time.now + BULLET_SPACING;
 				}
 			}
