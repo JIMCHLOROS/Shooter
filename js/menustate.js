@@ -7,6 +7,6 @@ var menuState = {
         titlescreen.anchor.setTo(0.5,0.5);
     },
     upadate:function () {
-        game.state.start('playState');
+        game.state.start('playstate');
     }
 };
