@@ -4,13 +4,12 @@ var menuState = {
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
         titlescreen.width = 1200;titlescreen.height = 800;
-        this.createButton(game,"",game.world.centerX,game.world.centerY + 85,125,51,
+        this.createButton(game,"PLAY",game.world.centerX+100,game.world.centerY + 100,100,70,
             function(){
                 this.state.start('playstate');
          });
     },
     update:function () {
-        //game.state.start('playstate');
     },
     createButton:function (game,string,x,y,w,h,callback) {
         var button1 = game.add.button(x,y,'button',callback,this,0,0,1);
