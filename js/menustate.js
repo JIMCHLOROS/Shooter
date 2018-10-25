@@ -10,7 +10,7 @@ var menuState = {
          });
     },
     update:function () {
-        game.state.start('playstate');
+        //game.state.start('playstate');
     },
     createButton:function (game,string,x,y,w,h,callback) {
         var button1 = game.add.button(x,y,'button',callback,this,0,0,1);
