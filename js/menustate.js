@@ -14,7 +14,7 @@ var menuState = {
     createButton:function (game,string,x,y,w,h,callback) {
         var button1 = game.add.button(x,y,'button',callback,this,0,1,0);
         button1.anchor.setTo(0.5,0.5);
-        button1.wight = w;
+        button1.weight = w;
         button1.height = h;
          //put a text in button
         var txt = game.add.text(button1.x,button1.y, string,{font:"40px",fill:"#fff",aling:"center"});
