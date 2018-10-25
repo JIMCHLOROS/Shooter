@@ -9,7 +9,7 @@ var bulletTimer = 0;
 var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
-var fire_snd;
+var fire;
 var playState ={
              
 		preload:function() {
@@ -19,7 +19,7 @@ var playState ={
 			game.load.crossOrigin = 'anonymous';
 		},
 		create:function() {
-	                fire_snd = game.add.audio('fire');
+	                fire = game.add.audio('fire');
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -91,7 +91,7 @@ var playState ={
 			}
 			//  Fire bullet
 			if (player.alive && fireButton.isDown) {
-		                fire_snd.play('',0,1,false);
+		                fire.play('',0,1,false);
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
