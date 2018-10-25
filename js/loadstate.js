@@ -23,7 +23,7 @@ var loadState = {
         game.stage.backgroundColor = '#5c94fc';
 
         
-	game.load.image('button', 'assets/button.png',297,207,2);		
+	game.load.image('button', 'assets/button.png',149,207,2);		
         game.load.image('starfield', 'assets/starfield.png');
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
