@@ -26,7 +26,6 @@ var playState ={
 			//  The scrolling starfield background
 			starfield = game.add.tileSprite(0, 0, 1200, 800, 'starfield');
 			//  Our bullet group
-			firesound = game.add.audio('fire');
 			bullets = game.add.group();
 			bullets.enableBody = true;
 			bullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -92,7 +91,6 @@ var playState ={
 			}
 			//  Fire bullet
 			if (player.alive && fireButton.isDown) {
-				firesound.play('',0,1,false);
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
@@ -103,6 +101,8 @@ var playState ={
 		}
     };
            function fireBullet() {
+		        firesound = game.add.audio('fire');
+			firesound.play('',0,1,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
