@@ -32,7 +32,7 @@ var loadState = {
     },
     update:function(){
         music = game.add.audio('music');
-        music.play('',0,1,true);
+        //music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
