@@ -9,6 +9,7 @@ var loadState = {
 
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
+	titlescreen.width = 1200;titlescreen.height = 800;
 
         game.preloadBar = this.add.sprite(this.world.centerX,this.world.centerY + 85,'Bar');
         game.preloadBar.anchor.setTo(0.5,0.5);
