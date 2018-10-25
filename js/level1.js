@@ -9,18 +9,18 @@ var bulletTimer = 0;
 var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
-var firesound;
+var fire;
 var playState ={
-
+             
 		preload:function() {
 			//  We need this because the assets are on github pages
 			//  Remove the next 2 lines if running locally
 			game.load.baseURL = 'https://jimchloros.github.io/Shooter/';
 			game.load.crossOrigin = 'anonymous';
-			
 		},
 		create:function() {
-	
+	                fire = game.add.audio('fire');
+			
 			game.scale.pageAlignHorizontally = true;
 			
 			//  The scrolling starfield background
@@ -101,8 +101,7 @@ var playState ={
 		}
     };
            function fireBullet() {
-		        firesound = game.add.audio('fire');
-			firesound.play('',0,1,false);
+		        fire.play();
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
