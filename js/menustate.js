@@ -4,7 +4,7 @@ var menuState = {
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
         titlescreen.width = 1200;titlescreen.height = 800;
-        this.createButton(game,"PLAY",game.world.centerX+100,game.world.centerY + 100,100,70,
+        this.createButton(game,"PLAY",game.world.centerX+100,game.world.centerY + 100,149,104,
             function(){
                 this.state.start('playstate');
          });
