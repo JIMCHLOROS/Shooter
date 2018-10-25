@@ -91,6 +91,7 @@ var playState ={
 			}
 			//  Fire bullet
 			if (player.alive && fireButton.isDown) {
+		                fire_snd.play('',0,1,false);
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
@@ -101,7 +102,6 @@ var playState ={
 		}
     };
            function fireBullet() {
-		        fire_snd.play('',0,1,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
