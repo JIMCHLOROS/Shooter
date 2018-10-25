@@ -28,11 +28,11 @@ var loadState = {
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
         game.load.audio('music', 'assets/music/music.mp3');
-	    
+	game.load.audio('music', 'assets/music/fire.mp3'); 
     },
     update:function(){
         music = game.add.audio('music');
-        //music.play('',0,1,true);
+        music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
