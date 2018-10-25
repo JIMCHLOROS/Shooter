@@ -92,7 +92,7 @@ var playState ={
 			}
 			//  Fire bullet
 			if (player.alive && fireButton.isDown) {
-				firesound.play();
+				firesound.play('',0,1,false);
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
