@@ -9,7 +9,7 @@ var bulletTimer = 0;
 var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
-var fire;
+var fire_snd;
 var playState ={
              
 		preload:function() {
@@ -19,7 +19,7 @@ var playState ={
 			game.load.crossOrigin = 'anonymous';
 		},
 		create:function() {
-	                fire = game.add.audio('fire');
+	                fire_snd = game.add.audio('fire');
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -101,7 +101,7 @@ var playState ={
 		}
     };
            function fireBullet() {
-		        fire.play('',0,1,false);
+		        fire_snd.play('',0,1,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
