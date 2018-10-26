@@ -24,7 +24,7 @@ var loadState = {
 
         
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);		
-        game.load.image('starfield', 'assets/starfield.png');
+        game.load.image('starfield', 'assets/space.png');
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
         game.load.audio('music', 'assets/music/music.mp3');
