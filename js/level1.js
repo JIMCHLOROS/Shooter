@@ -67,11 +67,11 @@ var playState ={
 			shipTrail = game.add.emitter(player.x - 20, player.y, 2);
 			shipTrail.makeParticles('bullet');
 			shipTrail.height = 10;
-			shipTrail.setYSpeed(20, -20);
-			shipTrail.setXSpeed(-140, -120);
+			shipTrail.setYSpeed(0, 0);
+			shipTrail.setXSpeed(0, 0);
                         shipTrail.setAlpha(1, 0, 3000);
 			shipTrail.setRotation(0, 0);
-                        shipTrail.setScale(0.8, 0.4, 0.8, 0.4, 2000,Phaser.Easing.Quintic.Out);
+                        shipTrail.setScale(0.4, 0, 0.4, 0, 2000,Phaser.Easing.Quintic.Out);
                         shipTrail.start(false, 1, 5);
 			
 		},
