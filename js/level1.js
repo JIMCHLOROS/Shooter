@@ -11,6 +11,7 @@ var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
 var fire;
+var enemy;
 var playState ={
              
 		preload:function() {
@@ -63,18 +64,18 @@ var playState ={
                         shipTrail2.start(false, 1, 5);
 			
 		       //  The enemies!
-                        greenEnemies = game.add.group();
-                        greenEnemies.enableBody = true;
-                        greenEnemies.physicsBodyType = Phaser.Physics.ARCADE;
-                        greenEnemies.createMultiple(5, 'enemy');
-                        greenEnemies.setAll('anchor.x', 0.5);
-                        greenEnemies.setAll('anchor.y', 0.5);
-                        greenEnemies.setAll('scale.x', 0.5);
-                        greenEnemies.setAll('scale.y', 0.5);
+                        enemy = game.add.group();
+                        enemy.enableBody = true;
+                        enemy.physicsBodyType = Phaser.Physics.ARCADE;
+                        enemy.createMultiple(5, 'enemy');
+                        enemy.setAll('anchor.x', 0.5);
+                        enemy.setAll('anchor.y', 0.5);
+                        enemy.setAll('scale.x', 0.5);
+                        enemy.setAll('scale.y', 0.5);
                         //greenEnemies.setAll('angle', 180);
-                        greenEnemies.setAll('outOfBoundsKill', true);
-                        greenEnemies.setAll('checkWorldBounds', true);
-                        launchGreenEnemy();
+                        enemy.setAll('outOfBoundsKill', true);
+                        enemy.setAll('checkWorldBounds', true);
+                        launchEnemy();
 			
 			
 		},
@@ -145,17 +146,17 @@ var playState ={
 				}
 			}
 		}
-           function launchGreenEnemy() {
+           function launchEnemy() {
 		   var MIN_ENEMY_SPACING = 300;
 		   var MAX_ENEMY_SPACING = 3000;
 		   var ENEMY_SPEED = 300;
 		   
-		   var enemy = greenEnemies.getFirstExists(false);
+		   var enemy = enemy.getFirstExists(false);
 		   if (enemy) {
-		   enemy.reset(game.rnd.integerInRange(0, game.height), -20);
-		   enemy.body.velocity.x = ENEMY_SPEED;
-		   enemy.body.velocity.y = game.rnd.integerInRange(-300, 300);
-		   enemy.body.drag.y = 100;
+		   enemy.reset(game.rnd.integerInRange(0, game.width), -20);
+		   enemy.body.velocity.x = game.rnd.integerInRange(-300, 300);
+		   enemy.body.velocity.y = ENEMY_SPEED;
+		   enemy.body.drag.x = 100;
 		   }
 		   //  Update function for each enemy ship to update rotation etc
                    enemy.update = function(){
