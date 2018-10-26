@@ -27,6 +27,9 @@ var loadState = {
         game.load.image('starfield', 'assets/space.png');
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
+	game.load.image('enemy', 'assets/enemy_ship.png');
+	game.load.image('enemy1', 'assets/enemy_ship_1.png');
+	game.load.image('enemy2', 'assets/enemy_ship_2.png');
         game.load.audio('music', 'assets/music/music.mp3');
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
     },
