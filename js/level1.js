@@ -72,7 +72,7 @@ var playState ={
                         enemy.setAll('anchor.y', 0.5);
                         enemy.setAll('scale.x', 0.5);
                         enemy.setAll('scale.y', 0.5);
-                        //enemy.setAll('angle', 180);
+                        enemy.setAll('angle', 90);
                         enemy.setAll('outOfBoundsKill', true);
                         enemy.setAll('checkWorldBounds', true);
                         launchEnemy();
