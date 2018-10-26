@@ -48,16 +48,13 @@ var playState ={
 			fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			//  Add an emitter for the ship's trail
 			shipTrail = game.add.emitter(player.x - 20, player.y, 2);//400
-			shipTrail.height = 10;
+			shipTrail.height = 100;
 			shipTrail.makeParticles('bullet');
 			shipTrail.setYSpeed(20, -20);
 			shipTrail.setXSpeed(-140, -120);
 			shipTrail.setRotation(50, -50);
 			shipTrail.setAlpha(1, 0.01, 800);
-			shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,
-					Phaser.Easing.Quintic.Out);
-			shipTrail.minParticleScale = 100;
-                        shipTrail.maxParticleScale = 100;
+			shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
 			shipTrail.start(false, 1, 10);//1>5000
 		},
 		update:function() {
