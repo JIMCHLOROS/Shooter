@@ -47,7 +47,7 @@ var playState ={
 			cursors = game.input.keyboard.createCursorKeys();
 			fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			//  Add an emitter for the ship's trail
-			shipTrail = game.add.emitter(player.x - 20, player.y, 400);
+			shipTrail = game.add.emitter(player.x - 20, player.y, 2);//400
 			shipTrail.height = 10;
 			shipTrail.makeParticles('bullet');
 			shipTrail.setYSpeed(20, -20);
