@@ -57,12 +57,21 @@ var playState ={
 			//shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
 			//shipTrail.start(false, 5000, 10);
 			
-			shipTrail = game.add.emitter(player.x - 20, player.y, 400);
+			//shipTrail = game.add.emitter(player.x - 20, player.y, 400);
+			//shipTrail.makeParticles('bullet');
+			//shipTrail.gravity = 200;
+                        //shipTrail.setAlpha(1, 0, 3000);
+                        //shipTrail.setScale(0.8, 0, 0.8, 0, 3000);
+                        //shipTrail.start(false, 3000, 5);
+			
+			shipTrail = game.add.emitter(player.x - 20, player.y, 2);
 			shipTrail.makeParticles('bullet');
-			shipTrail.gravity = 200;
+			shipTrail.gravity = 0;
                         shipTrail.setAlpha(1, 0, 3000);
-                        shipTrail.setScale(0.8, 0, 0.8, 0, 3000);
+			shipTrail.setRotation(0, 0);
+                        shipTrail.setScale(0.8, 0, 0.8, 0, 3000,Phaser.Easing.Quintic.Out);
                         shipTrail.start(false, 3000, 5);
+			
 		},
 		update:function() {
 			//  Scroll the background
