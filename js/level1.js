@@ -72,7 +72,7 @@ var playState ={
                         shipTrail.setAlpha(1, 0, 3000);
 			shipTrail.setRotation(0, 0);
                         shipTrail.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
-                        shipTrail.start(false, 0, 5);
+                        shipTrail.start(false, 1, 5);
 			
 		},
 		update:function() {
