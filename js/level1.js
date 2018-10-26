@@ -122,7 +122,7 @@ var playState ={
 			shipTrail.y = player.y + 6;//+13
 			shipTrail.x = player.x - 65;//45
 			
-			shipTrail2.y = player.y + 20;//+13
+			shipTrail2.y = player.y + 18;//+13
 			shipTrail2.x = player.x - 75;//45
 		},
 		render:function() {
