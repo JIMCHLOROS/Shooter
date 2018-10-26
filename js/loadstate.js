@@ -1,6 +1,5 @@
 var music;
 var titlescreen;
-var enemy;
 var loadState = {
     preload:function(){
         game.scale.pageAlignHorizontally = true;
