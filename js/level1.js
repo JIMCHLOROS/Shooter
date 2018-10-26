@@ -111,7 +111,7 @@ var playState ={
 			}
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y + 13;
-			shipTrail.x = player.x - 60;//45
+			shipTrail.x = player.x - 70;//45
 		},
 		render:function() {
 		}
