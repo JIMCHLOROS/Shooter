@@ -3,6 +3,7 @@ var starfield;
 var cursors;
 var bank;
 var shipTrail;
+var shipTrail2;
 var bullets;
 var fireButton;
 var bulletTimer = 0;
@@ -47,6 +48,7 @@ var playState ={
 			cursors = game.input.keyboard.createCursorKeys();
 			fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			//  Add an emitter for the ship's trail
+			
 			//shipTrail = game.add.emitter(player.x - 20, player.y, 400);
 			//shipTrail.height = 10;
 			//shipTrail.makeParticles('bullet');
@@ -70,6 +72,14 @@ var playState ={
 			shipTrail.setRotation(0, 0);
                         shipTrail.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
                         shipTrail.start(false, 1, 5);
+			
+			shipTrail2 = game.add.emitter(player.x - 20, player.y, 1);
+			shipTrail2.makeParticles('bullet');
+                        shipTrail2.setAlpha(1, 0, 3000);
+			shipTrail2.setRotation(0, 0);
+                        shipTrail2.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
+                        shipTrail2.start(false, 1, 5);
+			
 			
 		},
 		update:function() {
@@ -110,7 +120,10 @@ var playState ={
 			}
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y + 6;//+13
-			shipTrail.x = player.x - 77;//45
+			shipTrail.x = player.x - 65;//45
+			
+			shipTrail2.y = player.y + 20;//+13
+			shipTrail2.x = player.x - 75;//45
 		},
 		render:function() {
 		}
