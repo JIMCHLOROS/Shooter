@@ -48,24 +48,6 @@ var playState ={
 			cursors = game.input.keyboard.createCursorKeys();
 			fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			//  Add an emitter for the ship's trail
-			
-			//shipTrail = game.add.emitter(player.x - 20, player.y, 400);
-			//shipTrail.height = 10;
-			//shipTrail.makeParticles('bullet');
-			//shipTrail.setYSpeed(20, -20);
-			//shipTrail.setXSpeed(-140, -120);
-			//shipTrail.setRotation(50, -50);
-			//shipTrail.setAlpha(1, 0.01, 800);
-			//shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
-			//shipTrail.start(false, 5000, 10);
-			
-			//shipTrail = game.add.emitter(player.x - 20, player.y, 400);
-			//shipTrail.makeParticles('bullet');
-			//shipTrail.gravity = 200;
-                        //shipTrail.setAlpha(1, 0, 3000);
-                        //shipTrail.setScale(0.8, 0, 0.8, 0, 3000);
-                        //shipTrail.start(false, 3000, 5);
-			
 			shipTrail = game.add.emitter(player.x - 20, player.y, 1);
 			shipTrail.makeParticles('bullet');
                         shipTrail.setAlpha(1, 0, 3000);
@@ -79,6 +61,20 @@ var playState ={
 			shipTrail2.setRotation(0, 0);
                         shipTrail2.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
                         shipTrail2.start(false, 1, 5);
+			
+		       //  The enemies!
+                        greenEnemies = game.add.group();
+                        greenEnemies.enableBody = true;
+                        greenEnemies.physicsBodyType = Phaser.Physics.ARCADE;
+                        greenEnemies.createMultiple(5, 'enemy');
+                        greenEnemies.setAll('anchor.x', 0.5);
+                        greenEnemies.setAll('anchor.y', 0.5);
+                        greenEnemies.setAll('scale.x', 0.5);
+                        greenEnemies.setAll('scale.y', 0.5);
+                        //greenEnemies.setAll('angle', 180);
+                        greenEnemies.setAll('outOfBoundsKill', true);
+                        greenEnemies.setAll('checkWorldBounds', true);
+                        launchGreenEnemy();
 			
 			
 		},
@@ -149,3 +145,22 @@ var playState ={
 				}
 			}
 		}
+           function launchGreenEnemy() {
+		   var MIN_ENEMY_SPACING = 300;
+		   var MAX_ENEMY_SPACING = 3000;
+		   var ENEMY_SPEED = 300;
+		   
+		   var enemy = greenEnemies.getFirstExists(false);
+		   if (enemy) {
+		   enemy.reset(game.rnd.integerInRange(0, game.height), -20);
+		   enemy.body.velocity.x = ENEMY_SPEED;
+		   enemy.body.velocity.y = game.rnd.integerInRange(-300, 300);
+		   enemy.body.drag.y = 100;
+		   }
+		   //  Update function for each enemy ship to update rotation etc
+                   enemy.update = function(){
+                   enemy.angle = 180 - game.math.radToDeg(Math.atan2(enemy.body.velocity.x, enemy.body.velocity.y));
+                   }
+                   //  Send another enemy soon
+                   //game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchGreenEnemy);
+          }
