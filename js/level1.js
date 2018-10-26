@@ -151,16 +151,16 @@ var playState ={
 		   var MAX_ENEMY_SPACING = 3000;
 		   var ENEMY_SPEED = 300;
 		   
-		   var enemy = enemy.getFirstExists(false);
-		   if (enemy) {
-		   enemy.reset(game.rnd.integerInRange(0, game.width), -20);
-		   enemy.body.velocity.x = game.rnd.integerInRange(-300, 300);
-		   enemy.body.velocity.y = ENEMY_SPEED;
-		   enemy.body.drag.x = 100;
+		   var enemylot = enemy.getFirstExists(false);
+		   if (enemylot) {
+		   enemylot.reset(game.rnd.integerInRange(0, game.width), -20);
+		   enemylot.body.velocity.x = game.rnd.integerInRange(-300, 300);
+		   enemylot.body.velocity.y = ENEMY_SPEED;
+		   enemylot.body.drag.x = 100;
 		   }
 		   //  Update function for each enemy ship to update rotation etc
-                   enemy.update = function(){
-                   enemy.angle = 180 - game.math.radToDeg(Math.atan2(enemy.body.velocity.x, enemy.body.velocity.y));
+                   enemylot.update = function(){
+                   enemylot.angle = 180 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
                    }
                    //  Send another enemy soon
                    //game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchGreenEnemy);
