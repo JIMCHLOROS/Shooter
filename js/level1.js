@@ -109,8 +109,8 @@ var playState ={
 				fireBullet();
 			}
 			//  Keep the shipTrail lined up with the ship
-			shipTrail.y = player.y + 13;
-			shipTrail.x = player.x - 70;//45
+			shipTrail.y = player.y + 6;//+13
+			shipTrail.x = player.x - 77;//45
 		},
 		render:function() {
 		}
