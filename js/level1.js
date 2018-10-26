@@ -20,7 +20,7 @@ var playState ={
 		},
 		create:function() {
 	                fire = game.add.audio('fire');
-			fire.allowMultiple(true);
+			fire..allowMultiple = true;
 			
 			game.scale.pageAlignHorizontally = true;
 			
