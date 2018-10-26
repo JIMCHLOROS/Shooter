@@ -69,7 +69,7 @@ var playState ={
 			shipTrail.height = 10;
                         shipTrail.setAlpha(1, 0, 3000);
 			shipTrail.setRotation(0, 0);
-                        shipTrail.setScale(0.8, 0, 0.8, 0, 10000,Phaser.Easing.Quintic.Out);
+                        shipTrail.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
                         shipTrail.start(false, 1, 5);
 			
 		},
@@ -111,7 +111,7 @@ var playState ={
 			}
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y + 13;
-			shipTrail.x = player.x - 45;
+			shipTrail.x = player.x - 100;//45
 		},
 		render:function() {
 		}
