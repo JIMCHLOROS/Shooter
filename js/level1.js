@@ -191,8 +191,8 @@ var playState ={
 		   if (enemylot) {
 		   enemylot.reset(game.width+50, game.rnd.integerInRange(0, game.height-50));
 		   enemylot.body.velocity.x = -ENEMY_SPEED;
-		   enemylot.body.velocity.y = game.rnd.integerInRange(-30, 30);
-		   enemylot.body.drag.x = -10;
+		   enemylot.body.velocity.y = game.rnd.integerInRange(-100, 100);
+		   enemylot.body.drag.x = 100;
 		  
 		     
 	             enemylot.trail.start(false, 800, 1);
