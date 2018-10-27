@@ -102,7 +102,7 @@ var playState ={
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
                         enemy2.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy2.createMultiple(30, 'enemy2');
+                        enemy2.createMultiple(30, 'enemy1');
                         enemy2.setAll('anchor.x', 0.5);
                         enemy2.setAll('anchor.y', 0.5);
                         enemy2.setAll('scale.x', 0.5);
@@ -289,7 +289,7 @@ var playState ={
               var horizonalSpeed = 180;
               var spread = 60;
               var frequency = 70;
-              var horizonalSpacing = 70;
+              var horizonalSpacing = 250;
               var numEnemiesInWave = 3;
               var timeBetweenWaves = 7000;
           
@@ -298,7 +298,7 @@ var playState ={
                   var enemy = enemy2.getFirstExists(false);
                   if (enemy) {
                       enemy.startingY = startingY;
-                      enemy.reset(-horizonalSpacing * i, game.height / 2);
+                      enemy.reset(game.width+horizonalSpacing * i, game.height / 2);
                       enemy.body.velocity.x = horizonalSpeed;
           
                       //  Update function for each enemy
