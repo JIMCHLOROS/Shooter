@@ -58,6 +58,7 @@ var playState ={
 			enemyBullets.forEach(function(enemy){
 		        enemy.width = 50;
 			enemy.height = 50;
+			enemy.body.setSize(50, 50);
 			});
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
