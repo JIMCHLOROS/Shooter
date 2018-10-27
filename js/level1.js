@@ -81,6 +81,17 @@ var playState ={
                         launchEnemy();
 			
 			
+                            //  An explosion pool
+                        explosions = game.add.group();
+                        explosions.enableBody = true;
+                        explosions.physicsBodyType = Phaser.Physics.ARCADE;
+                        explosions.createMultiple(30, 'explosion');
+                        explosions.setAll('anchor.x', 0.5);
+                        explosions.setAll('anchor.y', 0.5);
+                        explosions.forEach( function(explosion) {
+                              explosion.animations.add('explosion');
+                        });
+			
 		},
 		update:function() {
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
