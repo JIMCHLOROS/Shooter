@@ -15,6 +15,8 @@ var DRAG = 400;
 var MAXSPEED = 400;
 var fire;
 var enemy;
+var score = 0;
+var scoreText;
 var playState ={
              
 		preload:function() {
@@ -119,6 +121,12 @@ var playState ={
                         gameOver.anchor.setTo(0.5, 0.5);
                         gameOver.visible = false;
 			
+			     //  Score
+                            scoreText = game.add.text(10, 10, '', { font: '20px Arial', fill: '#fff' });
+                            scoreText.render = function () {
+                            scoreText.text = 'Score: ' + score;
+                            };
+                            scoreText.render();
 		},
 		update:function() {
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
@@ -164,9 +172,10 @@ var playState ={
 			
 			shipTrail2.y = player.y + 16;//+13
 			shipTrail2.x = player.x - 75;//45
-			
+			//Game Over?
 			if (! player.alive && gameOver.visible === false) {
 			        gameOver.visible = true;
+				gameOver.alpha = 0;
 			        var fadeInGameOver = game.add.tween(gameOver);
 			        fadeInGameOver.to({alpha: 1}, 1000, Phaser.Easing.Quintic.Out);
 			        fadeInGameOver.onComplete.add(setResetHandlers);
