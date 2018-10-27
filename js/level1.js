@@ -1,3 +1,4 @@
+var enemyBullets;
 var player;
 var starfield;
 var cursors;
@@ -44,6 +45,20 @@ var playState ={
 			bullets.setAll('anchor.y', 1);
 			bullets.setAll('outOfBoundsKill', true);
 			bullets.setAll('checkWorldBounds', true);
+			 //  Blue enemy's bullets
+			enemyBullets = game.add.group();
+			enemyBullets.enableBody = true;
+			enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+			enemyBullets.createMultiple(30, 'enemy_bullet');
+			enemyBullets.callAll('crop', null, {x: 90, y: 0, width: 90, height: 70});
+			enemyBullets.setAll('alpha', 0.9);
+			enemyBullets.setAll('anchor.x', 0.5);
+			enemyBullets.setAll('anchor.y', 0.5);
+			enemyBullets.setAll('outOfBoundsKill', true);
+			enemyBullets.setAll('checkWorldBounds', true);
+			enemyBullets.forEach(function(enemy){
+			enemy.body.setSize(20, 20);
+			});
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
@@ -147,6 +162,7 @@ var playState ={
                             scoreText.render();
 		},
 		update:function() {
+			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
@@ -301,6 +317,11 @@ var playState ={
                       enemy.startingY = startingY;
                       enemy.reset(game.width+horizonalSpacing * i, game.height / 2);
                       enemy.body.velocity.x = horizonalSpeed;
+			  
+                      var bulletSpeed = 400;
+                      var firingDelay = 2000;
+                      enemy.bullets = 1;
+                      enemy.lastShot = 0;
           
                       //  Update function for each enemy
                       enemy.update = function(){
@@ -311,7 +332,16 @@ var playState ={
                         //bank = Math.cos((this.x + 60) / frequency)
                         //this.scale.y = 0.5 - Math.abs(bank) / 8;
                         this.angle = 0;
-          
+                        //  Fire
+                        enemyBullet = enemyBullets.getFirstExists(false);
+                        if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
+                         this.lastShot = game.time.now;
+                         this.bullets--;
+                         enemyBullet.reset(this.x, this.y + this.height / 2);
+                         enemyBullet.damageAmount = this.damageAmount;
+                         var angle = game.physics.arcade.moveToObject(enemyBullet, player, bulletSpeed);
+                         enemyBullet.angle = game.math.radToDeg(angle);
+                        }
                         //  Kill enemies once they go off screen
                         if (this.x < -200) {
                           this.kill();
@@ -322,6 +352,16 @@ var playState ={
           
               //  Send another wave soon
               enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
+          }
+          function enemyHitsPlayer (player, bullet) {
+              var explosion = explosions.getFirstExists(false);
+              explosion.reset(player.body.x + player.body.halfWidth, player.body.y + player.body.halfHeight);
+              explosion.alpha = 0.7;
+              explosion.play('explosion', 30, false, true);
+              bullet.kill();
+          
+              player.damage(bullet.damageAmount);
+              shields.render()
           }
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, player.y-19 , 100);
@@ -337,6 +377,7 @@ var playState ={
               //  Reset the enemies
               enemy.callAll('kill');
 	      enemy2.callAll('kill');
+              enemyBullets.callAll('kill');
               game.time.events.remove(enemyLaunchTimer);
               game.time.events.add(1000, launchEnemy);
               game.time.events.remove(enemy2LaunchTimer);
