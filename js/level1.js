@@ -91,8 +91,8 @@ var playState ={
                         explosions.setAll('anchor.x', 0.5);
                         explosions.setAll('anchor.y', 0.5);
                         explosions.forEach( function(explosion) {
-			      explosion.width = 200;
-			      explosion.height = 200;
+			      explosion.width = 300;
+			      explosion.height = 300;
                               explosion.animations.add('explosion');
                         });
 			
@@ -161,7 +161,7 @@ var playState ={
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
 		   //explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
-               explosion.reset(enemy.body.x + (enemy.body.halfWidth/2)-20, enemy.body.y + enemy.body.halfHeight-45);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth/2, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
