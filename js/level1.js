@@ -109,10 +109,10 @@ var playState ={
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
                         enemy2.forEach(function(enemy){
-                          enemy.body.setSize(enemy.width, enemy.height);
                           enemy.damageAmount = 40;
+                          enemy.body.setSize(enemy.width, enemy.height);
                         });
-                        game.time.events.add(1000, launchEnemy2);
+                        game.time.events.add(3000, launchEnemy2);
 			
 			
                             //  An explosion pool
@@ -292,7 +292,7 @@ var playState ={
               var frequency = 70;
               var horizonalSpacing = 250;
               var numEnemiesInWave = 3;
-              var timeBetweenWaves = 7000;
+              var timeBetweenWaves = 10000;
           
               //  Launch wave
               for (var i =0; i < numEnemiesInWave; i++) {
@@ -340,7 +340,7 @@ var playState ={
               game.time.events.remove(enemyLaunchTimer);
               game.time.events.add(1000, launchEnemy);
               game.time.events.remove(enemy2LaunchTimer);
-	      game.time.events.add(1000, launchEnemy2);
+	      game.time.events.add(3000, launchEnemy2);
           
               //  Revive the player
               player.revive();
