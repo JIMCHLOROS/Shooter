@@ -299,11 +299,11 @@ var playState ={
     	       shields.render();
            }
            function fireBullet() {
-		   fire.play('',0,0.5,false);
+		   fire.play('',0,0.3,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
-				var BULLET_SPACING = 350;
+				var BULLET_SPACING = 300;
 				//  Grab the first bullet we can from the pool
 				var bullet = bullets.getFirstExists(false);
 				if (bullet) {
