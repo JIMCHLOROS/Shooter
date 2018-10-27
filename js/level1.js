@@ -223,7 +223,7 @@ var playState ={
                explosion.play('explosion', 30, false, true);
                enemy.kill();
                bullet.kill();
-	       score += enemy.damageAmount * 10;
+	       score += enemy.damageAmount /2;
                scoreText.render();
            }
            function shipCollide(player, enemy) {
