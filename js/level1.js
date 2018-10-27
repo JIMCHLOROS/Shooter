@@ -75,7 +75,7 @@ var playState ={
                         enemy.setAll('scale.y', 0.5);
 			enemy.forEach(function(enemy){
 			  addEnemyEmitterTrail(enemy);
-			  //enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
+			  enemy.body.setSize(enemy.width, enemy.height);
 			  enemy.events.onKilled.add(function(){
 			  enemy.trail.kill();
 			  });
