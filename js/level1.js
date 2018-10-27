@@ -160,8 +160,7 @@ var playState ={
            }
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
-		   //explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
-               explosion.reset(enemy.body.x + enemy.body.halfWidth/2, enemy.body.y + enemy.body.halfHeight);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
