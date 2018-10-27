@@ -191,7 +191,7 @@ var playState ={
 		   if (enemylot) {
 		   enemylot.reset(game.width+50, game.rnd.integerInRange(0, game.height-50));
 		   enemylot.body.velocity.x = -ENEMY_SPEED;
-		   enemylot.body.velocity.y = game.rnd.integerInRange(-3, 3);
+		   enemylot.body.velocity.y = game.rnd.integerInRange(-30, 30);
 		   enemylot.body.drag.x = -10;
 		  
 		     
