@@ -89,8 +89,8 @@ var playState ={
                         explosions.setAll('anchor.x', 0.5);
                         explosions.setAll('anchor.y', 0.5);
                         explosions.forEach( function(explosion) {
-			      explosion.width = 100;
-			      explosion.height = 100;
+			      explosion.width = 300;
+			      explosion.height = 300;
                               explosion.animations.add('explosion');
                         });
 			
