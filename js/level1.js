@@ -159,7 +159,7 @@ var playState ={
 		   }
 		   //  Update function for each enemy ship to update rotation etc
                    enemylot.update = function(){
-                   enemylot.angle = 180 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+                   enemylot.angle = 90 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
                    }
                    //  Send another enemy soon
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
