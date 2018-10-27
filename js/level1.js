@@ -50,7 +50,7 @@ var playState ={
 			enemyBullets.enableBody = true;
 			enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
 			enemyBullets.createMultiple(30, 'enemy_bullet');
-			enemyBullets.callAll('crop', null, {x: 90, y: 0, width: 90, height: 70});
+			//enemyBullets.callAll('crop', null, {x: 90, y: 0, width: 90, height: 70});
 			enemyBullets.setAll('alpha', 0.9);
 			enemyBullets.setAll('anchor.x', 0.5);
 			enemyBullets.setAll('anchor.y', 0.5);
@@ -319,7 +319,7 @@ var playState ={
                       enemy.body.velocity.x = horizonalSpeed;
 			  
                       var bulletSpeed = 400;
-                      var firingDelay = 1000;
+                      var firingDelay = 500;
                       enemy.bullets = 2;
                       enemy.lastShot = 0;
           
