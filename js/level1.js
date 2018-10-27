@@ -176,7 +176,7 @@ var playState ={
 	           }
                    //  Send another enemy soon
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
-          },
+          }
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 10, player.y , 100);
           enemyTrail.width = 10;
