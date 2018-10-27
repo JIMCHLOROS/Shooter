@@ -313,7 +313,7 @@ var playState ={
                         this.angle = 0;
           
                         //  Kill enemies once they go off screen
-                        if (this.x > -200) {
+                        if (this.x < -200) {
                           this.kill();
                         }
                       };
