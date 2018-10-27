@@ -44,7 +44,7 @@ var playState ={
 			player.height = 50;
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
-			player.body.setSize(enemy.width , enemy.height * 3 / 4);
+			player.body.setSize(player.width , player.height * 3 / 4);
 			player.body.drag.setTo(DRAG, DRAG);
 			//  And some controls to play the game with
 			cursors = game.input.keyboard.createCursorKeys();
