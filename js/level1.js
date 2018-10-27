@@ -44,7 +44,7 @@ var playState ={
 			player.height = 50;
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
-			player.body.setSize(player.width , player.height * 3 / 4);
+			//player.body.setSize(player.width , player.height * 3 / 4);
 			player.body.drag.setTo(DRAG, DRAG);
 			//  And some controls to play the game with
 			cursors = game.input.keyboard.createCursorKeys();
@@ -75,7 +75,7 @@ var playState ={
                         enemy.setAll('scale.y', 0.5);
 			enemy.forEach(function(enemy){
 			  addEnemyEmitterTrail(enemy);
-			  enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
+			  //enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
 			  enemy.events.onKilled.add(function(){
 			  enemy.trail.kill();
 			  });
