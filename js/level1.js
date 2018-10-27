@@ -212,7 +212,7 @@ var playState ={
 	             enemylot.trail.start(false, 800, 1);
 		 //  Update function for each enemy ship to update rotation etc
                      enemylot.update = function(){
-                       enemylot.angle = 180 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+                       enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
 			     
 		       enemylot.trail.x = enemylot.x+70;
                        enemylot.trail.y = enemylot.y-19;
