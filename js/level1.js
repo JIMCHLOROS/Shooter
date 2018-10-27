@@ -102,7 +102,7 @@ var playState ={
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
                         enemy2.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy2.createMultiple(30, 'enemy-blue');
+                        enemy2.createMultiple(30, 'enemy2');
                         enemy2.setAll('anchor.x', 0.5);
                         enemy2.setAll('anchor.y', 0.5);
                         enemy2.setAll('scale.x', 0.5);
