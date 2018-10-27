@@ -23,7 +23,7 @@ var loadState = {
         game.stage.backgroundColor = '#5c94fc';
 
         
-	game.load.bitmapFont('spacefont', '/assets/spacefont/spacefont.png', '/assets/spacefont/spacefont.fnt');
+	game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'assets/spacefont/spacefont.fnt');
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
         game.load.image('starfield', 'assets/space.png');
