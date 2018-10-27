@@ -299,7 +299,7 @@ var playState ={
                   if (enemy) {
                       enemy.startingY = startingY;
                       enemy.reset(-horizonalSpacing * i, game.height / 2);
-                      enemy.body.velocity.Y = horizonalSpeed;
+                      enemy.body.velocity.x = horizonalSpeed;
           
                       //  Update function for each enemy
                       enemy.update = function(){
@@ -309,7 +309,7 @@ var playState ={
                         //  Squish and rotate ship for illusion of "banking"
                         bank = Math.cos((this.x + 60) / frequency)
                         this.scale.y = 0.5 - Math.abs(bank) / 8;
-                        this.angle = 270 - bank * 2;
+                        this.angle = 180 - bank * 2;
           
                         //  Kill enemies once they go off screen
                         if (this.y > game.height + 200) {
