@@ -5,6 +5,7 @@ var bank;
 var shipTrail;
 var shipTrail2;
 var bullets;
+var shields;
 var fireButton;
 var bulletTimer = 0;
 var ACCLERATION = 600;
@@ -40,8 +41,12 @@ var playState ={
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
+			player.health = 100;
 			player.width = 100;
 			player.height = 50;
+			player.events.onKilled.add(function(){
+			    shipTrail.kill();
+			});
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
 			//player.body.setSize(player.width , player.height * 3 / 4);
@@ -75,6 +80,7 @@ var playState ={
                         enemy.setAll('scale.y', 0.5);
 			enemy.forEach(function(enemy){
 			  addEnemyEmitterTrail(enemy);
+			  enemy.damageAmount = 20;
 			  enemy.body.setSize(enemy.width, enemy.height);
 			  enemy.events.onKilled.add(function(){
 			  enemy.trail.kill();
@@ -95,6 +101,11 @@ var playState ={
 			      explosion.height = 300;
                               explosion.animations.add('explosion');
                         });
+			
+			shields = game.add.text(game.world.width - 150, 10, 'Shield: ' + player.health +'%', { font: '20px Arial', fill: '#fff' });
+                            shields.render = function () {
+                                shields.text = 'Shields: ' + Math.max(player.health, 0) +'%';
+                            };
 			
 		},
 		update:function() {
@@ -152,7 +163,9 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.kill();
-               bullet.kill()
+               bullet.kill();
+	       player.damage(enemy.damageAmount);
+    	       shields.render();
            }
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
