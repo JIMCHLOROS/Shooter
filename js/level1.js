@@ -44,6 +44,7 @@ var playState ={
 			player.height = 50;
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
+			enemy.body.setSize(enemy.width , enemy.height * 3 / 4);
 			player.body.drag.setTo(DRAG, DRAG);
 			//  And some controls to play the game with
 			cursors = game.input.keyboard.createCursorKeys();
@@ -97,6 +98,7 @@ var playState ={
 			
 		},
 		update:function() {
+			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
@@ -147,6 +149,15 @@ var playState ={
                         game.debug.body(player);
 		}
     };
+           function hitEnemy(enemy, bullet) {
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.kill();
+               bullet.kill()
+           }
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
 		   //explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
