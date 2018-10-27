@@ -139,6 +139,17 @@ var playState ={
                         explosions.setAll('anchor.x', 0.5);
                         explosions.setAll('anchor.y', 0.5);
                         explosions.forEach( function(explosion) {
+			      explosion.width = 100;
+			      explosion.height = 100;
+                              explosion.animations.add('explosion');
+                        });
+			real_explosions = game.add.group();
+                        real_explosions.enableBody = true;
+                        real_explosions.physicsBodyType = Phaser.Physics.ARCADE;
+                        real_explosions.createMultiple(30, 'real_explosions');
+                        real_explosions.setAll('anchor.x', 0.5);
+                        real_explosions.setAll('anchor.y', 0.5);
+                        real_explosions.forEach( function(explosion) {
 			      explosion.width = 300;
 			      explosion.height = 300;
                               explosion.animations.add('explosion');
@@ -243,7 +254,7 @@ var playState ={
            b.kill();
 	   }
            function hitEnemy(enemy, bullet) {
-               var explosion = explosions.getFirstExists(false);
+               var explosion = real_explosions.getFirstExists(false);
                explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
@@ -254,7 +265,7 @@ var playState ={
                scoreText.render();
            }
            function shipCollide(player, enemy) {
-               var explosion = explosions.getFirstExists(false);
+               var explosion = real_explosions.getFirstExists(false);
                explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
@@ -365,7 +376,7 @@ var playState ={
               enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
           }
           function enemyHitsPlayer (player, bullet) {
-              var explosion = explosions.getFirstExists(false);
+              var explosion = real_explosions.getFirstExists(false);
               explosion.reset(player.body.x + player.body.halfWidth, player.body.y + player.body.halfHeight);
               explosion.alpha = 0.7;
               explosion.play('explosion', 30, false, true);
