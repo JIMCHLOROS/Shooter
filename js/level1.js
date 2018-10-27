@@ -339,7 +339,7 @@ var playState ={
               game.time.events.remove(enemyLaunchTimer);
               game.time.events.add(1000, launchEnemy);
               game.time.events.remove(enemy2LaunchTimer);
-	      game.time.events.add(7000, launchEnemy);
+	      game.time.events.add(1000, launchEnemy);
           
               //  Revive the player
               player.revive();
