@@ -19,6 +19,7 @@ var DRAG = 400;
 var MAXSPEED = 400;
 var fire;
 var explode_snd;
+var level1_music;
 var enemy;
 var enemy2;
 var score = 0;
@@ -36,6 +37,9 @@ var playState ={
 			fire.allowMultiple = true;
 			explode_snd = game.add.audio('explode_snd');
 			explode_snd.allowMultiple = true;
+			game.music.stop();
+			level1_music = game.add.audio('level1_music');
+			level1_music.allowMultiple = true;
 			
 			game.scale.pageAlignHorizontally = true;
 			
