@@ -320,7 +320,7 @@ var playState ={
 			  
                       var bulletSpeed = 400;
                       var firingDelay = 800;
-                      enemy.bullets = 5;
+                      enemy.bullets = 3;
                       enemy.lastShot = 0;
           
                       //  Update function for each enemy
