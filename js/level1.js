@@ -89,8 +89,9 @@ var playState ={
                         explosions.setAll('anchor.x', 0.5);
                         explosions.setAll('anchor.y', 0.5);
                         explosions.forEach( function(explosion) {
-			      explosion.width = 300;
-			      explosion.height = 300;
+			      explosion.width = 200;
+			      explosion.height = 200;
+			      enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
                               explosion.animations.add('explosion');
                         });
 			
@@ -140,6 +141,10 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 		},
 		render:function() {
+			for (var i = 0; i < enemy.length; i++){
+                        game.debug.body(enemy.children[i]);
+                        }
+                        game.debug.body(player);
 		}
     };
            function shipCollide(player, enemy) {
