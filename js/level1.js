@@ -8,6 +8,7 @@ var bullets;
 var shields;
 var fireButton;
 var enemyLaunchTimer;
+var enemy2LaunchTimer;
 var gameOver;
 var bulletTimer = 0;
 var ACCLERATION = 600;
@@ -15,6 +16,7 @@ var DRAG = 400;
 var MAXSPEED = 400;
 var fire;
 var enemy;
+var enemy2;
 var score = 0;
 var scoreText;
 var playState ={
@@ -97,6 +99,20 @@ var playState ={
 			});
                         game.time.events.add(1000, launchEnemy);
 			
+			enemy2 = game.add.group();
+                        enemy2.enableBody = true;
+                        enemy2.physicsBodyType = Phaser.Physics.ARCADE;
+                        enemy2.createMultiple(30, 'enemy-blue');
+                        enemy2.setAll('anchor.x', 0.5);
+                        enemy2.setAll('anchor.y', 0.5);
+                        enemy2.setAll('scale.x', 0.5);
+                        enemy2.setAll('scale.y', 0.5);
+                        enemy2.setAll('angle', 180);
+                        enemy2.forEach(function(enemy){
+                          enemy.damageAmount = 40;
+                        });
+                        game.time.events.add(1000, launchEnemy2);
+			
 			
                             //  An explosion pool
                         explosions = game.add.group();
@@ -130,6 +146,8 @@ var playState ={
                             scoreText.render();
 		},
 		update:function() {
+			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
+			game.physics.arcade.overlap(bullets, enemy2, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
 			//  Scroll the background
@@ -266,6 +284,44 @@ var playState ={
                    //  Send another enemy soon
 		   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
           }
+          function launchEnemy2() {
+              var startingY = game.rnd.integerInRange(100, game.height - 100);
+              var horizonalSpeed = 180;
+              var spread = 60;
+              var frequency = 70;
+              var horizonalSpacing = 70;
+              var numEnemiesInWave = 3;
+              var timeBetweenWaves = 7000;
+          
+              //  Launch wave
+              for (var i =0; i < numEnemiesInWave; i++) {
+                  var enemy = enemy2.getFirstExists(false);
+                  if (enemy) {
+                      enemy.startingY = startingY;
+                      enemy.reset(-horizonalSpacing * i, game.height / 2);
+                      enemy.body.velocity.X = horizonalSpeed;
+          
+                      //  Update function for each enemy
+                      enemy.update = function(){
+                        //  Wave movement
+                        this.body.y = this.startingY + Math.sin((this.x) / frequency) * spread;
+          
+                        //  Squish and rotate ship for illusion of "banking"
+                        bank = Math.cos((this.x + 60) / frequency)
+                        this.scale.x = 0.5 - Math.abs(bank) / 8;
+                        this.angle = 270 - bank * 2;
+          
+                        //  Kill enemies once they go off screen
+                        if (this.y > game.height + 200) {
+                          this.kill();
+                        }
+                      };
+                  }
+              }
+          
+              //  Send another wave soon
+              enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
+          }
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, player.y-19 , 100);
           enemyTrail.width = 10;
@@ -279,8 +335,10 @@ var playState ={
           function restart () {
               //  Reset the enemies
               enemy.callAll('kill');
+	      enemy2.callAll('kill');
               game.time.events.remove(enemyLaunchTimer);
               game.time.events.add(1000, launchEnemy);
+              game.time.events.remove(enemy2LaunchTimer);
           
               //  Revive the player
               player.revive();
