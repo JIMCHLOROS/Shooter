@@ -72,9 +72,12 @@ var playState ={
                         enemy.setAll('anchor.y', 0.5);
                         enemy.setAll('scale.x', 0.5);
                         enemy.setAll('scale.y', 0.5);
-                        //enemy.setAll('angle', 180);
-                        enemy.setAll('outOfBoundsKill', true);
-                        enemy.setAll('checkWorldBounds', true);
+			enemy.forEach(function(enemy){
+			  addEnemyEmitterTrail(enemy);
+			  enemy.events.onKilled.add(function(){
+			  enemy.trail.kill();
+			  });
+			});
                         launchEnemy();
 			
 			
@@ -156,11 +159,31 @@ var playState ={
 		   enemylot.body.velocity.x = -ENEMY_SPEED;
 		   enemylot.body.velocity.y = game.rnd.integerInRange(-3, 3);
 		   enemylot.body.drag.x = -10;
-		   //  Update function for each enemy ship to update rotation etc
+		  
+		     
+	             enemy.trail.start(false, 800, 1);
+		 //  Update function for each enemy ship to update rotation etc
                      enemylot.update = function(){
-                     enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+                       enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+			     
+		       enemy.trail.x = enemy.x+10;
+                       enemy.trail.y = enemy.y;
+			     
+			 if (enemy.x > -200) {
+			  enemy.kill();
+			 }  
                      }
 	           }
                    //  Send another enemy soon
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
+          },
+          function addEnemyEmitterTrail(enemy) {
+          var enemyTrail = game.add.emitter(enemy.x+ 10, player.y , 100);
+          enemyTrail.width = 10;
+          enemyTrail.makeParticles('explosion', [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
+          enemyTrail.setXSpeed(20, -20);
+          enemyTrail.setRotation(50,-50);
+          enemyTrail.setAlpha(0.4, 0, 800);
+          enemyTrail.setScale(0.01, 0.1, 0.01, 0.1, 1000, Phaser.Easing.Quintic.Out);
+          enemy.trail = enemyTrail;
           }
