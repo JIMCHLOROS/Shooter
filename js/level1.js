@@ -166,8 +166,8 @@ var playState ={
                      enemylot.update = function(){
                        enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
 			     
-		       enemylot.trail.x = enemylot.x+100;
-                       enemylot.trail.y = enemylot.y;
+		       enemylot.trail.x = enemylot.x+60;
+                       enemylot.trail.y = enemylot.y-25;
 			     
 			 if (enemylot.x < -200) {
 			  enemylot.kill();
@@ -178,7 +178,7 @@ var playState ={
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
           }
           function addEnemyEmitterTrail(enemy) {
-          var enemyTrail = game.add.emitter(enemy.x+ 100, player.y , 100);
+          var enemyTrail = game.add.emitter(enemy.x+ 60, player.y-25 , 100);
           enemyTrail.width = 10;
           enemyTrail.makeParticles('explosion', [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
           enemyTrail.setXSpeed(20, -20);
