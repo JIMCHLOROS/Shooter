@@ -111,9 +111,9 @@ var playState ={
                               explosion.animations.add('explosion');
                         });
 			
-                        shields = game.add.bitmapText(game.world.width - 250, 10, 'spacefont', '' + player.health +'%', 50);
+                        shields = game.add.bitmapText(game.world.width - 250, 10, 'spacefont', '' + player.health +'%', 40);
 			shields.render = function () {
-                                shields.text = 'Shield  ' + Math.max(player.health, 0) +'%';
+                                shields.text = 'Shield: ' + Math.max(player.health, 0) +'%';
                             };
 			
 			
@@ -123,9 +123,9 @@ var playState ={
                         gameOver.visible = false;
 			
 			     //  Score
-                            scoreText = game.add.bitmapText(10, 10, 'spacefont', '', 50)
+                            scoreText = game.add.bitmapText(10, 10, 'spacefont', '', 40)
                             scoreText.render = function () {
-                            scoreText.text = 'Score  ' + score;
+                            scoreText.text = 'Score: ' + score;
                             };
                             scoreText.render();
 		},
