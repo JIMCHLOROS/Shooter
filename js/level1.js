@@ -161,16 +161,16 @@ var playState ={
 		   enemylot.body.drag.x = -10;
 		  
 		     
-	             enemy.trail.start(false, 800, 1);
+	             enemylot.trail.start(false, 800, 1);
 		 //  Update function for each enemy ship to update rotation etc
                      enemylot.update = function(){
                        enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
 			     
-		       enemy.trail.x = enemy.x+10;
-                       enemy.trail.y = enemy.y;
+		       enemylot.trail.x = enemylot.x+10;
+                       enemylot.trail.y = enemylot.y;
 			     
-			 if (enemy.x > -200) {
-			  enemy.kill();
+			 if (enemylot.x > -200) {
+			  enemylot.kill();
 			 }  
                      }
 	           }
