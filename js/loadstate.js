@@ -23,6 +23,7 @@ var loadState = {
         game.stage.backgroundColor = '#5c94fc';
 
         
+	game.load.bitmapFont('spacefont', '/assets/spacefont/spacefont.png', '/assets/spacefont/spacefont.fnt');
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
         game.load.image('starfield', 'assets/space.png');
@@ -32,7 +33,6 @@ var loadState = {
 	game.load.spritesheet('enemy1', 'assets/enemies/enemy_ship_1.png',411,223);
 	game.load.spritesheet('enemy2', 'assets/enemies/enemy_ship_2.png',1275,450);
 	game.load.spritesheet('enemy3', 'assets/enemies/enemy_ship_3.png',1024,473);
-	game.load.bitmapFont('spacefont', '/assets/spacefont/spacefont.png', '/assets/spacefont/spacefont.fnt');
         game.load.audio('music', 'assets/music/music.mp3');
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
     },
