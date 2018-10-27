@@ -109,6 +109,7 @@ var playState ={
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
                         enemy2.forEach(function(enemy){
+                          enemy.body.setSize(enemy.width, enemy.height);
                           enemy.damageAmount = 40;
                         });
                         game.time.events.add(1000, launchEnemy2);
