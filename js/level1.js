@@ -115,7 +115,7 @@ var playState ={
 			shields.render = function () {
                                 shields.text = 'Shield ' + Math.max(player.health, 0);
                             };
-			
+			shields.render();
 			
 			gameOver = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'GAME OVER', 110);
 			gameOver.x = gameOver.x - gameOver.textWidth / 2;
