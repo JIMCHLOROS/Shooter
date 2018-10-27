@@ -319,8 +319,8 @@ var playState ={
                       enemy.body.velocity.x = horizonalSpeed;
 			  
                       var bulletSpeed = 400;
-                      var firingDelay = 2000;
-                      enemy.bullets = 1;
+                      var firingDelay = 800;
+                      enemy.bullets = 5;
                       enemy.lastShot = 0;
           
                       //  Update function for each enemy
