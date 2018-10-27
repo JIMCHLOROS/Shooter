@@ -50,15 +50,14 @@ var playState ={
 			enemyBullets.enableBody = true;
 			enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
 			enemyBullets.createMultiple(30, 'enemy_bullet');
-			enemyBullets.callAll('width',50);
-			enemyBullets.callAll('height',50);
 			enemyBullets.setAll('alpha', 0.9);
 			enemyBullets.setAll('anchor.x', 0.5);
 			enemyBullets.setAll('anchor.y', 0.5);
 			enemyBullets.setAll('outOfBoundsKill', true);
 			enemyBullets.setAll('checkWorldBounds', true);
 			enemyBullets.forEach(function(enemy){
-			enemy.body.setSize(20, 20);
+		        enemy.width = 50;
+			enemy.height = 50;
 			});
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
