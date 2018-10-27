@@ -183,9 +183,9 @@ var playState ={
 			}
 		}
            function launchEnemy() {
-		   var MIN_ENEMY_SPACING = 300;
+		   var MIN_ENEMY_SPACING = 2000;
 		   var MAX_ENEMY_SPACING = 3000;
-		   var ENEMY_SPEED = 100;
+		   var ENEMY_SPEED = 250;
 		   
 		   var enemylot = enemy.getFirstExists(false);
 		   if (enemylot) {
