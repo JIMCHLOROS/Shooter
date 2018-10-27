@@ -125,7 +125,7 @@ var playState ={
 			     //  Score
                             scoreText = game.add.bitmapText(10, 10, 'spacefont', '', 40)
                             scoreText.render = function () {
-                            scoreText.text = 'Score: ' + score;
+                               scoreText.text = 'Score: ' + score;
                             };
                             scoreText.render();
 		},
