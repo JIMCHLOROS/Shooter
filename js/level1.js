@@ -427,6 +427,6 @@ var playState ={
               //  Hide the text
               gameOver.visible = false;
 		  //  Reset pacing
-              greenEnemySpacing = 1000;
-              blueEnemyLaunched = false;
+              enemySpacing = 1000;
+              enemy2Launched = false;
 	  }
