@@ -155,7 +155,7 @@ var playState ={
 		   enemylot.reset(game.width, game.rnd.integerInRange(0, game.height));
 		   enemylot.body.velocity.x = -ENEMY_SPEED;
 		   enemylot.body.velocity.y = game.rnd.integerInRange(-3, 3);
-		   enemylot.body.drag.x = -100;
+		   enemylot.body.drag.x = -40;
 		   }
 		   //  Update function for each enemy ship to update rotation etc
                    //enemylot.update = function(){
