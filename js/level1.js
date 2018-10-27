@@ -113,7 +113,7 @@ var playState ={
 			
                         shields = game.add.bitmapText(game.world.width - 250, 10, 'spacefont', '' + player.health , 40);
 			shields.render = function () {
-                                shields.text = 'Shield ' + Math.max(player.health, 0) ';
+                                shields.text = 'Shield ' + Math.max(player.health, 0);
                             };
 			
 			
