@@ -164,6 +164,7 @@ var playState ={
 		},
 		update:function() {
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
+			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
@@ -232,6 +233,15 @@ var playState ={
 		render:function() {
 		}
     };
+           function bulletdestroy(be,b){
+	   var explosion = explosions.getFirstExists(false);
+           explosion.reset(be.body.x + be.body.halfWidth, be.body.y + be.body.halfHeight);
+           explosion.body.velocity.y = be.body.velocity.y;
+           explosion.alpha = 0.7;
+           explosion.play('explosion', 30, false, true);
+	   be.kill();
+           b.kill();
+	   }
            function hitEnemy(enemy, bullet) {
                var explosion = explosions.getFirstExists(false);
                explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
