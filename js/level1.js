@@ -41,7 +41,7 @@ var playState ={
 			explode_snd.allowMultiple = true;
 			music.stop(0);
 			
-			level1_music.play('',0,1,true);
+			level1_music.play('',0,0.7,true);
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -256,7 +256,7 @@ var playState ={
 		}
     };
            function bulletdestroy(be,b){
-	   explode_snd.play('',0,0.9,false);
+	   explode_snd.play('',0,1,false);
 	   var explosion = explosions.getFirstExists(false);
            explosion.reset(be.body.x + be.body.halfWidth, be.body.y + be.body.halfHeight);
            explosion.body.velocity.y = be.body.velocity.y;
@@ -266,7 +266,7 @@ var playState ={
            b.kill();
 	   }
            function hitEnemy(enemy, bullet) {
-               explode_snd.play('',0,0.9,false);
+               explode_snd.play('',0,1,false);
                var explosion = real_explosions.getFirstExists(false);
                explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
@@ -288,7 +288,7 @@ var playState ={
                    }
            }
            function shipCollide(player, enemy) {
-               explode_snd.play('',0,0.9,false);
+               explode_snd.play('',0,1,false);
                var explosion = real_explosions.getFirstExists(false);
                explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
@@ -299,7 +299,7 @@ var playState ={
     	       shields.render();
            }
            function fireBullet() {
-		   fire.play('',0,0.9,false);
+		   fire.play('',0,0.5,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
@@ -401,7 +401,7 @@ var playState ={
               enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
           }
           function enemyHitsPlayer (player, bullet) {
-              explode_snd.play('',0,0.9,false);
+              explode_snd.play('',0,1,false);
               var explosion = real_explosions.getFirstExists(false);
               explosion.reset(player.body.x + player.body.halfWidth, player.body.y + player.body.halfHeight);
               explosion.alpha = 0.7;
