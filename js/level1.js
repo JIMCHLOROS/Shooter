@@ -139,8 +139,7 @@ var playState ={
 					var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
 					bullet.reset(player.x + bulletOffset + 55, player.y+4);
 					bullet.angle = player.angle;
-					game.physics.arcade.velocityFromAngle(bullet.angle,
-							BULLET_SPEED, bullet.body.velocity);
+					game.physics.arcade.velocityFromAngle(bullet.angle,BULLET_SPEED, bullet.body.velocity);
 					bullet.body.velocity.y += player.body.velocity.y;
 					bulletTimer = game.time.now + BULLET_SPACING;
 				}
@@ -159,9 +158,9 @@ var playState ={
 		   enemylot.body.drag.y = 100;
 		   }
 		   //  Update function for each enemy ship to update rotation etc
-                   enemylot.update = function(){
-                   enemylot.angle = 180 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
-                   }
+                   //enemylot.update = function(){
+                   //enemylot.angle = 180 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+                   //}
                    //  Send another enemy soon
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
           }
