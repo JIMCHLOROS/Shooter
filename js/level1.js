@@ -303,7 +303,7 @@ var playState ={
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
-				var BULLET_SPACING = 250;
+				var BULLET_SPACING = 350;
 				//  Grab the first bullet we can from the pool
 				var bullet = bullets.getFirstExists(false);
 				if (bullet) {
