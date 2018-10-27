@@ -1,10 +1,10 @@
 <font>
   <info face="font" size="72" bold="0" italic="0" charset="" unicode="" stretchH="100" smooth="1" aa="1" padding="2,2,2,2" spacing="0,0" outline="0"/>
-  <common lineHeight="80" base="57" scaleW="446" scaleH="512" pages="1" packed="0"/>
+  <common lineHeight="80" base="57" scaleW="532" scaleH="512" pages="1" packed="0"/>
   <pages>
     <page id="0" file="font.png"/>
   </pages>
-  <chars count="80">
+  <chars count="90">
     <char id="97" x="2" y="2" width="42" height="46" xoffset="3" yoffset="18" xadvance="40" page="0" chnl="15"/>
     <char id="98" x="2" y="50" width="39" height="59" xoffset="5" yoffset="5" xadvance="40" page="0" chnl="15"/>
     <char id="99" x="2" y="111" width="39" height="46" xoffset="3" yoffset="18" xadvance="36" page="0" chnl="15"/>
@@ -85,12 +85,23 @@
     <char id="125" x="394" y="2" width="27" height="74" xoffset="2" yoffset="4" xadvance="24" page="0" chnl="15"/>
     <char id="91" x="408" y="78" width="21" height="73" xoffset="5" yoffset="5" xadvance="20" page="0" chnl="15"/>
     <char id="93" x="423" y="2" width="21" height="73" xoffset="1" yoffset="5" xadvance="20" page="0" chnl="15"/>
-    <char id="32" x="0" y="0" width="0" height="0" xoffset="1" yoffset="5" xadvance="20" page="0" chnl="15"/>
+    <char id="48" x="395" y="188" width="40" height="59" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="49" x="368" y="323" width="26" height="59" xoffset="8" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="50" x="396" y="323" width="41" height="59" xoffset="2" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="51" x="411" y="249" width="41" height="60" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="52" x="431" y="77" width="42" height="58" xoffset="1" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="53" x="446" y="2" width="41" height="59" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="54" x="437" y="137" width="41" height="59" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="55" x="475" y="63" width="40" height="58" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="56" x="489" y="2" width="41" height="59" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="57" x="416" y="384" width="41" height="59" xoffset="3" yoffset="5" xadvance="40" page="0" chnl="15"/>
+    <char id="32" x="0" y="0" width="0" height="0" xoffset="3" yoffset="5" xadvance="20" page="0" chnl="15"/>
   </chars>
-  <kernings count="96">
+  <kernings count="97">
     <kerning first="32" second="65" amount="-4"/>
     <kerning first="32" second="84" amount="-1"/>
     <kerning first="32" second="89" amount="-1"/>
+    <kerning first="49" second="49" amount="-5"/>
     <kerning first="65" second="32" amount="-4"/>
     <kerning first="65" second="84" amount="-5"/>
     <kerning first="65" second="86" amount="-5"/>
