@@ -152,10 +152,10 @@ var playState ={
 		   
 		   var enemylot = enemy.getFirstExists(false);
 		   if (enemylot) {
-		   enemylot.reset(game.rnd.integerInRange(0, game.width), -50);
-		   enemylot.body.velocity.x = ENEMY_SPEED;
+		   enemylot.reset(game.width, game.rnd.integerInRange(0, game.height));
+		   enemylot.body.velocity.x = -ENEMY_SPEED;
 		   enemylot.body.velocity.y = game.rnd.integerInRange(-300, 300);
-		   enemylot.body.drag.x = 100;
+		   enemylot.body.drag.x = -100;
 		   }
 		   //  Update function for each enemy ship to update rotation etc
                    //enemylot.update = function(){
