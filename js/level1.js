@@ -46,6 +46,7 @@ var playState ={
 			player.height = 50;
 			player.events.onKilled.add(function(){
 			    shipTrail.kill();
+			    shipTrail2.kill();
 			});
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
@@ -164,8 +165,6 @@ var playState ={
                explosion.play('explosion', 30, false, true);
                enemy.kill();
                bullet.kill();
-	       player.damage(enemy.damageAmount);
-    	       shields.render();
            }
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
@@ -174,6 +173,8 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.kill();
+	       player.damage(enemy.damageAmount);
+    	       shields.render();
            }
            function fireBullet() {
 		   fire.play('',0,1,false);
