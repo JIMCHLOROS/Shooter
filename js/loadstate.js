@@ -29,6 +29,7 @@ var loadState = {
         game.load.image('starfield', 'assets/space.png');
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
+	game.load.image('enemy_bullet', 'assets/bullets/bullet2.png');
 	game.load.spritesheet('enemy', 'assets/enemies/enemy_ship.png',411,223);
 	game.load.spritesheet('enemy1', 'assets/enemies/enemy_ship_1.png',411,223);
 	game.load.spritesheet('enemy2', 'assets/enemies/enemy_ship_2.png',1275,450);
