@@ -310,7 +310,7 @@ var playState ={
                         //  Squish and rotate ship for illusion of "banking"
                         //bank = Math.cos((this.x + 60) / frequency)
                         //this.scale.y = 0.5 - Math.abs(bank) / 8;
-                        //this.angle = 0 - bank * 2;
+                        this.angle = 0;
           
                         //  Kill enemies once they go off screen
                         if (this.y > game.height + 200) {
