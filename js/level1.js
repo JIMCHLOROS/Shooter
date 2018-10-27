@@ -102,7 +102,7 @@ var playState ={
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
                         enemy2.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy2.createMultiple(30, 'enemy1');
+                        enemy2.createMultiple(3, 'enemy1');
                         enemy2.setAll('anchor.x', 0.5);
                         enemy2.setAll('anchor.y', 0.5);
                         enemy2.setAll('scale.x', 0.5);
@@ -148,7 +148,7 @@ var playState ={
 		},
 		update:function() {
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
-			game.physics.arcade.overlap(bullets, enemy2, hitEnemy, null, this);
+			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
 			//  Scroll the background
@@ -313,7 +313,7 @@ var playState ={
                         this.angle = 0;
           
                         //  Kill enemies once they go off screen
-                        if (this.y > game.height + 200) {
+                        if (this.x > -200) {
                           this.kill();
                         }
                       };
