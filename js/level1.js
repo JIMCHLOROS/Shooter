@@ -156,11 +156,11 @@ var playState ={
 		   enemylot.body.velocity.x = -ENEMY_SPEED;
 		   enemylot.body.velocity.y = game.rnd.integerInRange(-3, 3);
 		   enemylot.body.drag.x = -10;
-		   }
 		   //  Update function for each enemy ship to update rotation etc
-                   enemylot.update = function(){
-                   enemylot.angle = 90 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
-                   }
+                     enemylot.update = function(){
+                     enemylot.angle = 270 - game.math.radToDeg(Math.atan2(enemylot.body.velocity.x, enemylot.body.velocity.y));
+                     }
+	           }
                    //  Send another enemy soon
                    game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
           }
