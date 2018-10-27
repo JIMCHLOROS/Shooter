@@ -38,10 +38,11 @@ var loadState = {
         game.load.audio('music', 'assets/music/music.mp3');
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
 	game.load.audio('explode_snd', 'assets/music/sound_explosion.mp3');
+	game.load.audio('level1_music', 'assets/music/level1_music.mp3');
     },
     update:function(){
         music = game.add.audio('music');
-        //music.play('',0,1,true);
+        music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
