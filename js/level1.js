@@ -286,7 +286,7 @@ var playState ={
           }
           function launchEnemy2() {
               var startingY = game.rnd.integerInRange(100, game.height - 100);
-              var horizonalSpeed = 180;
+              var horizonalSpeed = -180;
               var spread = 60;
               var frequency = 70;
               var horizonalSpacing = 250;
