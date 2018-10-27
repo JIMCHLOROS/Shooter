@@ -83,6 +83,7 @@ var playState ={
 			
 		},
 		update:function() {
+			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -128,6 +129,14 @@ var playState ={
 		render:function() {
 		}
     };
+           function shipCollide(player, enemy) {
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.kill();
+           }
            function fireBullet() {
 		   fire.play('',0,1,false);
 			//  To avoid them being allowed to fire too fast we set a time limit
