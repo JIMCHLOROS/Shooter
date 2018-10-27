@@ -203,6 +203,8 @@ var playState ={
                explosion.play('explosion', 30, false, true);
                enemy.kill();
                bullet.kill();
+	       score += enemy.damageAmount * 10;
+               scoreText.render();
            }
            function shipCollide(player, enemy) {
                var explosion = explosions.getFirstExists(false);
