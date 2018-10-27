@@ -309,7 +309,7 @@ var playState ={
 				if (bullet) {
 					//  And fire it
 					//  Make bullet come out of tip of ship with right angle
-					fire.play('',0,0.4,false);
+					fire.play('',0,0.6,false);
 					var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
 					bullet.reset(player.x + bulletOffset + 55, player.y+4);
 					bullet.angle = player.angle;
