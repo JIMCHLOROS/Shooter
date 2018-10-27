@@ -75,6 +75,7 @@ var playState ={
                         enemy.setAll('scale.y', 0.5);
 			enemy.forEach(function(enemy){
 			  addEnemyEmitterTrail(enemy);
+			  enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
 			  enemy.events.onKilled.add(function(){
 			  enemy.trail.kill();
 			  });
@@ -92,7 +93,6 @@ var playState ={
                         explosions.forEach( function(explosion) {
 			      explosion.width = 200;
 			      explosion.height = 200;
-			      enemy.body.setSize(enemy.width * 3 / 4, enemy.height * 3 / 4);
                               explosion.animations.add('explosion');
                         });
 			
