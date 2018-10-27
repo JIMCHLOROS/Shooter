@@ -1,3 +1,5 @@
+var enemySpacing = 1000;
+var enemy2Launched = false;
 var enemyBullets;
 var player;
 var starfield;
@@ -128,7 +130,7 @@ var playState ={
                           enemy.damageAmount = 40;
                           enemy.body.setSize(enemy.width, enemy.height);
                         });
-                        game.time.events.add(3000, launchEnemy2);
+                        //game.time.events.add(3000, launchEnemy2);
 			
 			
                             //  An explosion pool
@@ -263,6 +265,16 @@ var playState ={
                bullet.kill();
 	       score += enemy.damageAmount /2;
                scoreText.render();
+	       //  Pacing
+               //  Enemies come quicker as score increases
+                enemySpacing *= 0.9;
+               //  Blue enemies come in after a score of 100
+                   if (!enemy2Launched && score > 100) {
+                     enemy2Launched = true;
+                     launchEnemy2();
+                     //  Slow green enemies down now that there are other enemies
+                     enemySpacing *= 2;
+                   }
            }
            function shipCollide(player, enemy) {
                var explosion = real_explosions.getFirstExists(false);
@@ -295,8 +307,8 @@ var playState ={
 			}
 		}
            function launchEnemy() {
-		   var MIN_ENEMY_SPACING = 2000;
-		   var MAX_ENEMY_SPACING = 3000;
+		   //var MIN_ENEMY_SPACING = 2000;
+		   //var MAX_ENEMY_SPACING = 3000;
 		   var ENEMY_SPEED = 400;//250
 		   
 		   var enemylot = enemy.getFirstExists(false);
@@ -321,8 +333,9 @@ var playState ={
                      }
 	           }
                    //  Send another enemy soon
-		   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
-          }
+		  // enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
+                   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(enemySpacing, enemySpacing + 1000), launchEnemy);
+	  }
           function launchEnemy2() {
               var startingY = game.rnd.integerInRange(100, game.height - 100);
               var horizonalSpeed = -180;
@@ -404,7 +417,6 @@ var playState ={
               game.time.events.add(1000, launchEnemy);
               game.time.events.remove(enemy2LaunchTimer);
 	      game.time.events.add(3000, launchEnemy2);
-          
               //  Revive the player
               player.revive();
               player.health = 100;
@@ -414,5 +426,7 @@ var playState ={
           
               //  Hide the text
               gameOver.visible = false;
-          
+		  //  Reset pacing
+              greenEnemySpacing = 1000;
+              blueEnemyLaunched = false;
 	  }
