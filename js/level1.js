@@ -7,6 +7,8 @@ var shipTrail2;
 var bullets;
 var shields;
 var fireButton;
+var enemyLaunchTimer;
+var gameOver;
 var bulletTimer = 0;
 var ACCLERATION = 600;
 var DRAG = 400;
@@ -48,6 +50,10 @@ var playState ={
 			    shipTrail.kill();
 			    shipTrail2.kill();
 			});
+			player.events.onRevived.add(function(){
+		            shipTrail.start(false, 1, 5);
+			    shipTrail2.start(false, 1, 5);
+		        });
 			game.physics.enable(player, Phaser.Physics.ARCADE);
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
 			//player.body.setSize(player.width , player.height * 3 / 4);
@@ -87,7 +93,7 @@ var playState ={
 			  enemy.trail.kill();
 			  });
 			});
-                        launchEnemy();
+                        game.time.events.add(1000, launchEnemy);
 			
 			
                             //  An explosion pool
@@ -107,6 +113,11 @@ var playState ={
                             shields.render = function () {
                                 shields.text = 'Shields: ' + Math.max(player.health, 0) +'%';
                             };
+			
+			
+			gameOver = game.add.text(game.world.centerX, game.world.centerY, 'GAME OVER!', { font: '84px Arial', fill: '#fff' });
+                        gameOver.anchor.setTo(0.5, 0.5);
+                        gameOver.visible = false;
 			
 		},
 		update:function() {
@@ -153,6 +164,24 @@ var playState ={
 			
 			shipTrail2.y = player.y + 16;//+13
 			shipTrail2.x = player.x - 75;//45
+			
+			if (! player.alive && gameOver.visible === false) {
+			        gameOver.visible = true;
+			        var fadeInGameOver = game.add.tween(gameOver);
+			        fadeInGameOver.to({alpha: 1}, 1000, Phaser.Easing.Quintic.Out);
+			        fadeInGameOver.onComplete.add(setResetHandlers);
+			        fadeInGameOver.start();
+			        function setResetHandlers() {
+			            //  The "click to restart" handler
+			            tapRestart = game.input.onTap.addOnce(_restart,this);
+			            spaceRestart = fireButton.onDown.addOnce(_restart,this);
+			            function _restart() {
+			              tapRestart.detach();
+			              spaceRestart.detach();
+			              restart();
+			            }
+			        }
+			    }
 		},
 		render:function() {
 		}
@@ -223,7 +252,7 @@ var playState ={
                      }
 	           }
                    //  Send another enemy soon
-                   game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
+		   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
           }
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, player.y-19 , 100);
@@ -235,3 +264,20 @@ var playState ={
           enemyTrail.setScale(0.01, 0.1, 0.01, 0.1, 1000, Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
           }
+          function restart () {
+              //  Reset the enemies
+              enemy.callAll('kill');
+              game.time.events.remove(enemyLaunchTimer);
+              game.time.events.add(1000, launchEnemy);
+          
+              //  Revive the player
+              player.revive();
+              player.health = 100;
+              shields.render();
+              score = 0;
+              scoreText.render();
+          
+              //  Hide the text
+              gameOver.visible = false;
+          
+	  }
