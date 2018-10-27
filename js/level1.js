@@ -143,10 +143,6 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 		},
 		render:function() {
-			for (var i = 0; i < enemy.length; i++){
-                        game.debug.body(enemy.children[i]);
-                        }
-                        game.debug.body(player);
 		}
     };
            function hitEnemy(enemy, bullet) {
