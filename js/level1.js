@@ -37,7 +37,7 @@ var playState ={
 			fire.allowMultiple = true;
 			explode_snd = game.add.audio('explode_snd');
 			explode_snd.allowMultiple = true;
-			game.music.destroy();
+			game.music.pause();
 			level1_music = game.add.audio('level1_music');
 			level1_music.allowMultiple = true;
 			
