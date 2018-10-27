@@ -169,7 +169,7 @@ var playState ={
 		       enemylot.trail.x = enemylot.x+10;
                        enemylot.trail.y = enemylot.y;
 			     
-			 if (enemylot.x > -200) {
+			 if (enemylot.x < -200) {
 			  enemylot.kill();
 			 }  
                      }
