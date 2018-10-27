@@ -111,18 +111,19 @@ var playState ={
                               explosion.animations.add('explosion');
                         });
 			
-			shields = game.add.text(game.world.width - 150, 10, 'Shield: ' + player.health +'%', { font: '20px Arial', fill: '#fff' });
-                            shields.render = function () {
-                                shields.text = 'Shields: ' + Math.max(player.health, 0) +'%';
+                        shields = game.add.bitmapText(game.world.width - 250, 10, 'spacefont', '' + player.health +'%', 50);
+			shields.render = function () {
+                                shields.text = 'Shield: ' + Math.max(player.health, 0) +'%';
                             };
 			
 			
-			gameOver = game.add.text(game.world.centerX, game.world.centerY, 'GAME OVER!', { font: '84px Arial', fill: '#fff' });
-                        gameOver.anchor.setTo(0.5, 0.5);
+			gameOver = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'GAME OVER!', 110);
+			gameOver.x = gameOver.x - gameOver.textWidth / 2;
+			gameOver.y = gameOver.y - gameOver.textHeight / 3;
                         gameOver.visible = false;
 			
 			     //  Score
-                            scoreText = game.add.text(10, 10, '', { font: '20px Arial', fill: '#fff' });
+                            scoreText = game.add.bitmapText(10, 10, 'spacefont', '', 50)
                             scoreText.render = function () {
                             scoreText.text = 'Score: ' + score;
                             };
