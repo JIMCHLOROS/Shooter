@@ -423,7 +423,7 @@ var playState ={
           enemyTrail.setXSpeed(20, -20);
           //enemyTrail.setRotation(50,-50);
           enemyTrail.setAlpha(0.4, 0, 800);
-          enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out
+          enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
           }
           function restart () {
