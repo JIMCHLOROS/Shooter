@@ -37,6 +37,7 @@ var loadState = {
 	game.load.spritesheet('enemy3', 'assets/enemies/enemy_ship_3.png',1024,473);
         game.load.audio('music', 'assets/music/music.mp3');
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
+	game.load.audio('enemy_fire', 'assets/music/enemy_fire.mp3'); 
 	game.load.audio('explode_snd', 'assets/music/sound_explosion.mp3');
 	game.load.audio('level1_music', 'assets/music/level1_music.mp3');
     },
