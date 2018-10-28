@@ -6,6 +6,7 @@ var menuState = {
         game.stage.backgroundColor = "#000";
         
         text = game.add.bitmapText(10, 10, 'spacefont','Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!' , 11);
+        //text.visable = false;
         video = game.add.video('trailer');
         video.onComplete.add(function (){
           video.stop(0);
