@@ -367,6 +367,8 @@ var playState ={
               for (var i =0; i < numEnemiesInWave; i++) {
                   var enemy = enemy2.getFirstExists(false);
                   if (enemy) {
+		      enemy.trail.start(false, 800, 1);
+			  
                       enemy.startingY = startingY;
                       enemy.reset(game.width+horizonalSpacing * i, game.height / 2);
                       enemy.body.velocity.x = horizonalSpeed;
@@ -376,7 +378,6 @@ var playState ={
                       enemy.bullets = 5;
                       enemy.lastShot = 0;
           
-		      enemy.trail.start(false, 800, 1);
                       //  Update function for each enemy
                       enemy.update = function(){
 		       enemy.trail.x = enemy.x+70;
