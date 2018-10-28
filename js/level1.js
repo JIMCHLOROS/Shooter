@@ -376,6 +376,7 @@ var playState ={
                       enemy.bullets = 5;
                       enemy.lastShot = 0;
           
+		      enemy.trail.start(false, 800, 1);
                       //  Update function for each enemy
                       enemy.update = function(){
 		       enemy.trail.x = enemy.x+70;
