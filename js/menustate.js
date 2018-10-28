@@ -1,12 +1,8 @@
 var titlescreen;
 var video;
-var text;
 var menuState = {
     create:function () {
         game.stage.backgroundColor = "#000";
-        
-        text = game.add.bitmapText(10, 10, 'spacefont','Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!' , 11);
-        //text.visable = false;
         video = game.add.video('trailer');
         video.onComplete.add(function (){
           video.stop(0);
@@ -18,9 +14,9 @@ var menuState = {
               video.stop(0);
               this.state.start('playstate');
               });
+             game.add.text(30, game.height-30, 'Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!', {fill : 'white',font : '11px Roboto'});
              music.stop(0);
              titlescreen.destroy();
-             text.visable = true;
           },this);
         
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
