@@ -419,7 +419,7 @@ var playState ={
               shields.render()
           }
           function addEnemyEmitterTrail(enemy) {
-          var enemyTrail = game.add.emitter(enemy.x+ 70, player.y-19 , 100);
+          var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');//('explosion',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
           enemyTrail.setXSpeed(20, -20);
