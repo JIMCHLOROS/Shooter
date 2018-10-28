@@ -24,6 +24,7 @@ var loadState = {
 
         
 	game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'assets/spacefont/spacefont.xml');
+	game.load.spritesheet('skip_button', 'assets/skip_button.png',256,256,2);    
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
 	game.load.spritesheet('real_explosions', 'assets/real_fire.png',630,630,10);	
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
