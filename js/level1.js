@@ -44,7 +44,7 @@ var playState ={
 			explode_snd.allowMultiple = true;
 			music.stop(0);
 			
-			level1_music.play('',0,0.7,true);
+			level1_music.play('',0,0.5,true);
 			
 			game.scale.pageAlignHorizontally = true;
 			
