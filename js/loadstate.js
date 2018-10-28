@@ -22,6 +22,9 @@ var loadState = {
 
         game.stage.backgroundColor = '#5c94fc';
 
+        game.load.audio('music', 'assets/music/music.mp3');
+        music = game.add.audio('music');
+        music.play('',0,1,true);
         
 	game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'assets/spacefont/spacefont.xml');
 	game.load.spritesheet('skip_button', 'assets/skip_button.png',256,256,2);    
@@ -36,7 +39,6 @@ var loadState = {
 	game.load.spritesheet('enemy1', 'assets/enemies/enemy_ship_1.png',411,223);
 	game.load.spritesheet('enemy2', 'assets/enemies/enemy_ship_2.png',1275,450);
 	game.load.spritesheet('enemy3', 'assets/enemies/enemy_ship_3.png',1024,473);
-        game.load.audio('music', 'assets/music/music.mp3');
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
 	game.load.audio('enemy_fire', 'assets/music/enemy_fire.mp3'); 
 	game.load.audio('explode_snd', 'assets/music/sound_explosion.mp3');
@@ -44,8 +46,6 @@ var loadState = {
 	game.load.video('trailer', 'assets/video/Iron Man Suit Up.mp4');
     },
     update:function(){
-        music = game.add.audio('music');
-        music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
