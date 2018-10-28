@@ -1,9 +1,11 @@
 var titlescreen;
 var video;
+var text;
 var menuState = {
     create:function () {
         //game.renderer.renderSession.roundPixels = true;
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
+        text = game.add.bitmapText(game.height-50, 20, '-Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!', { font: "32px 'New Times Romans'", fill: "#fffff", align: "center" });
         video = game.add.video('trailer');
         video.onComplete.add(function (){
           video.stop(0);
