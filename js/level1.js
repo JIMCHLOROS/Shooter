@@ -138,12 +138,12 @@ var playState ={
                         enemy2.setAll('scale.x', 0.5);
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
-                        enemy2.forEach(function(enemytwo){
-			addEnemyEmitterTrail(enemytwo);
-                          enemytwo.damageAmount = 40;
-                          enemytwo.body.setSize(enemytwo.width, enemytwo.height);
-			  enemytwo.events.onKilled.add(function(){
-			  enemytwo.trail.kill();
+                        enemy2.forEach(function(enemy2){
+			addEnemyEmitterTrail(enemy2);
+                          enemy2.damageAmount = 40;
+                          enemy2.body.setSize(enemy2.width, enemy2.height);
+			  enemy2.events.onKilled.add(function(){
+			  enemy2.trail.kill();
 			  });
                         });
 			
@@ -425,7 +425,7 @@ var playState ={
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');//('explosion',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
           enemyTrail.setXSpeed(20, -20);
-          //enemyTrail.setRotation(50,-50);
+          enemyTrail.setRotation(50,-50);//comment it
           enemyTrail.setAlpha(0.4, 0, 800);
           enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
