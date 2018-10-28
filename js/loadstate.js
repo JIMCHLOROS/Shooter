@@ -40,6 +40,7 @@ var loadState = {
 	game.load.audio('enemy_fire', 'assets/music/enemy_fire.mp3'); 
 	game.load.audio('explode_snd', 'assets/music/sound_explosion.mp3');
 	game.load.audio('level1_music', 'assets/music/level1_music.mp3');
+	game.load.video('trailer', 'assets/video/Iron Man Suit Up.mp4');
     },
     update:function(){
         music = game.add.audio('music');
