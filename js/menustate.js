@@ -7,6 +7,7 @@ var menuState = {
         //game.renderer.renderSession.roundPixels = true;
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
         text = game.add.text(game.height-30, 20,'Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!');
+        text.scaleMax=null;
         text.anchor.setTo(0.5);
         text.font = 'Roboto';
         text.fontSize = 32;
