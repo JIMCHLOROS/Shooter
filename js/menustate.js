@@ -33,7 +33,7 @@ var menuState = {
     update:function () {
     },
     createButton:function (game,string,x,y,w,h,callback) {
-        var button1 = game.add.button(x,y,'string',callback,this,0,0,1);
+        var button1 = game.add.button(x,y,string,callback,this,0,0,1);
         button1.anchor.setTo(0.5,0.5);
         button1.width = w;
         button1.height = h;
