@@ -27,7 +27,7 @@ var loadState = {
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
 	game.load.spritesheet('real_explosions', 'assets/real_fire.png',630,630,10);	
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
-        game.load.image('starfield', 'assets/space_purple.png');
+        game.load.image('starfield', 'assets/space_purple.jpg');
      	game.load.image('iron_man', 'assets/iron_man.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
 	game.load.image('enemy_bullet', 'assets/bullets/real_bullet.png');
