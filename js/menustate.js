@@ -10,20 +10,20 @@ var menuState = {
           this.state.start('playstate');
         },this);
          video.onPlay.add(function(){
-           this.createButton(game,"",game.width-30,game.height-30,40,40,
+           this.createButton(game,"skip_button",game.width-30,game.height-30,40,40,
             function(){
               video.stop(0);
               this.state.start('playstate');
               });
              music.stop(0);
-             titlescreen = null;
+             titlescreen.destroy();
              game.stage.backgroundColor = "#000";
           },this);
         
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
         titlescreen.width = 1200;titlescreen.height = 800;
-        this.createButton(game,"",game.world.centerX+180,game.world.centerY + 30,160,155,
+        this.createButton(game,"button",game.world.centerX+180,game.world.centerY + 30,160,155,
             function(){
                 video.play(false);
                 video.addToWorld();
@@ -33,7 +33,7 @@ var menuState = {
     update:function () {
     },
     createButton:function (game,string,x,y,w,h,callback) {
-        var button1 = game.add.button(x,y,'button',callback,this,0,0,1);
+        var button1 = game.add.button(x,y,'string',callback,this,0,0,1);
         button1.anchor.setTo(0.5,0.5);
         button1.width = w;
         button1.height = h;
