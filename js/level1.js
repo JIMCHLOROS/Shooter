@@ -18,6 +18,7 @@ var ACCLERATION = 600;
 var DRAG = 400;
 var MAXSPEED = 400;
 var fire;
+var enemy_fire;
 var explode_snd;
 var level1_music;
 var enemy;
@@ -35,6 +36,8 @@ var playState ={
 			level1_music.allowMultiple = true;
 		},
 		create:function() {
+			enemy_fire = game.add.audio('enemy_fire');
+			enemy_fire.allowMultiple = true;
 	                fire = game.add.audio('fire');
 			fire.allowMultiple = true;
 			explode_snd = game.add.audio('explode_snd');
@@ -383,7 +386,8 @@ var playState ={
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
-                         this.lastShot = game.time.now;
+                         enemy_fire.play('',0,0.6,false);
+			 this.lastShot = game.time.now;
                          this.bullets--;
                          enemyBullet.reset(this.x, this.y + this.height / 2);
                          enemyBullet.damageAmount = this.damageAmount;
