@@ -419,11 +419,11 @@ var playState ={
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, player.y-19 , 100);
           enemyTrail.width = 10;
-          enemyTrail.makeParticles('explosion', [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
+          enemyTrail.makeParticles('bullet');//('explosion',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
           enemyTrail.setXSpeed(20, -20);
-          enemyTrail.setRotation(50,-50);
+          //enemyTrail.setRotation(50,-50);
           enemyTrail.setAlpha(0.4, 0, 800);
-          enemyTrail.setScale(0.01, 0.1, 0.01, 0.1, 1000, Phaser.Easing.Quintic.Out);
+          enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out
           enemy.trail = enemyTrail;
           }
           function restart () {
