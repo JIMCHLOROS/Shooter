@@ -5,8 +5,8 @@ var menuState = {
     create:function () {
         //game.renderer.renderSession.roundPixels = true;
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
-        text = game.add.bitmapText(game.height-30, 20,'spacefont','-Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!',28);
-        text.visable = false;
+        text = game.add.bitmapText(game.height-30, 20,'spacefont','Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!',28);
+        //text.visable = false;
         video = game.add.video('trailer');
         video.onComplete.add(function (){
           video.stop(0);
