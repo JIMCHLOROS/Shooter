@@ -5,16 +5,15 @@ var menuState = {
         //game.renderer.renderSession.roundPixels = true;
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
         video = game.add.video('trailer');
-        video.onComplete(function (){
+        video.onComplete.add(function (){
           this.state.start('playstate');
-        });
-        video.onPlaying(function(){
+        },this);
+        video.onPlaying.add(function(){
         this.createSkipButton(game,"",game.width-30,30,40,40,
             function(){
-                video.play(true);
-                video.addToWorld();
-                //this.state.start('playstate');
-         });
+                video.stop(0);
+                this.state.start('playstate');
+         },this);
         });
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
