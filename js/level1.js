@@ -365,7 +365,9 @@ var playState ={
           
               //  Launch wave
               for (var i =0; i < numEnemiesInWave; i++) {
+		      
                   var enemytwo = enemy2.getFirstExists(false);
+                  enemytwo.trail.start(false, 800, 1);
                   if (enemytwo) {
                       enemytwo.startingY = startingY;
                       enemytwo.reset(game.width+horizonalSpacing * i, game.height / 2);
@@ -375,7 +377,6 @@ var playState ={
                       var firingDelay = 600;
                       enemytwo.bullets = 5;
                       enemytwo.lastShot = 0;
-                      enemytwo.trail.start(false, 800, 1);
                       //  Update function for each enemy
                       enemytwo.update = function(){
 		       enemytwo.trail.x = enemytwo.x+70;
@@ -425,7 +426,7 @@ var playState ={
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');//('explosion',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
           enemyTrail.setXSpeed(20, -20);
-          enemyTrail.setRotation(50,-50);//comment it
+          //enemyTrail.setRotation(50,-50);
           enemyTrail.setAlpha(0.4, 0, 800);
           enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
