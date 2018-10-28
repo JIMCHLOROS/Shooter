@@ -139,12 +139,8 @@ var playState ={
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
                         enemy2.forEach(function(enemy2){
-			addEnemyEmitterTrail(enemy2);
                           enemy2.damageAmount = 40;
                           enemy2.body.setSize(enemy2.width, enemy2.height);
-			  enemy2.events.onKilled.add(function(){
-			  enemy2.trail.kill();
-			  });
                         });
 			
                             //  An explosion pool
@@ -367,7 +363,6 @@ var playState ={
               for (var i =0; i < numEnemiesInWave; i++) {
 		      
                   var enemytwo = enemy2.getFirstExists(false);
-                  enemytwo.trail.start(false, 800, 1);
                   if (enemytwo) {
                       enemytwo.startingY = startingY;
                       enemytwo.reset(game.width+horizonalSpacing * i, game.height / 2);
@@ -379,8 +374,6 @@ var playState ={
                       enemytwo.lastShot = 0;
                       //  Update function for each enemy
                       enemytwo.update = function(){
-		       enemytwo.trail.x = enemytwo.x+70;
-                       enemytwo.trail.y = enemytwo.y-19;
                         //  Wave movement
                         this.body.y = this.startingY + Math.sin((this.x) / frequency) * spread;
           
