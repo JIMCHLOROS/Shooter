@@ -378,8 +378,8 @@ var playState ={
           
                       //  Update function for each enemy
                       enemy.update = function(){
-		       enemy.trail.x = enemylot.x+70;
-                       enemy.trail.y = enemylot.y-19;
+		       enemy.trail.x = enemy.x+70;
+                       enemy.trail.y = enemy.y-19;
                         //  Wave movement
                         this.body.y = this.startingY + Math.sin((this.x) / frequency) * spread;
           
