@@ -44,7 +44,7 @@ var playState ={
 			explode_snd.allowMultiple = true;
 			music.stop(0);
 			
-			level1_music.play('',0,0.5,true);
+			level1_music.play('',0,0.3,true);
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -312,7 +312,7 @@ var playState ={
 				if (bullet) {
 					//  And fire it
 					//  Make bullet come out of tip of ship with right angle
-					fire.play('',0,0.6,false);
+					fire.play('',0,0.8,false);
 					var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
 					bullet.reset(player.x + bulletOffset + 55, player.y+4);
 					bullet.angle = player.angle;
