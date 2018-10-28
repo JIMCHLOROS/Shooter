@@ -365,21 +365,21 @@ var playState ={
           
               //  Launch wave
               for (var i =0; i < numEnemiesInWave; i++) {
-                  var enemy = enemy2.getFirstExists(false);
-                  if (enemy) {
-                      enemy.startingY = startingY;
-                      enemy.reset(game.width+horizonalSpacing * i, game.height / 2);
-                      enemy.body.velocity.x = horizonalSpeed;
+                  var enemytwo = enemy2.getFirstExists(false);
+                  if (enemytwo) {
+                      enemytwo.startingY = startingY;
+                      enemytwo.reset(game.width+horizonalSpacing * i, game.height / 2);
+                      enemytwo.body.velocity.x = horizonalSpeed;
 			  
                       var bulletSpeed = 400;
                       var firingDelay = 600;
-                      enemy.bullets = 5;
-                      enemy.lastShot = 0;
-                      enemy.trail.start(false, 800, 1);
+                      enemytwo.bullets = 5;
+                      enemytwo.lastShot = 0;
+                      enemytwo.trail.start(false, 800, 1);
                       //  Update function for each enemy
-                      enemy.update = function(){
-		       enemy.trail.x = enemy.x+70;
-                       enemy.trail.y = enemy.y-19;
+                      enemytwo.update = function(){
+		       enemytwo.trail.x = enemytwo.x+70;
+                       enemytwo.trail.y = enemytwo.y-19;
                         //  Wave movement
                         this.body.y = this.startingY + Math.sin((this.x) / frequency) * spread;
           
