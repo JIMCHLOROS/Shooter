@@ -138,12 +138,12 @@ var playState ={
                         enemy2.setAll('scale.x', 0.5);
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
-                        enemy2.forEach(function(enemy){
-			addEnemyEmitterTrail(enemy);
-                          enemy.damageAmount = 40;
-                          enemy.body.setSize(enemy.width, enemy.height);
-			  enemy.events.onKilled.add(function(){
-			  enemy.trail.kill();
+                        enemy2.forEach(function(enemy2){
+			addEnemyEmitterTrail(enemy2);
+                          enemy2.damageAmount = 40;
+                          enemy2.body.setSize(enemy2.width, enemy2.height);
+			  enemy2.events.onKilled.add(function(){
+			  enemy2.trail.kill();
 			  });
                         });
 			
