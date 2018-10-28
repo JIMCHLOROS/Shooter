@@ -8,13 +8,14 @@ var menuState = {
         video.onComplete.add(function (){
           this.state.start('playstate');
         },this);
-        video.onPlay.add(function(){
-        this.createButton(game,"",game.width-30,30,40,40,
+         video.onPlay.add(function(){
+           this.createButton(game,"",game.width-30,30,40,40,
             function(){
-                video.stop(0);
-                this.state.start('playstate');
-         },this);
-        });
+              video.stop(0);
+              this.state.start('playstate');
+              });
+          },this);
+        
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
         titlescreen.width = 1200;titlescreen.height = 800;
