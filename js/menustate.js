@@ -8,7 +8,7 @@ var menuState = {
         video.onComplete.add(function (){
           this.state.start('playstate');
         },this);
-        video.onPlaying.add(function(){
+        video.onPlay.add(function(){
         this.createSkipButton(game,"",game.width-30,30,40,40,
             function(){
                 video.stop(0);
