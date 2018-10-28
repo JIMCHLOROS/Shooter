@@ -6,14 +6,18 @@ var menuState = {
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
         video = game.add.video('trailer');
         video.onComplete.add(function (){
+          video.stop(0);
           this.state.start('playstate');
         },this);
          video.onPlay.add(function(){
-           this.createButton(game,"",game.width-30,30,40,40,
+           this.createButton(game,"",game.width-30,game.height-30,40,40,
             function(){
               video.stop(0);
               this.state.start('playstate');
               });
+             music.stop(0);
+             titlescreen = null;
+             game.stage.backgroundColor = "#000";
           },this);
         
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
@@ -21,7 +25,7 @@ var menuState = {
         titlescreen.width = 1200;titlescreen.height = 800;
         this.createButton(game,"",game.world.centerX+180,game.world.centerY + 30,160,155,
             function(){
-                video.play(true);
+                video.play(false);
                 video.addToWorld();
                 //this.state.start('playstate');
          });
