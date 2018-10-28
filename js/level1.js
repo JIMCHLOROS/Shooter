@@ -428,9 +428,8 @@ var playState ={
 	      enemy2.callAll('kill');
               enemyBullets.callAll('kill');
               game.time.events.remove(enemyLaunchTimer);
-              game.time.events.add(1000, launchEnemy);
+              game.time.events.add(1500, launchEnemy);
               game.time.events.remove(enemy2LaunchTimer);
-	      game.time.events.add(3000, launchEnemy2);
               //  Revive the player
               player.revive();
               player.health = 100;
