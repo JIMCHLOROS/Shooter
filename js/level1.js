@@ -139,11 +139,13 @@ var playState ={
                         enemy2.setAll('scale.y', 0.5);
                         enemy2.setAll('angle', 180);
                         enemy2.forEach(function(enemy){
+			addEnemyEmitterTrail(enemy);
                           enemy.damageAmount = 40;
                           enemy.body.setSize(enemy.width, enemy.height);
+			  enemy.events.onKilled.add(function(){
+			  enemy.trail.kill();
+			  });
                         });
-                        //game.time.events.add(3000, launchEnemy2);
-			
 			
                             //  An explosion pool
                         explosions = game.add.group();
