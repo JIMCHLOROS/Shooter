@@ -23,9 +23,6 @@ var loadState = {
         game.stage.backgroundColor = '#5c94fc';
 
         game.load.audio('music', 'assets/music/music.mp3');
-        music = game.add.audio('music');
-        music.play('',0,1,true);
-        
 	game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'assets/spacefont/spacefont.xml');
 	game.load.spritesheet('skip_button', 'assets/skip_button.png',256,256,2);    
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
@@ -46,6 +43,8 @@ var loadState = {
 	game.load.video('trailer', 'assets/video/Iron Man Suit Up.mp4');
     },
     update:function(){
+        music = game.add.audio('music');
+        music.play('',0,1,true);
         game.state.start('menustate');
     },
 };
