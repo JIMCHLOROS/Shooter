@@ -3,6 +3,7 @@ var video;
 var text;
 var menuState = {
     create:function () {
+        game.stage.backgroundColor = "#000";
         //game.renderer.renderSession.roundPixels = true;
         //Phaser.Canvas.setImageRenderingCrisp(game.canvas);
         text = game.add.text(game.height-30, 20,'Μας επιτίθενται εξωγήινοι!! \n -Μισό...ντύνομαι και έρχομαι!');
@@ -10,8 +11,8 @@ var menuState = {
         text.font = 'Roboto';
         text.fontSize = 32;
         text.align = 'center';
-        text.stroke = '#000000';
-        //text.visable = false;
+        text.stroke = '#ffffff';
+        text.visable = false;
         video = game.add.video('trailer');
         video.onComplete.add(function (){
           video.stop(0);
@@ -26,7 +27,6 @@ var menuState = {
              music.stop(0);
              titlescreen.destroy();
              text.visable = true;
-             game.stage.backgroundColor = "#000";
           },this);
         
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
