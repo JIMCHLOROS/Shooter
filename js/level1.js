@@ -264,6 +264,7 @@ var playState ={
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
 		   game_over_title.anchor.setTo(0.5,0.5);
 		   game_over_title.width = 1200;game_over_title.height = 800;
+		   game_over_title.visible = false;
 	   }
            function bulletdestroy(be,b){
 	   explode_snd.play('',0,1,false);
