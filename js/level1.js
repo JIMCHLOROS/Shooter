@@ -1,3 +1,5 @@
+var firts_flag = true;
+var flag = false;
 var game_over_title;
 var enemySpacing = 1000;
 var enemy2Launched = false;
@@ -237,10 +239,13 @@ var playState ={
 			shipTrail2.y = player.y + 16;//+13
 			shipTrail2.x = player.x - 75;//45
 			//Game Over?
-			if (! player.alive && gameOver.visible === false) {
-				game.time.events.add(2000, function () {game_over_title.visible = true;});
-			        gameOver.visible = true;
-				gameOver.alpha = 0;
+			if(! player.alive && gameOver.visible === false && firts_flag === true){
+			        game.time.events.add(2000, function () {game_over_title.visible = true;gameOver.visible = true;gameOver.alpha = 0;});
+                                firts_flag = false;
+				flag = true;
+			   }
+			if (flag) {
+				flag = false;
 			        var fadeInGameOver = game.add.tween(gameOver);
 			        fadeInGameOver.to({alpha: 1}, 1000, Phaser.Easing.Quintic.Out);
 			        fadeInGameOver.onComplete.add(setResetHandlers);
@@ -435,6 +440,9 @@ var playState ={
           enemy.trail = enemyTrail;
           }
           function restart () {
+		  //if game over flag
+	      firts_flag === true;
+		  
 	      game_over_title.visible = false;
               //  Reset the enemies
               enemy.callAll('kill');
