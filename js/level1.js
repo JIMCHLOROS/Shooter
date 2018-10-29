@@ -1,3 +1,4 @@
+var score_icon;
 var life_icon;
 var game_over_title;
 var enemySpacing = 1000;
@@ -187,9 +188,13 @@ var playState ={
                         gameOver.visible = false;
 			
 			     //  Score
-                            scoreText = game.add.bitmapText(10, 10, 'spacefont', '', 40)
+			score_icon = game.add.sprite(30,30,'score_icon');
+			score_icon.anchor.setTo(0.5,0.5);
+			score_icon.width = 40;score_icon.height = 40;
+			
+                            scoreText = game.add.bitmapText(60, 60, 'spacefont', '', 40)
                             scoreText.render = function () {
-                               scoreText.text = 'Score ' + score;
+                               scoreText.text = score;
                             };
                             scoreText.render();
 		},
