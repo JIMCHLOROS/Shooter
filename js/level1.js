@@ -1,3 +1,4 @@
+var life_icon;
 var game_over_title;
 var enemySpacing = 1000;
 var enemy2Launched = false;
@@ -168,9 +169,13 @@ var playState ={
                               explosion.animations.add('explosion');
                         });
 			
-                        shields = game.add.bitmapText(game.world.width - 250, 10, 'spacefont', '' + player.health , 40);
+			life_icon = game.add.sprite(game.world.width - 250,10,'titlescreen');
+			life_icon.anchor.setTo(0.5,0.5);
+			life_icon.width = 40;life_icon.height = 40;
+			
+                        shields = game.add.bitmapText(game.world.width - 210, 10, 'spacefont', '' + player.health , 40);
 			shields.render = function () {
-                                shields.text = 'Shield ' + Math.max(player.health, 0);
+                                shields.text = Math.max(player.health, 0);
                             };
 			shields.render();
 			
