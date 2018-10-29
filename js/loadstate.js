@@ -30,7 +30,6 @@ var loadState = {
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
         game.load.image('starfield', 'assets/space.png');
 	game.load.image('score_icon', 'assets/score_icon.png');
-	game.load.image('shield_icon', 'assets/shield_icon.gif');
 	game.load.image('life_icon', 'assets/life_icon.png');
 	game.load.image('game_over_screen', 'assets/game_over_screen.jpg');
      	game.load.image('iron_man', 'assets/iron_man.png');
