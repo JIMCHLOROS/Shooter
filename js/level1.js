@@ -238,7 +238,7 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over?
 			if (! player.alive && gameOver.visible === false) {
-				game_over_title.visible = true;
+				game.time.events.add(2000, function () {game_over_title.visible = true;});
 			        gameOver.visible = true;
 				gameOver.alpha = 0;
 			        var fadeInGameOver = game.add.tween(gameOver);
