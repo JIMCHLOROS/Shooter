@@ -169,7 +169,7 @@ var playState ={
                               explosion.animations.add('explosion');
                         });
 			
-			life_icon = game.add.sprite(game.world.width - 250,10,'titlescreen');
+			life_icon = game.add.sprite(game.world.width - 250,10,'life_icon');
 			life_icon.anchor.setTo(0.5,0.5);
 			life_icon.width = 40;life_icon.height = 40;
 			
