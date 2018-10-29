@@ -238,7 +238,7 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over?
 			if (! player.alive && gameOver.visible === false) {
-				showGameOver(true);
+				game_over_title.visible = true;
 			        gameOver.visible = true;
 				gameOver.alpha = 0;
 			        var fadeInGameOver = game.add.tween(gameOver);
@@ -260,9 +260,6 @@ var playState ={
 		render:function() {
 		}
     };
-           function showGameOver(b){
-    	           game_over_title.visible = b;
-           }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
 		   game_over_title.anchor.setTo(0.5,0.5);
@@ -438,7 +435,7 @@ var playState ={
           enemy.trail = enemyTrail;
           }
           function restart () {
-	      showGameOver(false);
+	      game_over_title.visible = false;
               //  Reset the enemies
               enemy.callAll('kill');
 	      enemy2.callAll('kill');
