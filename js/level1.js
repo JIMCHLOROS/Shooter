@@ -188,8 +188,7 @@ var playState ={
                         gameOver.visible = false;
 			
 			     //  Score
-			//score_icon = game.add.sprite(30,30,'score_icon');
-			score_icon = game.add.sprite(30,30,'shield_icon');
+			score_icon = game.add.sprite(30,30,'score_icon');
 			score_icon.anchor.setTo(0.5,0.5);
 			score_icon.width = 40;score_icon.height = 40;
 			
