@@ -169,11 +169,11 @@ var playState ={
                               explosion.animations.add('explosion');
                         });
 			
-			life_icon = game.add.sprite(game.world.width - 250,30,'life_icon');
+			life_icon = game.add.sprite(game.world.width - 100,30,'life_icon');
 			life_icon.anchor.setTo(0.5,0.5);
 			life_icon.width = 40;life_icon.height = 40;
 			
-                        shields = game.add.bitmapText(game.world.width - 230, 10, 'spacefont', '' + player.health , 40);
+                        shields = game.add.bitmapText(game.world.width - 80, 10, 'spacefont', '' + player.health , 40);
 			shields.render = function () {
                                 shields.text = Math.max(player.health, 0);
                             };
