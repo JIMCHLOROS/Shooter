@@ -174,6 +174,8 @@ var playState ={
                             };
 			shields.render();
 			
+			addGameOverTitle();
+			
 			gameOver = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'GAME OVER', 110);
 			gameOver.x = gameOver.x - gameOver.textWidth / 2;
 			gameOver.y = gameOver.y - gameOver.textHeight / 3;
@@ -236,7 +238,7 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over?
 			if (! player.alive && gameOver.visible === false) {
-				game.time.events.add(2000, addGameOverTitle);
+				game.time.events.add(2000, game_over_title.visible = true);
 			        gameOver.visible = true;
 				gameOver.alpha = 0;
 			        var fadeInGameOver = game.add.tween(gameOver);
