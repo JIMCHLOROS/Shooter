@@ -259,7 +259,7 @@ var playState ={
 		}
     };
            function addGameOverTitle(){
-		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
+		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
 		   game_over_title.anchor.setTo(0.5,0.5);
 		   game_over_title.width = 1200;game_over_title.height = 800;
 	   }
