@@ -1,3 +1,4 @@
+var game_over_title;
 var enemySpacing = 1000;
 var enemy2Launched = false;
 var enemyBullets;
@@ -36,6 +37,7 @@ var playState ={
 			level1_music.allowMultiple = true;
 		},
 		create:function() {
+			//the audio
 			enemy_fire = game.add.audio('enemy_fire');
 			enemy_fire.allowMultiple = true;
 	                fire = game.add.audio('fire');
@@ -43,7 +45,6 @@ var playState ={
 			explode_snd = game.add.audio('explode_snd');
 			explode_snd.allowMultiple = true;
 			music.stop(0);
-			
 			level1_music.play('',0,0.3,true);
 			
 			game.scale.pageAlignHorizontally = true;
@@ -235,6 +236,7 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over?
 			if (! player.alive && gameOver.visible === false) {
+				game.time.events.add(2000, addGameOverTitle);
 			        gameOver.visible = true;
 				gameOver.alpha = 0;
 			        var fadeInGameOver = game.add.tween(gameOver);
@@ -256,6 +258,11 @@ var playState ={
 		render:function() {
 		}
     };
+           function addGameOverTitle(){
+		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
+		   game_over_title.anchor.setTo(0.5,0.5);
+		   game_over_title.width = 1200;game_over_title.height = 800;
+	   }
            function bulletdestroy(be,b){
 	   explode_snd.play('',0,1,false);
 	   var explosion = explosions.getFirstExists(false);
@@ -425,6 +432,7 @@ var playState ={
           enemy.trail = enemyTrail;
           }
           function restart () {
+	      game_over_title.destroy();
               //  Reset the enemies
               enemy.callAll('kill');
 	      enemy2.callAll('kill');
