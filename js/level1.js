@@ -192,7 +192,7 @@ var playState ={
 			score_icon.anchor.setTo(0.5,0.5);
 			score_icon.width = 40;score_icon.height = 40;
 			
-                            scoreText = game.add.bitmapText(60, 60, 'spacefont', '', 40)
+                            scoreText = game.add.bitmapText(60, 10, 'spacefont', '', 40)
                             scoreText.render = function () {
                                scoreText.text = score;
                             };
