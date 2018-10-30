@@ -26,7 +26,6 @@ var menuState = {
             function(){
                 video.play(false);
                 video.addToWorld();
-                //this.state.start('playstate');
          });
     },
     update:function () {
