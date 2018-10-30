@@ -52,7 +52,7 @@ var playState ={
 			game.scale.pageAlignHorizontally = true;
 			
 			//  The scrolling starfield background
-			starfield = game.add.tileSprite(0, 0, 1200, 800, 'starfield');
+			starfield = game.add.tileSprite(0, 0, 1600, 900, 'starfield');//1600,900
 			//  Our bullet group
 			bullets = game.add.group();
 			bullets.enableBody = true;
@@ -276,7 +276,7 @@ var playState ={
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
 		   game_over_title.anchor.setTo(0.5,0.5);
-		   game_over_title.width = 1200;game_over_title.height = 800;
+		   game_over_title.width = 1600;game_over_title.height = 900;//1600,900
 		   game_over_title.visible = false;
 	   }
            function bulletdestroy(be,b){
