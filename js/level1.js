@@ -1,7 +1,7 @@
 var score_icon;
 var life_icon;
 var game_over_title;
-var enemySpacing = 1000;
+var enemySpacing = 2000;
 var enemy2Launched = false;
 var enemyBullets;
 var player;
