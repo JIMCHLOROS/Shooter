@@ -21,7 +21,7 @@ var menuState = {
         
         titlescreen = game.add.sprite(game.world.centerX,game.world.centerY,'titlescreen');
         titlescreen.anchor.setTo(0.5,0.5);
-        titlescreen.width = 1200;titlescreen.height = 800;
+        titlescreen.width = 1600;titlescreen.height = 900;// 1200 ,900
         this.createButton(game,"button",game.world.centerX+180,game.world.centerY + 30,160,155,
             function(){
                 video.play(false);
