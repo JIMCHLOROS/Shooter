@@ -28,7 +28,7 @@ var loadState = {
 	game.load.spritesheet('button', 'assets/button.png',640,622,2);	
 	game.load.spritesheet('real_explosions', 'assets/real_fire.png',630,630,10);	
 	game.load.spritesheet('explosion', 'assets/explode.png',128,128,16);	
-        game.load.image('starfield', 'assets/space.png');
+        game.load.image('starfield', 'assets/space_1600x900.png');
 	game.load.image('score_icon', 'assets/score_icon.png');
 	game.load.image('life_icon', 'assets/life_icon.png');
 	game.load.image('game_over_screen', 'assets/game_over_screen.jpg');
