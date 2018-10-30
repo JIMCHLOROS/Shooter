@@ -14,7 +14,7 @@ var menuState = {
               video.stop(0);
               this.state.start('playstate');
               });
-             game.add.text(30, game.height-60, '-Μας επιτίθενται εξωγήινοι!!\n -Κλείσε θα σε πάρω μετά!', {fill : 'white',font : '24px Roboto'});
+             game.add.text(30, game.height-60, '', {fill : 'white',font : '24px Roboto'});
              music.stop(0);
              titlescreen.destroy();
           },this);
