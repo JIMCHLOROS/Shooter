@@ -4,13 +4,12 @@ var menuState = {
     create:function () {
         game.stage.backgroundColor = "#000";
         video = game.add.video('trailer');
-        video.width = 1700;
         video.onComplete.add(function (){
           video.stop(0);
           this.state.start('playstate');
         },this);
          video.onPlay.add(function(){
-           this.createButton(game,"skip_button",game.width-60,game.height-50,70,70,
+           this.createButton(game,"skip_button",game.width-100,game.height-50,70,70,
             function(){
               video.stop(0);
               this.state.start('playstate');
