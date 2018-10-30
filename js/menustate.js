@@ -9,7 +9,7 @@ var menuState = {
           this.state.start('playstate');
         },this);
          video.onPlay.add(function(){
-           this.createButton(game,"skip_button",game.width-100,game.height-50,70,70,
+           this.createButton(game,"skip_button",game.width-60,game.height-50,70,70,
             function(){
               video.stop(0);
               this.state.start('playstate');
