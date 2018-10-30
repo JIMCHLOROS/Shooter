@@ -4,6 +4,7 @@ var menuState = {
     create:function () {
         game.stage.backgroundColor = "#000";
         video = game.add.video('trailer');
+        video.width = 1700;
         video.onComplete.add(function (){
           video.stop(0);
           this.state.start('playstate');
