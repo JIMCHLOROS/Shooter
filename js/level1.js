@@ -273,7 +273,7 @@ var playState ={
 			if (score > 300 && player.weaponLevel < 2) {
 			player.weaponLevel = 2;
 			}
-			if (score > 400 && player.weaponLevel < 3) {
+			if (score > 800 && player.weaponLevel < 3) {
 			player.weaponLevel = 3;
 			}
 		},
