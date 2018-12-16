@@ -326,9 +326,7 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.kill();
-	       player.weaponLevel = 1;
 	       player.damage(enemy.damageAmount);
-	       player.weaponLevel = 1;
     	       shields.render();
            }
            function fireBullet() {
@@ -358,7 +356,7 @@ var playState ={
 				var BULLET_SPEED = 400;
 				var BULLET_SPACING = 300;
 					
-				for (var i = 0; i < 3; i++) {
+				for (var i = 0; i < 2; i++) {
 				var bullet = bullets.getFirstExists(false);
 				if (bullet) {
 				fire.play('',0,0.8,false);
@@ -367,9 +365,8 @@ var playState ={
 				bullet.reset(player.x + bulletOffset + 55, player.y+4);
 				//  "Spread" angle of 1st and 3rd bullets
 				var spreadAngle;
-				if (i === 0) spreadAngle = -20;
-				if (i === 1) spreadAngle = 0;
-				if (i === 2) spreadAngle = 20;
+				if (i === 0) spreadAngle = -10;
+				if (i === 1) spreadAngle = 10;
 				bullet.angle = player.angle + spreadAngle;
 				game.physics.arcade.velocityFromAngle(bullet.angle,BULLET_SPEED, bullet.body.velocity);
 				bullet.body.velocity.y += player.body.velocity.y;
@@ -493,7 +490,6 @@ var playState ={
               explosion.alpha = 0.7;
               explosion.play('explosion', 30, false, true);
               bullet.kill();
-              player.weaponLevel = 1;
               player.damage(bullet.damageAmount);
               shields.render()
           }
