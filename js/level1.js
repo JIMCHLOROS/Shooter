@@ -83,6 +83,7 @@ var playState ={
 			player.health = 100;
 			player.width = 100;
 			player.height = 50;
+			player.weaponLevel = 1;//NEW
 			player.events.onKilled.add(function(){
 			    shipTrail.kill();
 			    shipTrail2.kill();
@@ -269,6 +270,12 @@ var playState ={
 			            }
 			        }
 			    }
+			if (score > 300 && player.weaponLevel < 2) {
+			player.weaponLevel = 2;
+			}
+			if (score > 400 && player.weaponLevel < 2) {
+			player.weaponLevel = 3;
+			}
 		},
 		render:function() {
 		}
@@ -320,10 +327,13 @@ var playState ={
                explosion.play('explosion', 30, false, true);
                enemy.kill();
 	       player.damage(enemy.damageAmount);
+	       player.weaponLevel = 1;
     	       shields.render();
            }
            function fireBullet() {
 		   
+			switch (player.weaponLevel) {
+			case 1:
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
@@ -341,7 +351,55 @@ var playState ={
 					bullet.body.velocity.y += player.body.velocity.y;
 					bulletTimer = game.time.now + BULLET_SPACING;
 				}
-			}
+			}break;
+			case 2:
+				if (game.time.now > bulletTimer) {
+				var BULLET_SPEED = 400;
+				var BULLET_SPACING = 300;
+					
+				for (var i = 0; i < 3; i++) {
+				var bullet = bullets.getFirstExists(false);
+				if (bullet) {
+				fire.play('',0,0.8,false);
+				//  Make bullet come out of tip of ship with right angle
+				var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
+				bullet.reset(player.x + bulletOffset + 55, player.y+4);
+				//  "Spread" angle of 1st and 3rd bullets
+				var spreadAngle;
+				if (i === 0) spreadAngle = -20;
+				if (i === 1) spreadAngle = 0;
+				if (i === 2) spreadAngle = 20;
+				bullet.angle = player.angle + spreadAngle;
+				game.physics.arcade.velocityFromAngle(bullet.angle,BULLET_SPEED, bullet.body.velocity);
+				bullet.body.velocity.y += player.body.velocity.y;
+				}
+				bulletTimer = game.time.now + BULLET_SPACING;
+				}	
+			       }break;
+                        case 3:
+			if (game.time.now > bulletTimer) {
+				var BULLET_SPEED = 400;
+				var BULLET_SPACING = 300;
+					
+				for (var i = 0; i < 3; i++) {
+				var bullet = bullets.getFirstExists(false);
+				  if (bullet) {
+				  fire.play('',0,0.8,false);
+				  //  Make bullet come out of tip of ship with right angle
+				  var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
+				  bullet.reset(player.x + bulletOffset + 55, player.y+4);
+				//  "Spread" angle of 1st and 3rd bullets
+				  var spreadAngle;
+				  if (i === 0) spreadAngle = -20;
+				  if (i === 1) spreadAngle = 0;
+				  if (i === 2) spreadAngle = 20;
+				  bullet.angle = player.angle + spreadAngle;
+				  game.physics.arcade.velocityFromAngle(bullet.angle,BULLET_SPEED, bullet.body.velocity);
+				  bullet.body.velocity.y += player.body.velocity.y;
+				 }
+				bulletTimer = game.time.now + BULLET_SPACING;
+				}		
+			}break;
 		}
            function launchEnemy() {
 		   //var MIN_ENEMY_SPACING = 2000;
@@ -433,7 +491,7 @@ var playState ={
               explosion.alpha = 0.7;
               explosion.play('explosion', 30, false, true);
               bullet.kill();
-          
+              player.weaponLevel = 1;
               player.damage(bullet.damageAmount);
               shields.render()
           }
