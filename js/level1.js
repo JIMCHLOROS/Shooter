@@ -326,6 +326,7 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.kill();
+	       player.weaponLevel = 1;
 	       player.damage(enemy.damageAmount);
 	       player.weaponLevel = 1;
     	       shields.render();
@@ -517,6 +518,7 @@ var playState ={
               game.time.events.remove(enemy2LaunchTimer);
               //  Revive the player
               player.revive();
+	      player.weaponLevel = 1;
               player.health = 100;
               shields.render();
               score = 0;
