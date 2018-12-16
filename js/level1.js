@@ -400,6 +400,7 @@ var playState ={
 				bulletTimer = game.time.now + BULLET_SPACING;
 				}		
 			}break;
+		   }
 		}
            function launchEnemy() {
 		   //var MIN_ENEMY_SPACING = 2000;
