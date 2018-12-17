@@ -219,8 +219,8 @@ var playState ={
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
-			game.physics.arcade.overlap(gift1, player, upgrade, null, this);
-			game.physics.arcade.overlap(gift2, player, upgrade, null, this);
+			game.physics.arcade.overlap(player,gift1,upgrade, null, this);
+			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -297,7 +297,7 @@ var playState ={
 		render:function() {
 		}
     };
-           function upgrade(gift,player){//add sound
+           function upgrade(player,gift){//add sound
 		  gift.kill();
 		  player.weaponLevel++;
 	   }
