@@ -56,15 +56,13 @@ var playState ={
 			//  The scrolling starfield background
 			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield');//1600,900
 
-			gift1 = game.add.tileSprite(150,200,36,50,'gift');
+			gift1 = game.add.sprite(150,200,'gift');
 			gift1.anchor.setTo(0.5,0.5);
-			gift1.physicsBodyType = Phaser.Physics.ARCADE;
 			gift1.enableBody = false;
 			gift1.visible = false;
 			
-			gift2 = game.add.tileSprite(150,200,36,50,'gift');
+			gift2 = game.add.sprite(150,600,'gift');
 			gift2.anchor.setTo(0.5,0.5);
-			gift2.physicsBodyType = Phaser.Physics.ARCADE;
 			gift2.enableBody = false;
 		        gift2.visible = false;
 			
@@ -222,8 +220,6 @@ var playState ={
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
-			game.physics.arcade.overlap(player,gift1,upgrade, null, this);
-			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -291,10 +287,13 @@ var playState ={
 			if (score > 100) {
 				gift1.visible = true;
 				gift1.enableBody = true;
+				
+			game.physics.arcade.overlap(player,gift1,upgrade, null, this);
 			}
 			if (score > 200) {
 				gift2.visible = true;
 				gift2.enableBody = true;
+			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
 		},
 		render:function() {
