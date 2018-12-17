@@ -33,6 +33,7 @@ var loadState = {
 	game.load.image('life_icon', 'assets/life_icon.png');
 	game.load.image('game_over_screen', 'assets/game_over_screen.jpg');
      	game.load.image('iron_man', 'assets/iron_man.png');
+	game.load.image('gift', 'assets/gift.png');
 	game.load.image('bullet', 'assets/bullets/bullet.png');
 	game.load.image('enemy_bullet', 'assets/bullets/real_bullet.png');
 	game.load.spritesheet('enemy', 'assets/enemies/enemy_ship.png',411,223);
