@@ -286,7 +286,7 @@ var playState ={
     };
            function upgrade(gift,player){//add sound
 		  gift.kill();
-		  player.weaponLevel++;
+		  player.weaponLevel = player.weaponLevel+1;
 	   }
            function addGift(x,y,gift){
 		   gift = game.add.sprite(x,y,'gift');
