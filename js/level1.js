@@ -276,14 +276,18 @@ var playState ={
 			    }
 			if (score > 300) {
 				if(add1){
-				addGift(150,200,gift1);
+				gift1 = game.add.sprite(150,200,'gift');
+				gift1.anchor.setTo(0.5,0.5);
+				gift1.enableBody = true;	
 				add1=false;
 			        }
 				game.physics.arcade.overlap(gift1, player, upgrade, null, this);
 			}
 			if (score > 800) {
 				if(add2){
-				addGift(150,600,gift2);
+				gift2 = game.add.sprite(150,600,'gift');
+				gift2.anchor.setTo(0.5,0.5);
+				gift2.enableBody = true;
 				add2=false;
 				}
 				game.physics.arcade.overlap(gift2, player, upgrade, null, this);
