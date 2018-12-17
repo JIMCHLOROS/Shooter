@@ -275,10 +275,10 @@ var playState ={
 			        }
 			    }
 			if (score > 300 && player.weaponLevel < 2) {
-				addGift(150,200);
+				addGift(150,200,gift1);
 			}
 			if (score > 800 && player.weaponLevel < 3) {
-				addGift(150,600);
+				addGift(150,600,gift2);
 			}
 		},
 		render:function() {
@@ -288,9 +288,9 @@ var playState ={
 		  gift.kill();
 		  player.weaponLevel++;
 	   }
-           function addGift(x,y){
-		   gift1 = game.add.sprite(x,y,'gift');
-		   gift1.anchor.setTo(0.5,0.5);
+           function addGift(x,y,gift){
+		   gift = game.add.sprite(x,y,'gift');
+		   gift.anchor.setTo(0.5,0.5);
 	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
