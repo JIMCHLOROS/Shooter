@@ -1,6 +1,6 @@
 var score_icon;
-var gift1;var add1 = true;
-var gift2;var add2 = true;
+var gift1;
+var gift2;
 var life_icon;
 var game_over_title;
 var enemySpacing = 2000;
@@ -50,6 +50,15 @@ var playState ={
 			explode_snd.allowMultiple = true;
 			music.stop(0);
 			level1_music.play('',0,0.3,true);
+			
+			gift1 = game.add.sprite(150,200,'gift');
+			gift1.anchor.setTo(0.5,0.5);
+			gift1.enableBody = false;
+			gift1.visible = false;
+			gift2 = game.add.sprite(150,200,'gift');
+			gift2.anchor.setTo(0.5,0.5);
+			gift2.enableBody = false;
+			gift2.visible = false;
 			
 			game.scale.pageAlignHorizontally = true;
 			
@@ -275,24 +284,12 @@ var playState ={
 			        }
 			    }
 			if (score > 300) {
-				if(add1){
-				gift1 = game.add.sprite(150,200,'gift');
-				gift1.anchor.setTo(0.5,0.5);
+				gift1.visible = true;
 				gift1.enableBody = true;
-				gift1.physicsBodyType = Phaser.Physics.ARCADE;
-				add1=false;
-			        }
-				game.physics.arcade.overlap(gift1, player, upgrade, null, this);
 			}
 			if (score > 800) {
-				if(add2){
-				gift2 = game.add.sprite(150,600,'gift');
-				gift2.anchor.setTo(0.5,0.5);
+				gift2.visible = true;
 				gift2.enableBody = true;
-				gift2.physicsBodyType = Phaser.Physics.ARCADE;
-				add2=false;
-				}
-				game.physics.arcade.overlap(gift2, player, upgrade, null, this);
 			}
 		},
 		render:function() {
