@@ -208,8 +208,8 @@ var playState ={
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
-			game.physics.arcade.overlap(gift1, player, upgrade1, null, this);
-			game.physics.arcade.overlap(gift2, player, upgrade2, null, this);
+			game.physics.arcade.overlap(gift1, player, upgrade, null, this);
+			game.physics.arcade.overlap(gift2, player, upgrade, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -274,28 +274,27 @@ var playState ={
 			            }
 			        }
 			    }
-			if (score > 300 && player.weaponLevel < 2) {
+			if (score > 300) {
 				addGift(150,200,gift1);
+				game.physics.arcade.overlap(gift1, player, upgrade, null, this);
 			}
-			if (score > 800 && player.weaponLevel < 3) {
+			if (score > 800) {
 				addGift(150,600,gift2);
+				game.physics.arcade.overlap(gift2, player, upgrade, null, this);
 			}
 		},
 		render:function() {
 		}
     };
-           function upgrade1(gift1,player){//add sound
-		  gift1.kill();
-		  player.weaponLevel++;
-	   }
-           function upgrade2(gift2,player){//add sound
-		  gift2.kill();
+           function upgrade(gift,player){//add sound
+		  gift.kill();
 		  player.weaponLevel++;
 	   }
            function addGift(x,y,gift){
 		   gift = game.add.sprite(x,y,'gift');
 		   gift.anchor.setTo(0.5,0.5);
 		   gift.enableBody = true;
+		   gift.physicsBodyType = Phaser.Physics.ARCADE;
 	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
