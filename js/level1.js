@@ -291,6 +291,7 @@ var playState ={
            function addGift(x,y,gift){
 		   gift = game.add.sprite(x,y,'gift');
 		   gift.anchor.setTo(0.5,0.5);
+		   gift.enableBody = true;
 	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
