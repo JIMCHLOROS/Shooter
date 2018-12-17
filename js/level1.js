@@ -1,6 +1,6 @@
 var score_icon;
-var gift1;
-var gift2;
+var gift1;var add1 = true;
+var gift2;var add2 = true;
 var life_icon;
 var game_over_title;
 var enemySpacing = 2000;
@@ -275,11 +275,17 @@ var playState ={
 			        }
 			    }
 			if (score > 300) {
+				if(add1){
 				addGift(150,200,gift1);
+				add1=false;
+			        }
 				game.physics.arcade.overlap(gift1, player, upgrade, null, this);
 			}
 			if (score > 800) {
+				if(add2){
 				addGift(150,600,gift2);
+				add2=false;
+				}
 				game.physics.arcade.overlap(gift2, player, upgrade, null, this);
 			}
 		},
