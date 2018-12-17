@@ -60,11 +60,13 @@ var playState ={
 			gift1.create(150,200,'gift');
 			gift1.enableBody = false;
 			gift1.visible = false;
+			game.physics.enable(gift1, Phaser.Physics.ARCADE);
 			
 			gift2 = game.add.group();
 			gift2.create(150,600,'gift');
 			gift2.enableBody = false;
 		        gift2.visible = false;
+			game.physics.enable(gift2, Phaser.Physics.ARCADE);
 			
 			
 			//  Our bullet group
