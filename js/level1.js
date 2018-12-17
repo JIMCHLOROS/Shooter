@@ -58,13 +58,11 @@ var playState ={
 
 			gift1 = game.add.group();
 			gift1.create(150,200,'gift');
-			gift1.anchor.setTo(0.5,0.5);
 			gift1.enableBody = false;
 			gift1.visible = false;
 			
 			gift2 = game.add.group();
 			gift2.create(150,600,'gift');
-			gift2.anchor.setTo(0.5,0.5);
 			gift2.enableBody = false;
 		        gift2.visible = false;
 			
