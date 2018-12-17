@@ -278,7 +278,8 @@ var playState ={
 				if(add1){
 				gift1 = game.add.sprite(150,200,'gift');
 				gift1.anchor.setTo(0.5,0.5);
-				gift1.enableBody = true;	
+				gift1.enableBody = true;
+				gift1.physicsBodyType = Phaser.Physics.ARCADE;
 				add1=false;
 			        }
 				game.physics.arcade.overlap(gift1, player, upgrade, null, this);
@@ -288,6 +289,7 @@ var playState ={
 				gift2 = game.add.sprite(150,600,'gift');
 				gift2.anchor.setTo(0.5,0.5);
 				gift2.enableBody = true;
+				gift2.physicsBodyType = Phaser.Physics.ARCADE;
 				add2=false;
 				}
 				game.physics.arcade.overlap(gift2, player, upgrade, null, this);
