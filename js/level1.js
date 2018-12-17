@@ -51,6 +51,11 @@ var playState ={
 			music.stop(0);
 			level1_music.play('',0,0.3,true);
 			
+			game.scale.pageAlignHorizontally = true;
+			
+			//  The scrolling starfield background
+			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield');//1600,900
+
 			gift1 = game.add.sprite(150,200,'gift');
 			gift1.anchor.setTo(0.5,0.5);
 			gift1.enableBody = false;
@@ -60,10 +65,7 @@ var playState ={
 			gift2.enableBody = false;
 		        gift2.visible = false;
 			
-			game.scale.pageAlignHorizontally = true;
 			
-			//  The scrolling starfield background
-			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield');//1600,900
 			//  Our bullet group
 			bullets = game.add.group();
 			bullets.enableBody = true;
