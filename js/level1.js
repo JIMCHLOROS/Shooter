@@ -1,4 +1,6 @@
 var score_icon;
+var gift1;
+var gift2;
 var life_icon;
 var game_over_title;
 var enemySpacing = 2000;
@@ -206,6 +208,8 @@ var playState ={
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(player, enemy, shipCollide, null, this);
+			game.physics.arcade.overlap(gift1, player, upgrade, null, this);
+			game.physics.arcade.overlap(gift2, player, upgrade, null, this);
 			//  Scroll the background
 			starfield.tilePosition.x -= 2;
 			//  Reset the player, then check for movement keys
@@ -271,15 +275,23 @@ var playState ={
 			        }
 			    }
 			if (score > 300 && player.weaponLevel < 2) {
-			player.weaponLevel = 2;
+				addGift(150,200);
 			}
 			if (score > 800 && player.weaponLevel < 3) {
-			player.weaponLevel = 3;
+				addGift(150,600);
 			}
 		},
 		render:function() {
 		}
     };
+           function upgrade(gift,player){//add sound
+		  gift.kill();
+		  player.weaponLevel++;
+	   }
+           function addGift(x,y){
+		   gift1 = game.add.sprite(x,y,'gift');
+		   gift1.anchor.setTo(0.5,0.5);
+	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
 		   game_over_title.anchor.setTo(0.5,0.5);
