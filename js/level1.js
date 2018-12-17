@@ -286,13 +286,13 @@ var playState ={
 			            }
 			        }
 			    }
-			if (score > 100) {
+			if (score > 400) {
 				gift1.visible = true;
 				gift1.enableBody = true;
 				
 			game.physics.arcade.overlap(player,gift1,upgrade, null, this);
 			}
-			if (score > 200) {
+			if (score > 800) {
 				gift2.visible = true;
 				gift2.enableBody = true;
 			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
