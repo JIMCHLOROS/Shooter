@@ -1,4 +1,5 @@
 var score_icon;
+var timeBetweenWaves = 10000;
 var gift1;
 var gift2;
 var life_icon;
@@ -297,6 +298,12 @@ var playState ={
 				gift2.enableBody = true;
 			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
+			if (score > 1300) {
+			        enemySpacing = 99999999;
+			        timeBetweenWaves = 9999999;
+				game.time.events.add(5000, this.state.start('playstate'));
+			}
+			
 		},
 		render:function() {
 		}
@@ -462,7 +469,6 @@ var playState ={
               var frequency = 70;
               var horizonalSpacing = 250;
               var numEnemiesInWave = 3;
-              var timeBetweenWaves = 10000;
           
               //  Launch wave
               for (var i =0; i < numEnemiesInWave; i++) {
