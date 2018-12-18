@@ -456,7 +456,7 @@ var playState ={
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(ame.world.CenterY-50, (game.world.CenterY*2)-140);
+                      enemyboss.reset(game.world.CenterY-50, (game.world.CenterY*2)-140);
                       var bulletSpeed = 500;
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
