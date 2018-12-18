@@ -235,8 +235,11 @@ var playState ={
 			
 		},
 		update:function() {
-			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
+			if(score<1300){
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
+			}	
+			
+			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
 			game.physics.arcade.overlap(enemy, bullets, hitEnemy, null, this);
@@ -455,7 +458,7 @@ var playState ={
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(450, 1560);
+                      enemyboss.reset(1350, 400);
                       var bulletSpeed = 500;
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
