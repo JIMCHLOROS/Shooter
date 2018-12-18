@@ -489,9 +489,6 @@ var playState ={
 				      nextlevel = true;
 				      game.time.events.add(7000,nextLevel);
 			      }
-			      enemyboss.render = function(){
-			      game.debug.body(boss);
-			      }
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
