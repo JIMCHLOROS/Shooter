@@ -311,7 +311,7 @@ var playState ={
 		}
     };
            function nextLevel(){
-		   this.state.start('playstate');
+		   this.state.start('finalstate');
 	   }
            function upgrade(player,gift){//add sound
 		  gift.kill();
