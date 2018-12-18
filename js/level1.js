@@ -315,10 +315,10 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
-			if (score > 1300 && enemySpacing<999999 ) {
+			if (score > 10 && enemySpacing<999999 ) {
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
-		                game.time.events.add(7000,launch_boss);
+		                game.time.events.add(700,launch_boss);
 			}
 			
 		},
@@ -456,7 +456,7 @@ var playState ={
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(1200, game.world.CenterY);
+                      enemyboss.reset(700, game.world.CenterY);
                       var bulletSpeed = 500;
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
