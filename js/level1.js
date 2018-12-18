@@ -585,11 +585,11 @@ var playState ={
           }
           function addBossTrail(boss){
 	                var boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
-		        enemyTrail.width = 10; 
+		        boss_shipTrail.width = 10; 
 			boss_shipTrail.makeParticles('bullet');
-                        enemyTrail.setXSpeed(20, -20);
-                        enemyTrail.setAlpha(0.4, 0, 800);
-                        enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
+                        boss_shipTrail.setXSpeed(20, -20);
+                        boss_shipTrail.setAlpha(0.4, 0, 800);
+                        boss_shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
 		        boss.trail = boss_shipTrail;
 	  }
           function restart () {
