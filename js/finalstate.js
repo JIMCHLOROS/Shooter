@@ -1,8 +1,6 @@
 var score_icon;
-var gift1 = null;
-var gift2 = null;
 var life_icon;
-var game_over_title = null;
+var game_over_title;
 var enemySpacing = 2000;
 var enemy2Launched = false;
 var enemyBullets = null;
@@ -37,8 +35,6 @@ var finalState ={
 			//  Remove the next 2 lines if running locally
 			game.load.baseURL = 'https://jimchloros.github.io/Shooter/';
 			game.load.crossOrigin = 'anonymous';
-			level1_music = game.add.audio('level1_music');
-			level1_music.allowMultiple = true;
 		},
 		create:function() {
 			//the audio
@@ -56,19 +52,6 @@ var finalState ={
 			//  The scrolling starfield background
 			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield');//1600,900
 
-			gift1 = game.add.group();
-			gift1.create(150,200,'gift');
-			gift1.enableBody = false;
-			gift1.visible = false;
-			game.physics.enable(gift1, Phaser.Physics.ARCADE);
-			
-			gift2 = game.add.group();
-			gift2.create(150,600,'gift');
-			gift2.enableBody = false;
-		        gift2.visible = false;
-			game.physics.enable(gift2, Phaser.Physics.ARCADE);
-			
-			
 			//  Our bullet group
 			bullets = game.add.group();
 			bullets.enableBody = true;
