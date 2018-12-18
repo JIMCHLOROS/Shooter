@@ -239,9 +239,8 @@ var playState ={
 			if(score<10){
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
 			}else if(boss_alive){
-				console.log("yes");
-			game.physics.arcade.overlap(player, enemy2, BossCollide, null, this);
-			game.physics.arcade.overlap(enemy2, bullets, hitBoss, null, this);
+			game.physics.arcade.overlap(player, boss, BossCollide, null, this);
+			game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
 			}
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
