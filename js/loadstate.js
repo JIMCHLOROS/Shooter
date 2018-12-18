@@ -36,8 +36,8 @@ var loadState = {
 	game.load.spritesheet('gift', 'assets/gift.png',36,50);
 	game.load.image('bullet', 'assets/bullets/bullet.png');
 	game.load.image('enemy_bullet', 'assets/bullets/real_bullet.png');
-	game.load.spritesheet('enemy', 'assets/enemies/enemy_ship.png',411,223);
-	game.load.spritesheet('enemy1', 'assets/enemies/enemy_ship_1.png',411,223);
+	game.load.spritesheet('enemy', 'assets/enemies/enemy_ship_0.png',411,223);
+	game.load.spritesheet('enemy1', 'assets/enemies/enemy_ship_01.png',411,223);
 	game.load.spritesheet('enemy2', 'assets/enemies/enemy_ship_2.png',1275,450);
 	game.load.spritesheet('enemy3', 'assets/enemies/enemy_ship_3.png',1024,473);
 	game.load.audio('fire', 'assets/music/fire_sound.mp3'); 
