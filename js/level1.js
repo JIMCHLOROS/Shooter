@@ -595,6 +595,7 @@ var playState ={
               //  Reset the enemies
               enemy.callAll('kill');
 	      enemy2.callAll('kill');
+              boss.callAll('kill');
               enemyBullets.callAll('kill');
               game.time.events.remove(enemyLaunchTimer);
               game.time.events.add(1500, launchEnemy);
