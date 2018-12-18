@@ -397,7 +397,7 @@ var playState ={
           function BossCollide(player, enemy) {
                explode_snd.play('',0,1,false);
                var explosion = explosions.getFirstExists(false);
-               explosion.reset(enemy.body.x + 250, enemy.body.y + enemy.body.halfHeight);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
@@ -605,7 +605,7 @@ var playState ={
           enemy.trail = enemyTrail;
           }
           function addBossTrail(boss){
-	                var boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
+	                var boss_shipTrail = game.add.emitter(boss.x + 250, boss.y+50, 1);
 		        boss_shipTrail.width = 10; 
 			boss_shipTrail.makeParticles('bullet');
                         boss_shipTrail.setXSpeed(20, -20);
