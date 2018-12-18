@@ -382,7 +382,7 @@ var playState ={
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
-               enemy..damage(30);
+               enemy.damage(30);
                bullet.kill();
 	       score += enemy.damageAmount /2;
                scoreText.render();
