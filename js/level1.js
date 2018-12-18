@@ -392,11 +392,10 @@ var playState ={
 				if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
 				var BULLET_SPACING = 300;
-					
+				fire.play('',0,0.8,false);	
 				for (var i = 0; i < 2; i++) {
 				var bullet = bullets.getFirstExists(false);
 				if (bullet) {
-				fire.play('',0,0.8,false);
 				//  Make bullet come out of tip of ship with right angle
 				var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
 				bullet.reset(player.x + bulletOffset + 55, player.y+4);
@@ -415,11 +414,10 @@ var playState ={
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
 				var BULLET_SPACING = 300;
-					
+				fire.play('',0,0.8,false);	
 				for (var i = 0; i < 3; i++) {
 				var bullet = bullets.getFirstExists(false);
 				  if (bullet) {
-				  fire.play('',0,0.8,false);
 				  //  Make bullet come out of tip of ship with right angle
 				  var bulletOffset = 20 * Math.sin(game.math.degToRad(player.angle));
 				  bullet.reset(player.x + bulletOffset + 55, player.y+4);
