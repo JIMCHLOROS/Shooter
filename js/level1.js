@@ -232,7 +232,7 @@ var playState ={
 			boss.height = 100;
 			boss.forEach(function(boss){
                           boss.damageAmount = 40;
-                          boss.body.setSize(boss.width, boss.height);
+                          boss.body.setSize(260, 100);
                         });
 			
 			boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
