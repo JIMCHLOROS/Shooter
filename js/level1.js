@@ -328,8 +328,14 @@ var playState ={
 			
 		},
 		render:function() {
+			if(score>10){
+			game.time.events.add(1000,debug);
+			}
 		}
     };
+           function debug(){
+		game.debug.body(boss);   
+	   }
            function nextLevel(){
 		   game.state.start('finalstate');
 	   }
