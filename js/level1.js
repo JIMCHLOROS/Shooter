@@ -33,7 +33,6 @@ var score = 0;
 var scoreText;
 var nextlevel = false;
 var boss;
-var boss_shipTrail;
 var playState ={
              
 		preload:function() {
@@ -231,16 +230,9 @@ var playState ={
 			boss.width = 260;
 			boss.height = 100;
 			boss.forEach(function(boss){
+			  addBossTrail(boss);
                           boss.damageAmount = 30;
                         });
-			
-			boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
-			boss_shipTrail.makeParticles('bullet');
-                        boss_shipTrail.setAlpha(1, 0, 3000);
-			boss_shipTrail.setRotation(0, 0);
-                        boss_shipTrail.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
-                        boss_shipTrail.start(false, 1, 5);
-	
 		},
 		update:function() {
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
@@ -585,13 +577,21 @@ var playState ={
           function addEnemyEmitterTrail(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
           enemyTrail.width = 10;
-          enemyTrail.makeParticles('bullet');//('explosion',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+          enemyTrail.makeParticles('bullet');
           enemyTrail.setXSpeed(20, -20);
-          //enemyTrail.setRotation(50,-50);
           enemyTrail.setAlpha(0.4, 0, 800);
           enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
           }
+          function addBossTrail(boss){
+	                var boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
+		        enemyTrail.width = 10; 
+			boss_shipTrail.makeParticles('bullet');
+                        enemyTrail.setXSpeed(20, -20);
+                        enemyTrail.setAlpha(0.4, 0, 800);
+                        enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
+		        boss.trail = boss_shipTrail;
+	  }
           function restart () {
 	      game_over_title.visible = false;
               //  Reset the enemies
