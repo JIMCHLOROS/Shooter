@@ -132,7 +132,21 @@ var playState ={
 			shipTrail2.setRotation(0, 0);
                         shipTrail2.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
                         shipTrail2.start(false, 1, 5);
-			
+			///######### boss
+			boss = game.add.group();
+			boss.createMultiple(1, 'enemy2');
+			boss.enableBody = true;
+                        boss.physicsBodyType = Phaser.Physics.ARCADE;
+			boss.setAll('anchor.x', 0.5);
+			boss.setAll('anchor.y', 0.5);
+			boss.setAll('angle', 180);
+			boss.forEach(function(boss){
+				boss.health = 600;
+				boss.width = 260;
+				boss.height = 100;
+				addBossTrail(boss);
+				boss.damageAmount = 30;
+                        });
 		       //  The enemies!
                         enemy = game.add.group();
                         enemy.enableBody = true;
@@ -218,21 +232,7 @@ var playState ={
                             };
                             scoreText.render();
 			
-			///######### boss
-			boss = game.add.group();
-			boss.createMultiple(1, 'enemy2');
-			boss.enableBody = true;
-                        boss.physicsBodyType = Phaser.Physics.ARCADE;
-			boss.setAll('anchor.x', 0.5);
-			boss.setAll('anchor.y', 0.5);
-			boss.setAll('angle', 180);
-			boss.forEach(function(boss){
-				boss.health = 600;
-				boss.width = 260;
-				boss.height = 100;
-				addBossTrail(boss);
-				boss.damageAmount = 30;
-                        });
+			
 		},
 		update:function() {
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
@@ -456,7 +456,7 @@ var playState ={
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(500, game.world.CenterY);
+                      enemyboss.reset(1200, game.world.CenterY);
                       var bulletSpeed = 500;
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
