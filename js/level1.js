@@ -451,12 +451,11 @@ var playState ={
 		   }
 		}
           function launch_boss(){
-              var startingY = game.world.CenterY;
-              //var horizonalSpeed = -10;
+              var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(game.world.CenterY-50, 1560);
+                      enemyboss.reset(450, 1560);
                       var bulletSpeed = 500;
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
