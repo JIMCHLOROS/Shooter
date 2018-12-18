@@ -227,12 +227,11 @@ var playState ={
 			boss.setAll('anchor.x', 0.5);
 			boss.setAll('anchor.y', 0.5);
 			boss.setAll('angle', 180);
-			boss.health = 500;
+			boss.health = 600;
 			boss.width = 260;
 			boss.height = 100;
 			boss.forEach(function(boss){
-                          boss.damageAmount = 40;
-                          boss.body.setSize(260, 100);
+                          boss.damageAmount = 30;
                         });
 			
 			boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
