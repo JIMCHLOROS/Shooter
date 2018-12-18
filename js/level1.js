@@ -136,12 +136,12 @@ var playState ={
 			///######### boss
 			boss = game.add.group();
 			boss.createMultiple(1, 'enemy2');
-			boss.enableBody = true;
-                        boss.physicsBodyType = Phaser.Physics.ARCADE;
 			boss.setAll('anchor.x', 0.5);
 			boss.setAll('anchor.y', 0.5);
 			boss.setAll('angle', 180);
 			boss.forEach(function(boss){
+				boss.physicsBodyType = Phaser.Physics.ARCADE;
+				boss.enableBody = true;
 				boss.health = 600;
 				boss.width = 260;
 				boss.height = 100;
