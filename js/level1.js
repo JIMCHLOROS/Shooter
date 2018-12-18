@@ -237,8 +237,10 @@ var playState ={
 		update:function() {
 			if(score<1300){
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
-			}	
-			
+			}else{
+			game.physics.arcade.overlap(player, enemy2, BossCollide, null, this);
+			game.physics.arcade.overlap(enemy2, bullets, hitBoss, null, this);
+			}
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
 			game.physics.arcade.overlap(enemy2, bullets, hitEnemy, null, this);
@@ -373,6 +375,18 @@ var playState ={
                      enemySpacing *= 2;
                    }
            }
+	   function hitBoss(enemy, bullet) {
+               explode_snd.play('',0,1,false);
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy..damage(30);
+               bullet.kill();
+	       score += enemy.damageAmount /2;
+               scoreText.render();
+           }
            function shipCollide(player, enemy) {
                explode_snd.play('',0,1,false);
                var explosion = real_explosions.getFirstExists(false);
@@ -382,6 +396,17 @@ var playState ={
                explosion.play('explosion', 30, false, true);
                enemy.kill();
 	       player.damage(enemy.damageAmount);
+    	       shields.render();
+           }
+          function BossCollide(player, enemy) {
+               explode_snd.play('',0,1,false);
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.kill();
+	       player.damage(player.damage(enemy.damageAmount););
     	       shields.render();
            }
            function fireBullet() {
