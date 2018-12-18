@@ -456,19 +456,19 @@ var playState ={
 		}
           function launch_boss(){
               var startingY = game.world.CenterY;
-              var horizonalSpeed = -10;
-		  var enemytwo = boss.getFirstExists(false);
-                  if (enemytwo) {
-                      enemytwo.startingY = startingY;
-                      enemytwo.reset(280, game.world.CenterY);
-                      enemytwo.body.velocity.x = horizonalSpeed;
+              //var horizonalSpeed = -10;
+		  var enemyboss = boss.getFirstExists(false);
+                  if (enemyboss) {
+                      enemyboss.startingY = startingY;
+                      enemyboss.reset(280, game.world.CenterY);
+                      //enemytwo.body.velocity.x = horizonalSpeed;
 			  
                       var bulletSpeed = 500;
                       var firingDelay = 600;
-                      enemytwo.bullets = 1;
-                      enemytwo.lastShot = 0;
+                      enemyboss.bullets = 1;
+                      enemyboss.lastShot = 0;
                       //  Update function for boss
-                      enemytwo.update = function(){
+                      enemyboss.update = function(){
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
