@@ -235,7 +235,7 @@ var playState ={
 			
 		},
 		update:function() {
-			if(score<1300){
+			if(score<10){
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
 			}else{
 			game.physics.arcade.overlap(player, enemy2, BossCollide, null, this);
@@ -287,10 +287,7 @@ var playState ={
 			
 			shipTrail2.y = player.y + 16;//+13
 			shipTrail2.x = player.x - 75;//45
-			//Game Over?
-			if(! player.alive && gameOver.visible === false){
-                                
-			   }
+			//Game Over
 			if (! player.alive && gameOver.visible === false) {
 			        game.time.events.add(2000, function () {if(!player.alive){game_over_title.visible = true;}});
                                 gameOver.visible = true;
@@ -325,17 +322,10 @@ var playState ={
 				timeBetweenWaves = 9999999;
 		                game.time.events.add(700,launch_boss);
 			}
-			
 		},
-		render:function() {
-			if(score>10){
-			game.time.events.add(1000,debug);
-			}
+		render:function(){
 		}
     };
-           function debug(){
-		game.debug.body(boss);   
-	   }
            function nextLevel(){
 		   game.state.start('finalstate');
 	   }
@@ -411,7 +401,6 @@ var playState ={
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
-               enemy.kill();
 	       player.damage(enemy.damageAmount);
     	       shields.render();
            }
@@ -499,6 +488,9 @@ var playState ={
 			      if(boss.health <50 && (!nextlevel)){
 				      nextlevel = true;
 				      game.time.events.add(7000,nextLevel);
+			      }
+			      enemyboss.render = function(){
+			      game.debug.body(boss);
 			      }
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
