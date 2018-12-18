@@ -33,6 +33,7 @@ var score = 0;
 var scoreText;
 var nextlevel = false;
 var boss;
+var boss_alive = false;
 var playState ={
              
 		preload:function() {
@@ -237,7 +238,7 @@ var playState ={
 		update:function() {
 			if(score<10){
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
-			}else{
+			}else if(boss_alive){
 			game.physics.arcade.overlap(player, enemy2, BossCollide, null, this);
 			game.physics.arcade.overlap(enemy2, bullets, hitBoss, null, this);
 			}
@@ -477,6 +478,7 @@ var playState ={
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
+			  boss_alive = true;
                       enemyboss.startingY = startingY;
                       enemyboss.reset(1350, 400);
                       var bulletSpeed = 500;
@@ -498,7 +500,7 @@ var playState ={
                          enemyBullet.damageAmount = this.damageAmount;
                          var angle = game.physics.arcade.moveToObject(enemyBullet, player, bulletSpeed);
                          enemyBullet.angle = game.math.radToDeg(angle);
-                        }
+			}
                       };
                   }
 	   }
