@@ -315,14 +315,10 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
-			if (score > 1300 &&enemySpacing<99999) {
+			if (score > 1300 && enemySpacing<999999 ) {
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
 		                game.time.events.add(7000,launch_boss);
-			}
-			if(score > 1300 && nextlevel === false  && boss.health >50){
-				nextlevel = true;
-				game.time.events.add(7000,nextLevel);
 			}
 			
 		},
@@ -469,6 +465,10 @@ var playState ={
                       enemyboss.lastShot = 0;
                       //  Update function for boss
                       enemyboss.update = function(){
+			      if(boss.health <50 && (!nextlevel)){
+				      nextlevel = true;
+				      game.time.events.add(7000,nextLevel);
+			      }
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
