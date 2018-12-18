@@ -32,6 +32,8 @@ var enemy2;
 var score = 0;
 var scoreText;
 var nextlevel = false;
+var boss;
+var boss_shipTrail;
 var playState ={
              
 		preload:function() {
@@ -216,6 +218,30 @@ var playState ={
                                scoreText.text = score;
                             };
                             scoreText.render();
+			
+			///######### boss
+			boss = game.add.group();
+			boss.createMultiple(1, 'enemy2');
+			boss.enableBody = true;
+                        boss.physicsBodyType = Phaser.Physics.ARCADE;
+			boss.setAll('anchor.x', 0.5);
+			boss.setAll('anchor.y', 0.5);
+			boss.setAll('angle', 180);
+			boss.health = 500;
+			boss.width = 260;
+			boss.height = 100;
+			boss.forEach(function(boss){
+                          boss.damageAmount = 40;
+                          boss.body.setSize(boss.width, boss.height);
+                        });
+			
+			boss_shipTrail = game.add.emitter(boss.x + 130, boss.y+50, 1);
+			boss_shipTrail.makeParticles('bullet');
+                        boss_shipTrail.setAlpha(1, 0, 3000);
+			boss_shipTrail.setRotation(0, 0);
+                        boss_shipTrail.setScale(0.8, 0, 0.8, 0, 2000,Phaser.Easing.Quintic.Out);
+                        boss_shipTrail.start(false, 1, 5);
+	
 		},
 		update:function() {
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
@@ -291,19 +317,21 @@ var playState ={
 			if (score > 400) {
 				gift1.visible = true;
 				gift1.enableBody = true;
-				
-			game.physics.arcade.overlap(player,gift1,upgrade, null, this);
+				game.physics.arcade.overlap(player,gift1,upgrade, null, this);
 			}
 			if (score > 800) {
 				gift2.visible = true;
 				gift2.enableBody = true;
-			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
+				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
-			if (score > 1300 && nextlevel === false) {
-				nextlevel = true;
+			if (score > 1300 &&enemySpacing<99999) {
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
-				game.time.events.add(5000,nextLevel);
+		                game.time.events.add(7000,launch_boss);
+			}
+			if(score > 1300 && nextlevel === false  && boss.health >50){
+				nextlevel = true;
+				game.time.events.add(7000,nextLevel);
 			}
 			
 		},
@@ -435,6 +463,34 @@ var playState ={
 			}break;
 		   }
 		}
+          function launch_boss(){
+              var startingY = game.world.CenterY;
+              var horizonalSpeed = -10;
+		  var enemytwo = boss.getFirstExists(false);
+                  if (enemytwo) {
+                      enemytwo.startingY = startingY;
+                      enemytwo.reset(280, game.world.CenterY);
+                      enemytwo.body.velocity.x = horizonalSpeed;
+			  
+                      var bulletSpeed = 500;
+                      var firingDelay = 600;
+                      enemytwo.bullets = 1;
+                      enemytwo.lastShot = 0;
+                      //  Update function for boss
+                      enemytwo.update = function(){
+                        //  Fire
+                        enemyBullet = enemyBullets.getFirstExists(false);
+                        if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
+                         enemy_fire.play('',0,0.6,false);
+			 this.lastShot = game.time.now;
+                         enemyBullet.reset(this.x, this.y + this.height / 2);
+                         enemyBullet.damageAmount = this.damageAmount;
+                         var angle = game.physics.arcade.moveToObject(enemyBullet, player, bulletSpeed);
+                         enemyBullet.angle = game.math.radToDeg(angle);
+                        }
+                      };
+                  }
+	   }
            function launchEnemy() {
 		   //var MIN_ENEMY_SPACING = 2000;
 		   //var MAX_ENEMY_SPACING = 3000;
