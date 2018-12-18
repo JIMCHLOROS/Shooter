@@ -303,7 +303,7 @@ var playState ={
 				nextlevel = true;
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
-				game.time.events.add(5000,nextLevel());
+				game.time.events.add(5000,nextLevel);
 			}
 			
 		},
@@ -311,7 +311,7 @@ var playState ={
 		}
     };
            function nextLevel(){
-		   this.state.start('finalstate');
+		   game.state.start('finalstate');
 	   }
            function upgrade(player,gift){//add sound
 		  gift.kill();
