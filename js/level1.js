@@ -31,6 +31,7 @@ var enemy;
 var enemy2;
 var score = 0;
 var scoreText;
+var nextlevel = false;
 var playState ={
              
 		preload:function() {
@@ -298,16 +299,20 @@ var playState ={
 				gift2.enableBody = true;
 			game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
-			if (score > 1300) {
-			        enemySpacing = 99999999;
-			        timeBetweenWaves = 9999999;
-				game.time.events.add(5000, this.state.start('playstate'));
+			if (score > 1300 && nextlevel === false) {
+				nextlevel = true;
+				enemySpacing = 99999999;
+				timeBetweenWaves = 9999999;
+				game.time.events.add(5000,nextLevel());
 			}
 			
 		},
 		render:function() {
 		}
     };
+           function nextLevel(){
+		   this.state.start('playstate');
+	   }
            function upgrade(player,gift){//add sound
 		  gift.kill();
 		  player.weaponLevel++;
