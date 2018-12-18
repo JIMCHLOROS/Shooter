@@ -406,7 +406,7 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.kill();
-	       player.damage(player.damage(enemy.damageAmount););
+	       player.damage(enemy.damageAmount);
     	       shields.render();
            }
            function fireBullet() {
