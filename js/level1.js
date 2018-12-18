@@ -226,12 +226,12 @@ var playState ={
 			boss.setAll('anchor.x', 0.5);
 			boss.setAll('anchor.y', 0.5);
 			boss.setAll('angle', 180);
-			boss.health = 600;
-			boss.width = 260;
-			boss.height = 100;
 			boss.forEach(function(boss){
-			  addBossTrail(boss);
-                          boss.damageAmount = 30;
+				boss.health = 600;
+				boss.width = 260;
+				boss.height = 100;
+				addBossTrail(boss);
+				boss.damageAmount = 30;
                         });
 		},
 		update:function() {
@@ -456,11 +456,9 @@ var playState ={
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
                       enemyboss.startingY = startingY;
-                      enemyboss.reset(280, game.world.CenterY);
-                      //enemytwo.body.velocity.x = horizonalSpeed;
-			  
+                      enemyboss.reset(1480, game.world.CenterY);
                       var bulletSpeed = 500;
-                      var firingDelay = 600;
+                      var firingDelay = 1000;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
                       //  Update function for boss
