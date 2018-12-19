@@ -303,12 +303,12 @@ var playState ={
 			if (score > 400) {
 				gift1.visible = true;
 				gift1.enableBody = true;
-				game.physics.arcade.overlap(player,gift1,upgrade, null, this);
+				game.physics.arcade.overlap(player,gift1,upgrade1, null, this);
 			}
 			if (score > 800) {
 				gift2.visible = true;
 				gift2.enableBody = true;
-				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
+				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
 			}
 			if (score > 10 && boss_alive===false ) {
 				boss_alive = true;
@@ -323,10 +323,15 @@ var playState ={
            function nextLevel(){
 		   game.state.start('finalstate');
 	   }
-           function upgrade(player,gift){//add sound
+           function upgrade1(player,gift){//add sound
 		  gift.visible = false;
 		  gift.enableBody = false;
-		  player.weaponLevel++;
+		  player.weaponLevel = 2;
+	   }
+         function upgrade2(player,gift){//add sound
+		  gift.visible = false;
+		  gift.enableBody = false;
+		  player.weaponLevel = 3;
 	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
