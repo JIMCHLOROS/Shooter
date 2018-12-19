@@ -486,7 +486,6 @@ var playState ={
                       enemyboss.lastShot = 0;
 	              enemyboss.events.onKilled.add(function(){
 			    boss_alive=false;
-		            boss.trail.kill();
 			});
                       //  Update function for boss
                       enemyboss.update = function(){
