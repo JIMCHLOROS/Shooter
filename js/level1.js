@@ -237,6 +237,7 @@ var playState ={
 		},
 		update:function() {
 			if(boss_alive){
+				boss.enableBody = true;
 			game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
 			}
