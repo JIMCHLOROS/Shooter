@@ -87,7 +87,7 @@ var finalState ={
                         enemy = game.add.group();
                         enemy.enableBody = true;
                         enemy.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy.createMultiple(5, 'enemy4');
+                        enemy.createMultiple(5, 'enemy');
                         enemy.setAll('anchor.x', 0.5);
                         enemy.setAll('anchor.y', 0.5);
                         enemy.setAll('scale.x', 0.5);
@@ -105,7 +105,7 @@ var finalState ={
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
                         enemy2.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy2.createMultiple(3, 'enemy3');
+                        enemy2.createMultiple(3, 'enemy1');
                         enemy2.setAll('anchor.x', 0.5);
                         enemy2.setAll('anchor.y', 0.5);
                         enemy2.setAll('scale.x', 0.5);
