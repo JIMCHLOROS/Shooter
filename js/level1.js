@@ -300,7 +300,7 @@ var playState ={
 			            }
 			        }
 			    }
-			if (score > 400) {
+			if (score > 10) {
 				gift1.visible = true;
 				gift1.enableBody = true;
 				game.physics.arcade.overlap(player,gift1,upgrade1, null, this);
@@ -310,12 +310,9 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
 			}
-			if (score > 10 && boss_alive===false ) {
-				boss_alive = true;
-				enemySpacing = 99999999;
-				timeBetweenWaves = 9999999;
-		                launch_boss();
-			}
+//if (score > 10 && boss_alive===false ) {
+				
+			//}
 		},
 		render:function(){
 		}
@@ -327,6 +324,10 @@ var playState ={
 		  gift.visible = false;
 		  gift.enableBody = false;
 		  player.weaponLevel = 2;
+		  boss_alive = true;
+		  enemySpacing = 99999999;
+		  timeBetweenWaves = 9999999;
+		  launch_boss();
 	   }
          function upgrade2(player,gift){//add sound
 		  gift.visible = false;
