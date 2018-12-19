@@ -33,6 +33,7 @@ var score = 0;
 var scoreText;
 var nextlevel = false;
 var boss;
+var next_level_title;
 var boss_alive = false;
 var playState ={
              
@@ -310,9 +311,6 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
 			}
-//if (score > 10 && boss_alive===false ) {
-				
-			//}
 		},
 		render:function(){
 		}
@@ -489,11 +487,14 @@ var playState ={
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
-			      gameOver = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'NEXT LEVEL', 110);
-			      gameOver.visible = true;
-			    nextlevel = true;
-			    game.time.events.add(3000,nextLevel());
-			    boss_alive=false;
+			      if(nextlevel){
+				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'NEXT LEVEL', 110);
+ 				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
+				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
+				      next_level_title.visible = true;
+				      game.time.events.add(3000,nextLevel());
+				      boss_alive=false;
+			      }
 			});
                       //  Update function for boss
                       enemyboss.update = function(){
@@ -632,6 +633,8 @@ var playState ={
               //  Reset the enemies
               enemy.callAll('kill');
 	      enemy2.callAll('kill');
+		  
+		  nextlevel = false;
               boss.callAll('kill');
               enemyBullets.callAll('kill');
               game.time.events.remove(enemyLaunchTimer);
