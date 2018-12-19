@@ -283,6 +283,7 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over
 			if (! player.alive && gameOver.visible === false) {
+				score = 0;
 			        game.time.events.add(2000, function () {if(!player.alive){game_over_title.visible = true;}});
                                 gameOver.visible = true;
 				gameOver.alpha = 0;
