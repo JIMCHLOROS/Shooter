@@ -484,6 +484,7 @@ var playState ={
 				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
 				      next_level_title.visible = true;
 				      boss_alive=false;
+				      enemySpacing = 2000;timeBetweenWaves = 10000;
 				      nextlevel =true;
 			      }
 			});
