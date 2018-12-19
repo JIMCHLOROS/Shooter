@@ -31,7 +31,7 @@ var enemy;
 var enemy2;
 var score = 0;
 var scoreText;
-var nextlevel = false;
+var nextlevel = true;
 var boss;
 var next_level_title;
 var boss_alive = false;
@@ -502,9 +502,6 @@ var playState ={
                       enemyboss.update = function(){
 			      game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			      game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
-			      if(enemyboss.health<1){
-				      nextlevel = true;
-				 }
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
