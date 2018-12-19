@@ -541,7 +541,7 @@ var finalState ={
               player.damage(bullet.damageAmount);
               shields.render()
           }
-          function addEnemyEmitterTrail_f_f(enemy) {
+          function addEnemyEmitterTrail_f(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');
