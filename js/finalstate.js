@@ -308,12 +308,18 @@ var finalState ={
            }
 	   function hitBoss(enemy, bullet) {
                explode_snd.play('',0,1,false);
+	       explode_snd.play('',0,1,false);
                var explosion = explosions.getFirstExists(false);
-               explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
                explosion.body.velocity.y = enemy.body.velocity.y;
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.damage(30);
+               var explosion2 = real_explosions.getFirstExists(false);
+               explosion2.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion2.body.velocity.y = enemy.body.velocity.y;
+               explosion2.alpha = 0.7;
+               explosion2.play('explosion', 30, false, true);	   
 	       console.log("&d",enemy.health);
                bullet.kill();
 	       score += enemy.damageAmount /2;
