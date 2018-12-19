@@ -319,6 +319,7 @@ var playState ={
 		   game.state.start('finalstate');
 	   }
            function upgrade1(player,gift){//add sound
+		   console.log(score);
 		  gift.visible = false;
 		  gift.enableBody = false;
 		  player.weaponLevel = 2;
