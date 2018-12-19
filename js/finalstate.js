@@ -115,6 +115,7 @@ var finalState ={
                           enemy2.damageAmount = 40;
                           enemy2.body.setSize(enemy2.width, enemy2.height);
                         });
+			game.time.events.add(3000, launchEnemy2);
 			
 			    //  An explosion pool
                         explosions = game.add.group();
