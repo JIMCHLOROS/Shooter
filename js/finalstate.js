@@ -78,7 +78,7 @@ var finalState ={
 			boss.forEach(function(boss){
 				boss.enableBody = true;
 				game.physics.enable(boss, Phaser.Physics.ARCADE);
-				addBossTrail(boss);
+				addBossTrail_f(boss);
 				boss.damageAmount = 30;
                         });
 			
@@ -92,14 +92,14 @@ var finalState ={
                         enemy.setAll('scale.x', 0.5);
                         enemy.setAll('scale.y', 0.5);
 			enemy.forEach(function(enemy){
-			  addEnemyEmitterTrail(enemy);
+			  addEnemyEmitterTrail_f(enemy);
 			  enemy.damageAmount = 20;
 			  enemy.body.setSize(enemy.width, enemy.height);
 			  enemy.events.onKilled.add(function(){
 			  enemy.trail.kill();
 			  });
 			});
-                        game.time.events.add(1000, launchEnemy);
+                        game.time.events.add(1000, launchEnemy_f);
 			
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
@@ -235,7 +235,7 @@ var finalState ={
 			            function _restart() {
 			              tapRestart.detach();
 			              spaceRestart.detach();
-			              restart();
+			              restart_f();
 			            }
 			        }
 			    }
@@ -449,7 +449,7 @@ var finalState ={
 			}break;
 		   }
 		}
-function launchEnemy() {
+           function launchEnemy_f() {
 		   //var MIN_ENEMY_SPACING = 2000;
 		   //var MAX_ENEMY_SPACING = 3000;
 		   var ENEMY_SPEED = 400;//250
@@ -477,7 +477,7 @@ function launchEnemy() {
 	           }
                    //  Send another enemy soon
 		  // enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), launchEnemy);
-                   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(enemySpacing, enemySpacing + 1000), launchEnemy);
+                   enemyLaunchTimer = game.time.events.add(game.rnd.integerInRange(enemySpacing, enemySpacing + 1000), launchEnemy_f);
 	  }
           function launchEnemy2() {
               var startingY = game.rnd.integerInRange(100, game.height - 100);
@@ -529,7 +529,7 @@ function launchEnemy() {
               }
           
               //  Send another wave soon
-              enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
+              enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2_f);
           }
          function enemyHitsPlayer (player, bullet) {
               explode_snd.play('',0,1,false);
@@ -541,7 +541,7 @@ function launchEnemy() {
               player.damage(bullet.damageAmount);
               shields.render()
           }
-          function addEnemyEmitterTrail(enemy) {
+          function addEnemyEmitterTrail_f_f(enemy) {
           var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');
@@ -550,7 +550,7 @@ function launchEnemy() {
           enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
           enemy.trail = enemyTrail;
           }
-          function addBossTrail(boss){
+          function addBossTrail_f(boss){
 	                var boss_shipTrail = game.add.emitter(boss.x + 250, boss.y+50, 1);
 		        boss_shipTrail.width = 10; 
 			boss_shipTrail.makeParticles('bullet');
@@ -559,7 +559,7 @@ function launchEnemy() {
                         boss_shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
 		        boss.trail = boss_shipTrail;
 	  }
-          function restart () {
+          function restart_f () {
 	      boss_alive = false;
 	      gift_add();
 	      game_over_title.visible = false;
