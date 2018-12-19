@@ -327,7 +327,8 @@ var playState ={
 		   game.state.start('finalstate');
 	   }
            function upgrade(player,gift){//add sound
-		  gift.kill();
+		  gift.visable = false;
+		  gift.enableBody = false;
 		  player.weaponLevel++;
 	   }
            function addGameOverTitle(){
