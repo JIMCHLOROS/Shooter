@@ -314,10 +314,10 @@ var playState ={
 				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
 			if (score > 10 && boss_alive===false ) {
+				boss_alive = true;
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
 		                launch_boss();
-				boss_alive = true;
 			}
 		},
 		render:function(){
@@ -472,7 +472,8 @@ var playState ={
 		   }
 		}
           function launch_boss(){
-		  console.log("ok");
+	      if(boss_alive===false){
+		      console.log("ok");
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
@@ -482,7 +483,7 @@ var playState ={
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
-                      enemyboss.body.setSize(enemyboss.width, enemyboss.height);
+                      enemyboss.body.setSize(260, 100);
 	              enemyboss.events.onKilled.add(function(){
 			    boss_alive=false;
 			});
@@ -506,6 +507,7 @@ var playState ={
 			}
                       };
                   }
+	  }
 	   }
            function launchEnemy() {
 		   //var MIN_ENEMY_SPACING = 2000;
