@@ -482,23 +482,21 @@ var playState ={
                       enemyboss.startingY = startingY;
                       enemyboss.reset(1350, 400);
                       var bulletSpeed = 500;
-                      var firingDelay = 600;
+                      var firingDelay = 800;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
-                      enemyboss.health = 100;
+                      enemyboss.health = 300;
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
+			    nextlevel = true;
+			    nextLevel();
 			    boss_alive=false;
 			});
                       //  Update function for boss
                       enemyboss.update = function(){
 			      game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			      game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
-			      if(boss.health <50 && nextlevel===false){
-				      nextlevel = true;
-				      nextLevel();
-			      }
                         //  Fire
                         enemyBullet = enemyBullets.getFirstExists(false);
                         if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
