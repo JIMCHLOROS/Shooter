@@ -31,7 +31,7 @@ var enemy;
 var enemy2;
 var score = 0;
 var scoreText;
-var nextlevel = true;
+var nextlevel = false;
 var boss;
 var next_level_title;
 var boss_alive = false;
@@ -299,6 +299,10 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
 			}
+			if(nextlevel){
+				nextlevel=false;
+				nextLevel();
+			}
 		},
 		render:function(){
 		}
@@ -494,9 +498,8 @@ var playState ={
  				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
 				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
 				      next_level_title.visible = true;
-				      nextLevel();
 				      boss_alive=false;
-				      game.paused =true;
+				      nextlevel =true;
 			      }
 			});
                       //  Update function for boss
