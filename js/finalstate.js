@@ -67,7 +67,29 @@ var finalState ={
 				addBossTrail(boss);
 				boss.damageAmount = 30;
                         });
-			
+			    //  An explosion pool
+                        explosions = game.add.group();
+                        explosions.enableBody = true;
+                        explosions.physicsBodyType = Phaser.Physics.ARCADE;
+                        explosions.createMultiple(30, 'explosion');
+                        explosions.setAll('anchor.x', 0.5);
+                        explosions.setAll('anchor.y', 0.5);
+                        explosions.forEach( function(explosion) {
+			      explosion.width = 100;
+			      explosion.height = 100;
+                              explosion.animations.add('explosion');
+                        });
+			real_explosions = game.add.group();
+                        real_explosions.enableBody = true;
+                        real_explosions.physicsBodyType = Phaser.Physics.ARCADE;
+                        real_explosions.createMultiple(30, 'real_explosions');
+                        real_explosions.setAll('anchor.x', 0.5);
+                        real_explosions.setAll('anchor.y', 0.5);
+                        real_explosions.forEach( function(explosion) {
+			      explosion.width = 300;
+			      explosion.height = 300;
+                              explosion.animations.add('explosion');
+                        });
 			life_icon = game.add.sprite(game.world.width - 100,30,'life_icon');
 			life_icon.anchor.setTo(0.5,0.5);
 			life_icon.width = 40;life_icon.height = 40;
@@ -356,6 +378,34 @@ var finalState ={
 			}break;
 		   }
 		}
+         function enemyHitsPlayer (player, bullet) {
+              explode_snd.play('',0,1,false);
+              var explosion = real_explosions.getFirstExists(false);
+              explosion.reset(player.body.x + player.body.halfWidth, player.body.y + player.body.halfHeight);
+              explosion.alpha = 0.7;
+              explosion.play('explosion', 30, false, true);
+              bullet.kill();
+              player.damage(bullet.damageAmount);
+              shields.render()
+          }
+          function addEnemyEmitterTrail(enemy) {
+          var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
+          enemyTrail.width = 10;
+          enemyTrail.makeParticles('bullet');
+          enemyTrail.setXSpeed(20, -20);
+          enemyTrail.setAlpha(0.4, 0, 800);
+          enemyTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
+          enemy.trail = enemyTrail;
+          }
+          function addBossTrail(boss){
+	                var boss_shipTrail = game.add.emitter(boss.x + 250, boss.y+50, 1);
+		        boss_shipTrail.width = 10; 
+			boss_shipTrail.makeParticles('bullet');
+                        boss_shipTrail.setXSpeed(20, -20);
+                        boss_shipTrail.setAlpha(0.4, 0, 800);
+                        boss_shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000,Phaser.Easing.Quintic.Out);
+		        boss.trail = boss_shipTrail;
+	  }
           function restart () {
               //  Revive the player
               player.revive();
