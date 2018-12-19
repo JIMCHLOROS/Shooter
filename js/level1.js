@@ -472,6 +472,7 @@ var playState ={
 		   }
 		}
           function launch_boss(){
+		  console.log("ok");
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
@@ -481,6 +482,7 @@ var playState ={
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
+                      enemyboss.body.setSize(enemyboss.width, enemyboss.height);
 	              enemyboss.events.onKilled.add(function(){
 			    boss_alive=false;
 			});
@@ -616,6 +618,10 @@ var playState ={
 		        boss.trail = boss_shipTrail;
 	  }
           function restart () {
+		  gift1.visible = false;
+		  gift1.enableBody = false;
+		  gift2.visible = false;
+		  gift2.enableBody = false;
 	      game_over_title.visible = false;
               //  Reset the enemies
               enemy.callAll('kill');
