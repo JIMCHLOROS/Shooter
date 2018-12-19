@@ -147,7 +147,9 @@ var finalState ={
 		},
 		render:function() {
 		}
-	function restart () {
+
+    };
+          function restart () {
               //  Revive the player
               player.revive();
 	      player.weaponLevel = 1;
@@ -158,4 +160,3 @@ var finalState ={
           
               gameOver.visible = false;
 	  }
-    };
