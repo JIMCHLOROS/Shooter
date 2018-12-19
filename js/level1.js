@@ -309,6 +309,8 @@ var playState ={
 			
 		       }
            function nextLevel(){
+		   game.time.events.remove(enemyLaunchTimer);  
+                   game.time.events.remove(enemy2LaunchTimer);
 		   game.time.events.add(3000, function () {game.state.start('finalstate')});
 	   }
            function upgrade1(player,gift){//add sound
