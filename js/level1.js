@@ -60,19 +60,7 @@ var playState ={
 			
 			//  The scrolling starfield background
 			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield');//1600,900
-
-			gift1 = game.add.group();
-			gift1.create(150,200,'gift');
-			gift1.enableBody = false;
-			gift1.visible = false;
-			game.physics.enable(gift1, Phaser.Physics.ARCADE);
-			
-			gift2 = game.add.group();
-			gift2.create(150,600,'gift');
-			gift2.enableBody = false;
-		        gift2.visible = false;
-			game.physics.enable(gift2, Phaser.Physics.ARCADE);
-			
+                       gift_add();
 			
 			//  Our bullet group
 			bullets = game.add.group();
@@ -315,6 +303,19 @@ var playState ={
 		render:function(){
 		}
     };
+             function gift_add(){
+			gift1 = game.add.group();
+			gift1.create(150,200,'gift');
+			gift1.enableBody = false;
+			gift1.visible = false;
+			game.physics.enable(gift1, Phaser.Physics.ARCADE);
+			
+			gift2 = game.add.group();
+			gift2.create(150,600,'gift');
+			gift2.enableBody = false;
+		        gift2.visible = false;
+			game.physics.enable(gift2, Phaser.Physics.ARCADE);
+		       }
            function nextLevel(){
 		   game.state.start('finalstate');
 	   }
@@ -626,10 +627,7 @@ var playState ={
 	  }
           function restart () {
 		  boss_alive = false;
-		  gift1.visible = false;
-		  gift1.enableBody = false;
-		  gift2.visible = false;
-		  gift2.enableBody = false;
+		  gift_add();
 	      game_over_title.visible = false;
               //  Reset the enemies
               enemy.callAll('kill');
