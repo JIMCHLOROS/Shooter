@@ -561,7 +561,7 @@ var finalState ={
 	  }
           function restart_f () {
 	      boss_alive = false;
-	      gift_add();
+	      add_gift();
 	      game_over_title.visible = false;
               //  Reset the enemies
               enemy.callAll('kill');
