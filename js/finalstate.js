@@ -1,10 +1,10 @@
-var bullets;
 var finalState ={
              
 		preload:function() {
 		},
 		create:function() {
 			
+			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield2');
 			//  Our bullet group
 			bullets = game.add.group();
 			bullets.enableBody = true;
@@ -15,7 +15,6 @@ var finalState ={
 			bullets.setAll('outOfBoundsKill', true);
 			bullets.setAll('checkWorldBounds', true);
 			
-			starfield = game.add.tileSprite(0, 0, 1700, 900, 'starfield2');
 			//  The hero!
 			player = game.add.sprite(100, game.height / 2, 'iron_man');
 			player.anchor.setTo(0.5, 0.5);
