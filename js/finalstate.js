@@ -242,7 +242,7 @@ var finalState ={
 			        }
 			    }
 			
-			if (score > 100) {
+			if (score > 1800) {
 				gift2.visible = true;
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
@@ -395,7 +395,7 @@ var finalState ={
 			//  To avoid them being allowed to fire too fast we set a time limit
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
-				var BULLET_SPACING = 300;
+				var BULLET_SPACING = 500;
 				//  Grab the first bullet we can from the pool
 				var bullet = bullets.getFirstExists(false);
 				if (bullet) {
@@ -413,7 +413,7 @@ var finalState ={
 			case 2:
 				if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
-				var BULLET_SPACING = 300;
+				var BULLET_SPACING = 500;
 				fire.play('',0,0.8,false);	
 				for (var i = 0; i < 2; i++) {
 				var bullet = bullets.getFirstExists(false);
@@ -435,7 +435,7 @@ var finalState ={
                         case 3:
 			if (game.time.now > bulletTimer) {
 				var BULLET_SPEED = 400;
-				var BULLET_SPACING = 300;
+				var BULLET_SPACING = 500;
 				fire.play('',0,0.8,false);	
 				for (var i = 0; i < 3; i++) {
 				var bullet = bullets.getFirstExists(false);
