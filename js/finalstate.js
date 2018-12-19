@@ -181,7 +181,7 @@ var finalState ={
 		 boss_alive = true;
 		  enemySpacing = 99999999;
 		  timeBetweenWaves = 9999999;
-		  launch_boss();
+		  launch_boss_final();
 	   }
          function add_gift() {
 			gift2 = game.add.group();
@@ -190,7 +190,7 @@ var finalState ={
 		        gift2.visible = false;
 			game.physics.enable(gift2, Phaser.Physics.ARCADE);
 	 }
-function hitEnemy(enemy, bullet) {
+       function hitEnemy(enemy, bullet) {
                explode_snd.play('',0,1,false);
                var explosion = real_explosions.getFirstExists(false);
                explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
@@ -246,7 +246,7 @@ function hitEnemy(enemy, bullet) {
 	       player.damage(enemy.damageAmount);
     	       shields.render();
            }
-function launch_boss(){
+             function launch_boss_final(){
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
