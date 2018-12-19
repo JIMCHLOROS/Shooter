@@ -490,6 +490,7 @@ var playState ={
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
 			      if(nextlevel){
+				      console.log("ok");
 				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'NEXT LEVEL', 110);
  				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
 				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
