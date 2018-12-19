@@ -135,6 +135,8 @@ var playState ={
                         shipTrail2.start(false, 1, 5);
 			///######### boss
 			boss = game.add.group();
+			boss.enableBody = true;////
+			boss.physicsBodyType = Phaser.Physics.ARCADE;/////
 			boss.createMultiple(1, 'enemy2');
 			boss.setAll('anchor.x', 0.5);
 			boss.setAll('anchor.y', 0.5);
