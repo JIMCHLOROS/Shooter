@@ -136,7 +136,7 @@ var playState ={
                         enemy = game.add.group();
                         enemy.enableBody = true;
                         enemy.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy.createMultiple(5, 'enemy');
+                        enemy.createMultiple(5, 'enemy4');
                         enemy.setAll('anchor.x', 0.5);
                         enemy.setAll('anchor.y', 0.5);
                         enemy.setAll('scale.x', 0.5);
@@ -154,7 +154,7 @@ var playState ={
 			enemy2 = game.add.group();
                         enemy2.enableBody = true;
                         enemy2.physicsBodyType = Phaser.Physics.ARCADE;
-                        enemy2.createMultiple(3, 'enemy1');
+                        enemy2.createMultiple(3, 'enemy3');
                         enemy2.setAll('anchor.x', 0.5);
                         enemy2.setAll('anchor.y', 0.5);
                         enemy2.setAll('scale.x', 0.5);
@@ -596,7 +596,7 @@ var playState ={
               shields.render()
           }
           function addEnemyEmitterTrail(enemy) {
-          var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y-19 , 100);
+          var enemyTrail = game.add.emitter(enemy.x+ 70, enemy.y+100 , 100);
           enemyTrail.width = 10;
           enemyTrail.makeParticles('bullet');
           enemyTrail.setXSpeed(20, -20);
