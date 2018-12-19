@@ -21,7 +21,7 @@ var finalState ={
 			player.health = 100;
 			player.width = 100;
 			player.height = 50;
-			player.weaponLevel = 1;//NEW
+			player.weaponLevel = 2;//NEW
 			player.events.onKilled.add(function(){
 			    shipTrail.kill();
 			    shipTrail2.kill();
