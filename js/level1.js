@@ -478,7 +478,7 @@ var playState ={
 	              enemyboss.events.onKilled.add(function(){
 			      if(player.alive){
 				      console.log("ok");
-				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', "He is teleporting to dark space! Go!", 110);
+				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', "He is teleporting to dark space! Go!", 100);
  				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
 				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
 				      next_level_title.visible = true;
