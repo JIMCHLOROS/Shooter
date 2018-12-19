@@ -317,6 +317,7 @@ var playState ={
 			game.physics.enable(gift2, Phaser.Physics.ARCADE);
 		       }
            function nextLevel(){
+		   cursors = game.input.keyboard.disable = false;
 		   game.time.events.add(3000, function () {game.state.start('finalstate')});
 	   }
            function upgrade1(player,gift){//add sound
