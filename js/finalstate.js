@@ -1,3 +1,4 @@
+var bullets;
 var finalState ={
              
 		preload:function() {
