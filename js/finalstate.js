@@ -354,10 +354,10 @@ var finalState ={
                       enemyboss.startingY = startingY;
                       enemyboss.reset(1350, 400);
                       var bulletSpeed = 500;
-                      var firingDelay = 800;
+                      var firingDelay = 400;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
-                      enemyboss.health = 300;
+                      enemyboss.health = 600;
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
