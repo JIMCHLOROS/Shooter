@@ -492,6 +492,7 @@ var playState ={
 			});
                       //  Update function for boss
                       enemyboss.update = function(){
+			      console.log(boss.health);
 			      game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			      game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
 			      if(boss.health <50 && nextlevel===false){
