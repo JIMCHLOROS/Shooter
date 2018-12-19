@@ -283,7 +283,6 @@ var playState ={
 			shipTrail2.x = player.x - 75;//45
 			//Game Over
 			if (! player.alive && gameOver.visible === false) {
-				score = 0;
 			        game.time.events.add(2000, function () {if(!player.alive){game_over_title.visible = true;}});
                                 gameOver.visible = true;
 				gameOver.alpha = 0;
@@ -302,12 +301,12 @@ var playState ={
 			            }
 			        }
 			    }
-			if (score > 10) {
+			if (score > 10 && gift1.visible===false) {
 				gift1.visible = true;
 				gift1.enableBody = true;
 				game.physics.arcade.overlap(player,gift1,upgrade1, null, this);
 			}
-			if (score > 800) {
+			if (score > 800 && gift2.visible===false) {
 				gift2.visible = true;
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
