@@ -472,8 +472,6 @@ var playState ={
 		   }
 		}
           function launch_boss(){
-	      if(boss_alive===false){
-		      console.log("ok");
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
@@ -507,7 +505,6 @@ var playState ={
 			}
                       };
                   }
-	  }
 	   }
            function launchEnemy() {
 		   //var MIN_ENEMY_SPACING = 2000;
