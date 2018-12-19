@@ -529,7 +529,7 @@ var finalState ={
               }
           
               //  Send another wave soon
-              enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2_f);
+              enemy2LaunchTimer = game.time.events.add(timeBetweenWaves, launchEnemy2);
           }
          function enemyHitsPlayer (player, bullet) {
               explode_snd.play('',0,1,false);
