@@ -317,7 +317,7 @@ var playState ={
 			game.physics.enable(gift2, Phaser.Physics.ARCADE);
 		       }
            function nextLevel(){
-		   game.state.start('finalstate');
+		   game.time.events.add(3000,game.state.start('finalstate'));
 	   }
            function upgrade1(player,gift){//add sound
 		  gift.visible = false;
@@ -490,11 +490,11 @@ var playState ={
 	              enemyboss.events.onKilled.add(function(){
 			      if(player.alive){
 				      console.log("ok");
-				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', "HE IS TELEPORTING TO DARK SPACE GO GET HIM", 110);
+				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', "He is teleporting to dark space! Go!", 110);
  				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
 				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
 				      next_level_title.visible = true;
-				      game.time.events.add(7000,nextLevel());
+				      nextLevel();
 				      boss_alive=false;
 			      }
 			});
