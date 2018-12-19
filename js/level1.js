@@ -489,8 +489,10 @@ var playState ={
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
+			      gameOver = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'NEXT LEVEL', 110);
+			      gameOver.visible = true;
 			    nextlevel = true;
-			    nextLevel();
+			    game.time.events.add(3000,nextLevel());
 			    boss_alive=false;
 			});
                       //  Update function for boss
