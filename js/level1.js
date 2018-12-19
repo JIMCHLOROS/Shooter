@@ -236,10 +236,10 @@ var playState ={
 			
 		},
 		update:function() {
-			//if(boss_alive){
+			if(boss_alive){
 			game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
-			//}
+			}
 			game.physics.arcade.overlap(enemyBullets, bullets, bulletdestroy, null, this);
 			game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 			game.physics.arcade.overlap(player, enemy2, shipCollide, null, this);
@@ -317,10 +317,11 @@ var playState ={
 				gift2.enableBody = true;
 				game.physics.arcade.overlap(player,gift2,upgrade, null, this);
 			}
-			if (score > 10 && enemySpacing<999999 ) {
+			if (score > 10 && boss_alive===false ) {
 				enemySpacing = 99999999;
 				timeBetweenWaves = 9999999;
-		                game.time.events.add(700,launch_boss);
+		                launch_boss();
+				boss_alive = true;
 			}
 		},
 		render:function(){
@@ -477,7 +478,6 @@ var playState ={
               var startingY = game.world.CenterY-50;
 		  var enemyboss = boss.getFirstExists(false);
                   if (enemyboss) {
-			  boss_alive = true;
                       enemyboss.startingY = startingY;
                       enemyboss.reset(1350, 400);
                       var bulletSpeed = 500;
