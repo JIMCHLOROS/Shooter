@@ -294,11 +294,6 @@ var playState ={
 				gift1.enableBody = true;
 				game.physics.arcade.overlap(player,gift1,upgrade1, null, this);
 			}
-			if (score > 800) {
-				gift2.visible = true;
-				gift2.enableBody = true;
-				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
-			}
 			if(nextlevel){
 				nextlevel=false;
 				nextLevel();
@@ -314,11 +309,6 @@ var playState ={
 			gift1.visible = false;
 			game.physics.enable(gift1, Phaser.Physics.ARCADE);
 			
-			gift2 = game.add.group();
-			gift2.create(150,600,'gift');
-			gift2.enableBody = false;
-		        gift2.visible = false;
-			game.physics.enable(gift2, Phaser.Physics.ARCADE);
 		       }
            function nextLevel(){
 		   game.time.events.add(3000, function () {game.state.start('finalstate')});
@@ -331,11 +321,6 @@ var playState ={
 		  enemySpacing = 99999999;
 		  timeBetweenWaves = 9999999;
 		  launch_boss();
-	   }
-         function upgrade2(player,gift){//add sound
-		  gift.visible = false;
-		  gift.enableBody = false;
-		  player.weaponLevel = 3;
 	   }
            function addGameOverTitle(){
 		   game_over_title = game.add.sprite(game.world.centerX,game.world.centerY,'game_over_screen');
