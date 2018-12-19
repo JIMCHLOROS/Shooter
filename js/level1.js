@@ -142,9 +142,6 @@ var playState ={
 			boss.forEach(function(boss){
 				boss.enableBody = true;
 				game.physics.enable(boss, Phaser.Physics.ARCADE);
-				boss.health = 600;
-				boss.width = 260;
-				boss.height = 100;
 				addBossTrail(boss);
 				boss.damageAmount = 30;
                         });
@@ -327,7 +324,7 @@ var playState ={
 		   game.state.start('finalstate');
 	   }
            function upgrade(player,gift){//add sound
-		  gift.visable = false;
+		  gift.visible = false;
 		  gift.enableBody = false;
 		  player.weaponLevel++;
 	   }
@@ -481,7 +478,9 @@ var playState ={
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
-                      enemyboss.body.setSize(260, 100);
+                      enemyboss.health = 600;
+		      enemyboss.width = 260;
+		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
 			    boss_alive=false;
 			});
