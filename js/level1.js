@@ -1,7 +1,6 @@
 var score_icon;
 var timeBetweenWaves = 10000;
 var gift1;
-var gift2;
 var life_icon;
 var game_over_title;
 var enemySpacing = 2000;
