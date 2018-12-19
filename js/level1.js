@@ -380,6 +380,7 @@ var playState ={
                explosion.alpha = 0.7;
                explosion.play('explosion', 30, false, true);
                enemy.damage(30);
+	       console.log("&d",enemy.health);
                bullet.kill();
 	       score += enemy.damageAmount /2;
                scoreText.render();
@@ -484,7 +485,7 @@ var playState ={
                       var firingDelay = 600;
                       enemyboss.bullets = 1;
                       enemyboss.lastShot = 0;
-                      enemyboss.health = 600;
+                      enemyboss.health = 100;
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
@@ -492,7 +493,6 @@ var playState ={
 			});
                       //  Update function for boss
                       enemyboss.update = function(){
-			      console.log(boss.health);
 			      game.physics.arcade.overlap(player, boss, BossCollide, null, this);
 			      game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
 			      if(boss.health <50 && nextlevel===false){
