@@ -320,7 +320,6 @@ var playState ={
 		   game.state.start('finalstate');
 	   }
            function upgrade1(player,gift){//add sound
-		   console.log(score);
 		  gift.visible = false;
 		  gift.enableBody = false;
 		  player.weaponLevel = 2;
@@ -489,7 +488,7 @@ var playState ={
 		      enemyboss.width = 260;
 		      enemyboss.height = 100;
 	              enemyboss.events.onKilled.add(function(){
-			      if(nextlevel){
+			      if(player.alive){
 				      console.log("ok");
 				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', 'NEXT LEVEL', 110);
  				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
