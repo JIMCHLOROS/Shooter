@@ -34,6 +34,10 @@ var finalState ={
 			player.body.maxVelocity.setTo(MAXSPEED, MAXSPEED);
 			//player.body.setSize(player.width , player.height * 3 / 4);
 			player.body.drag.setTo(DRAG, DRAG);
+			
+			add_gift()
+			
+			
 			//  And some controls to play the game with
 			cursors = game.input.keyboard.createCursorKeys();
 			fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -158,12 +162,131 @@ var finalState ={
 			            }
 			        }
 			    }
+			
+			if (score > 100) {
+				gift2.visible = true;
+				gift2.enableBody = true;
+				game.physics.arcade.overlap(player,gift2,upgrade2, null, this);
+			}
 		},
 		render:function() {
 		}
 
     };
 
+         function upgrade2(player,gift){//add sound
+		  gift.visible = false;
+		  gift.enableBody = false;
+		  player.weaponLevel = 3;
+		 boss_alive = true;
+		  enemySpacing = 99999999;
+		  timeBetweenWaves = 9999999;
+		  launch_boss();
+	   }
+         function add_gift() {
+			gift2 = game.add.group();
+			gift2.create(150,600,'gift');
+			gift2.enableBody = false;
+		        gift2.visible = false;
+			game.physics.enable(gift2, Phaser.Physics.ARCADE);
+	 }
+function hitEnemy(enemy, bullet) {
+               explode_snd.play('',0,1,false);
+               var explosion = real_explosions.getFirstExists(false);
+               explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.kill();
+               bullet.kill();
+	       score += enemy.damageAmount /2;
+               scoreText.render();
+	       //  Pacing
+               //  Enemies come quicker as score increases
+                enemySpacing *= 0.9;
+               //  Blue enemies come in after a score of 100
+                   if (!enemy2Launched && score > 100) {
+                     enemy2Launched = true;
+                     launchEnemy2();
+                     //  Slow green enemies down now that there are other enemies
+                     enemySpacing *= 2;
+                   }
+           }
+	   function hitBoss(enemy, bullet) {
+               explode_snd.play('',0,1,false);
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(bullet.body.x + bullet.body.halfWidth, bullet.body.y + bullet.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.damage(30);
+	       console.log("&d",enemy.health);
+               bullet.kill();
+	       score += enemy.damageAmount /2;
+               scoreText.render();
+           }
+           function shipCollide(player, enemy) {
+               explode_snd.play('',0,1,false);
+               var explosion = real_explosions.getFirstExists(false);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+               enemy.kill();
+	       player.damage(enemy.damageAmount);
+    	       shields.render();
+           }
+          function BossCollide(player, enemy) {
+               explode_snd.play('',0,1,false);
+               var explosion = explosions.getFirstExists(false);
+               explosion.reset(enemy.body.x + enemy.body.halfWidth, enemy.body.y + enemy.body.halfHeight);
+               explosion.body.velocity.y = enemy.body.velocity.y;
+               explosion.alpha = 0.7;
+               explosion.play('explosion', 30, false, true);
+	       player.damage(enemy.damageAmount);
+    	       shields.render();
+           }
+function launch_boss(){
+              var startingY = game.world.CenterY-50;
+		  var enemyboss = boss.getFirstExists(false);
+                  if (enemyboss) {
+                      enemyboss.startingY = startingY;
+                      enemyboss.reset(1350, 400);
+                      var bulletSpeed = 500;
+                      var firingDelay = 800;
+                      enemyboss.bullets = 1;
+                      enemyboss.lastShot = 0;
+                      enemyboss.health = 300;
+		      enemyboss.width = 260;
+		      enemyboss.height = 100;
+	              enemyboss.events.onKilled.add(function(){
+			      if(player.alive){
+				      console.log("ok");
+				      next_level_title = game.add.bitmapText(game.world.centerX, game.world.centerY, 'spacefont', "YOU SAVE US ALL!!", 110);
+ 				      next_level_title.x = next_level_title.x - next_level_title.textWidth / 2;
+				      next_level_title.y = next_level_title.y - next_level_title.textHeight / 3;
+				      next_level_title.visible = true;
+				      boss_alive=false;
+				      game.time.events.add(5000, function () {game.paused = true;});
+			      }
+			});
+                      //  Update function for boss
+                      enemyboss.update = function(){
+			      game.physics.arcade.overlap(player, boss, BossCollide, null, this);
+			      game.physics.arcade.overlap(boss, bullets, hitBoss, null, this);
+                        //  Fire
+                        enemyBullet = enemyBullets.getFirstExists(false);
+                        if (enemyBullet &&this.alive &&this.bullets &&this.y > game.width / 8 && game.time.now > firingDelay + this.lastShot) {
+                         enemy_fire.play('',0,0.6,false);
+			 this.lastShot = game.time.now;
+                         enemyBullet.reset(this.x, this.y + this.height / 2);
+                         enemyBullet.damageAmount = this.damageAmount;
+                         var angle = game.physics.arcade.moveToObject(enemyBullet, player, bulletSpeed);
+                         enemyBullet.angle = game.math.radToDeg(angle);
+			}
+                      };
+                  }
+	   }
           function fireBullet() {
 		   
 			switch (player.weaponLevel) {
