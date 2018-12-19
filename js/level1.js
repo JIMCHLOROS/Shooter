@@ -620,6 +620,7 @@ var playState ={
 		        boss.trail = boss_shipTrail;
 	  }
           function restart () {
+		  boss_alive = false;
 		  gift1.visible = false;
 		  gift1.enableBody = false;
 		  gift2.visible = false;
