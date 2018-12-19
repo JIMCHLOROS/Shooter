@@ -1,3 +1,4 @@
+var gift2;
 var finalState ={
              
 		preload:function() {
