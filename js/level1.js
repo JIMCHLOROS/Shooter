@@ -35,7 +35,6 @@ var boss;
 var next_level_title;
 var boss_alive = false;
 var playState ={
-             
 		preload:function() {
 			//  We need this because the assets are on github pages
 			//  Remove the next 2 lines if running locally
